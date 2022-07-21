@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap');
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+//---------------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  
+
+  .app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #a32d6e;
+
+    .login-form {
+      border: red 1px solid;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background-color: whitesmoke;
+    }
+    
+    .todo-section{
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      grid-template: 70px 1fr / 330px 1fr;
+    }
+
+    .add-div {
+      display: grid;
+      grid-template: 50px 1fr / 200px 1fr;
+      background: rgba(0, 0, 0, .5);
+      color: white;
+      width: 600px;
+      height: 400px;
+      position: absolute;
+      align-self: center;
+      justify-self: center;
+      z-index: 2;
+      
+      .create-header {
+        grid-column: 1 / -1;
+        background-color: #C38D9E;
+        color: white;
+      }
+
+      .create-selection {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .header {
+      background-color:  #a32d6e;
+      grid-column: 1 / -1;
+      color: white;
+      font-size: 3rem;
+      padding: 12px;
+      font-family: 'Roboto Condensed', sans-serif;
+      letter-spacing: 6px;
+      display: flex;
+      align-items: center;
+      border-bottom: rgb(195, 195, 195) 1px solid;;
+
+      h1 {
+        margin-left: 30px;
+      }
+    }
+
+    .side-nav {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(243, 243, 243);
+      padding: 50px 0px 0px 60px;
+      font-size: 1.6rem;
+      border-right: rgb(195, 195, 195) 1px solid;
+      font-family: 'Lato', sans-serif;
+
+      button {
+        display: flex;
+        border: none;
+        background-color: rgb(243, 243, 243);
+        font-size: 1.3rem;
+        text-align: left;
+        gap: 10px;
+        color: #69294c;
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 1px;
+        cursor: pointer;
+        vertical-align:middle;
+        // border: red 1px solid;
+
+        .number {
+          background-color:  #a32d6e;
+          border:#a32d6e 1px solid;
+          color: white;
+          border-radius: 50%;
+          font-weight: normal;
+          padding: 1px;
+          float: right;
+          margin-left: 30px;
+          align-items: center;
+          font-size: 1.1rem;
+          text-align: center;
+          width: 25px;
+        }
+
+        &:hover {
+          color: #a32d6e;
+        }
+      }
+
+      .default-tabs {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        gap: 20px;
+        
+      }
+
+      .project-tabs {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        gap: 20px;
+      }
+
+    }
+  }
+}
+
+.display {
+  background-color: white;
+  padding: 30px;
+}
+
+.todo-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+  
+
+  .todo-div {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 50px;
+    height: 50px;
+    align-items: center;
+    transition: 200ms;
+    background-color: rgb(250, 242, 248);
+    border-radius: 6px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    svg {
+      color:#69294c;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: 200ms;
+
+      &:hover {
+        color: rgb(2, 179, 120);
+      }
+    }
+
+    .details {
+      border: rgb(2, 179, 120) 1px solid;
+      border-radius: 2px;
+      color: rgb(2, 179, 120);
+      font-size: .8rem;
+      padding: 5px;
+      transition: 200ms;
+      cursor: pointer;
+
+      &:hover {
+        color:white;
+        background-color: rgb(2, 179, 120);
+      }
+    }
+
+
+    
+    &:hover{
+      box-shadow: rgba(14, 13, 13, 0.356) 2px 2px 3px 1px;
+      z-index: 2;
+    }
+
+    .left-items {
+      display: flex;
+      gap: 10px;
+      width: 300px;
+
+    }
+
+    .right-items {
+      display: flex;
+      gap: 25px;
+      width: 300px;
+
+      .due-date {
+        width: 110px
+      }
+    }
+  }
+}
+
+.edit-div {
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  width: 400px;
+  height: 400px;
+  z-index: 2;
+  position: relative;
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.details-div {
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+
