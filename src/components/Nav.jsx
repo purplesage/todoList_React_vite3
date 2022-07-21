@@ -17,6 +17,7 @@ export default function Nav({
     projectList,
     setProjectFilterName,
     projectFilter,
+    updateRef,
   } = useContext(makeTodoContext);
 
   const todayLength = todayFilter.length;
@@ -83,6 +84,7 @@ export default function Nav({
               setProjectFilterName={setProjectFilterName}
               requireTab={requireTab}
               handleIsTabOpen={handleIsTabOpen}
+              updateRef={updateRef}
             />
           ))}
       </div>

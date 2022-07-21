@@ -10,6 +10,7 @@ function ProjectButton(props) {
         fontWeight: props.requireTab(props.projectName) ? "bolder" : "normal",
       }}
       onClick={() => {
+        props.updateRef(props.projectName);
         props.handleIsTabOpen(props.projectName);
         props.setProjectFilterName(props.projectName);
         props.setIsProject(true);
