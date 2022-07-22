@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 /*
 html5doctor.com Reset Stylesheet
 v1.6.1
@@ -214,8 +213,8 @@ input, select {
         cursor: pointer;
         color: white;
         border-radius: 50%;
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         transition: 200ms;
         margin-top: 10px;
         margin-right: 90px;
@@ -224,6 +223,11 @@ input, select {
 
         &:hover {
           background-color: #bb357f;
+        }
+
+        &:active {
+          transform: scale(0.97);
+          box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
         }
       }
 
@@ -286,7 +290,7 @@ input, select {
 .display {
   background-color: white;
   padding: 30px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .todo-ul {
@@ -300,13 +304,15 @@ input, select {
     display: inline-flex;
     justify-content: space-between;
     gap: 50px;
-    height: 50px;
+    height: 45px;
     align-items: center;
     transition: 200ms;
     background-color: rgb(250, 242, 248);
-    font-size: 1.5rem;
+    // background-color: whitesmoke;
+
+    font-size: 1.2rem;
     vertical-align: middle;
-    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Raleway', sans-serif;
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
@@ -396,29 +402,40 @@ input, select {
   left: 29.2%;
 }
 
-.add-div {
-  display: grid;
-  grid-template: 50px 1fr / 200px 1fr;
-  background: rgba(0, 0, 0, .5);
-  color: white;
-  width: 600px;
-  height: 400px;
-  z-index: 100;
-  position:absolute;
-  top: 25%;
-  left: 29.2%;
+.dark-overlay {
+  background-color: rgba(0, 0, 0, .85);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  .add-div {
+    display: grid;
+    grid-template: 50px 1fr / 200px 1fr;
+    background: whitesmoke;
+    color: black;
+    width: 600px;
+    height: 400px;
+    z-index: 100;
+    position:fixed;
+    top: 25%;
+    left: 29.2%;
+    
+    .create-header {
+      grid-column: 1 / -1;
+      background-color:  #a32d6e;
+      color: white;
+    }
   
-  .create-header {
-    grid-column: 1 / -1;
-    background-color: #C38D9E;
-    color: white;
-  }
-
-  .create-selection {
-    display: flex;
-    flex-direction: column;
+    .create-selection {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
+
+
 
 
 

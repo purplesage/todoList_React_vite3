@@ -63,7 +63,7 @@ function TodoDiv({
   return (
     <div
       className="todo-div"
-      style={{ borderLeft: `5px solid ${borderColor}` }}
+      style={{ borderLeft: `3px solid ${borderColor}` }}
     >
       <div className="left-items">
         <input

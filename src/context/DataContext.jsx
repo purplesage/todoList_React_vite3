@@ -53,11 +53,10 @@ export default function DataContext({ children, userEmail }) {
   const handleAddTodo = (todoObject, isProject) => {
     if (!isProject) {
       dispatcher({ type: "add_todo", todoObject });
-    } else {
-      const projectTodo = { ...todoObject, project: inputRef.current };
-
-      dispatcher({ type: "add_todo", todoObject: projectTodo });
+      return;
     }
+    const projectTodo = { ...todoObject, project: inputRef.current };
+    dispatcher({ type: "add_todo", todoObject: projectTodo });
   };
 
   const handleLoadTodos = (todos) => {
