@@ -15,6 +15,8 @@ export default function EditInputs({
   setInputPriority,
   todoProject,
   todoPriority,
+  setInputDetails,
+  inputDetails,
 }) {
   const { handleEditTodo } = useContext(makeTodoContext);
 
@@ -58,11 +60,13 @@ export default function EditInputs({
           <label htmlFor="todo-details">
             Details:
             <input
+              value={inputDetails}
               maxLength="50"
               type="text"
               name="todo-details"
               id="todo-details"
               placeholder={todoDetails}
+              onChange={(e) => setInputDetails(e.target.value)}
             />
           </label>
 

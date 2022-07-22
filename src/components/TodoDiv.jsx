@@ -28,6 +28,7 @@ function TodoDiv({
     makeTodoObject,
     setInputPriority,
     setInputDetails,
+    inputDetails,
   } = useContext(inputContext);
 
   const editInputs = () => (
@@ -46,6 +47,7 @@ function TodoDiv({
       todoPriority={todoPriority}
       todoDetails={details}
       todoProject={todoProject}
+      inputDetails={inputDetails}
     />
   );
 

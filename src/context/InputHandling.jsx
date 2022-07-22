@@ -22,7 +22,7 @@ export default function InputHandling({ children }) {
       title: inputTitle || todoToEdit.title,
       dueDate: inputDate || todoToEdit.dueDate,
       priority: inputPriority || todoToEdit.todoPriority,
-      details: inputDetails === undefined ? todoToEdit.todoDetails : "",
+      details: inputDetails || todoToEdit.todoDetails,
       project: todoToEdit.todoProject || "",
       done: false,
     };
