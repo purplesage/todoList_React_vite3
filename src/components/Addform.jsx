@@ -110,7 +110,7 @@ function Addform({
         )}
       </div>
     </div>,
-    document.getElementById("Portal")
+    document.getElementById("portal")
   );
 }
 

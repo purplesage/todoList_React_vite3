@@ -13,11 +13,22 @@ export default function EditInputs({
   makeTodoObject,
   id,
   setInputPriority,
+  todoProject,
+  todoPriority,
 }) {
   const { handleEditTodo } = useContext(makeTodoContext);
 
-  const portalDOM = document.getElementById("portal");
-  console.log(portalDOM);
+  const todoObjectToEdit = () => {
+    console.log(todoPriority);
+    return {
+      id,
+      todoTitle,
+      todoDetails,
+      dueDate,
+      todoPriority,
+      todoProject,
+    };
+  };
 
   return ReactDOM.createPortal(
     <>
@@ -26,7 +37,7 @@ export default function EditInputs({
           className="edit-form"
           onSubmit={(e) => {
             e.preventDefault();
-            handleEditTodo(makeTodoObject(true, id));
+            handleEditTodo(makeTodoObject(true, todoObjectToEdit()));
             setIsOpen(false);
           }}
         >
@@ -58,13 +69,13 @@ export default function EditInputs({
           <label htmlFor="todo-dueDate">
             Due Date:
             <input
-              onChange={(e) => {
-                setInputDate(e.target.value);
-              }}
               value={dueDate}
               type="date"
               name="todo-dueDate"
               id="todo-dueDate"
+              onChange={(e) => {
+                setInputDate(e.target.value);
+              }}
             />
           </label>
 

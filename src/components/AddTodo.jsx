@@ -57,6 +57,7 @@ function AddTodo(props) {
             <label htmlFor="todo-Priority">
               LOW
               <input
+                required
                 type="radio"
                 name="todo-priority"
                 id="green-radio"

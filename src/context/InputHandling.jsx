@@ -16,13 +16,14 @@ export default function InputHandling({ children }) {
     setInputDetails("");
   };
 
-  function makeTodoObject(edit, todoId = "") {
+  function makeTodoObject(edit, todoToEdit = {}) {
     return {
-      id: edit ? todoId : uuid(),
-      title: inputTitle,
-      dueDate: inputDate,
-      priority: inputPriority || "none",
-      details: inputDetails,
+      id: edit ? todoToEdit.id : uuid(),
+      title: inputTitle || todoToEdit.title,
+      dueDate: inputDate || todoToEdit.dueDate,
+      priority: inputPriority || todoToEdit.todoPriority,
+      details: inputDetails === undefined ? todoToEdit.todoDetails : "",
+      project: todoToEdit.todoProject || "",
       done: false,
     };
   }

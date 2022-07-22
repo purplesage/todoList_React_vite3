@@ -25,6 +25,8 @@ export default function List({
                 handleIsTabOpen={handleIsTabOpen}
                 todoIsDone={todoObject.done}
                 handleIsDone={handleIsDone}
+                todoProject={todoObject.project}
+                todoPriority={todoObject.priority}
               />
             </li>
           ))

@@ -142,29 +142,6 @@ input, select {
       grid-template: 70px 1fr / 330px 1fr;
     }
 
-    .add-div {
-      display: grid;
-      grid-template: 50px 1fr / 200px 1fr;
-      background: rgba(0, 0, 0, .5);
-      color: white;
-      width: 600px;
-      height: 400px;
-      z-index: 100;
-      position:absolute;
-      top: 25%;
-      left: 29.2%;
-      
-      .create-header {
-        grid-column: 1 / -1;
-        background-color: #C38D9E;
-        color: white;
-      }
-
-      .create-selection {
-        display: flex;
-        flex-direction: column;
-      }
-    }
 
     .header {
       background-color:  #a32d6e;
@@ -358,9 +335,29 @@ input, select {
   left: 29.2%;
 }
 
-::-webkit-scrollbar-thumb {
-  background: red;
-  border-radius: 10px;
+.add-div {
+  display: grid;
+  grid-template: 50px 1fr / 200px 1fr;
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  width: 600px;
+  height: 400px;
+  z-index: 100;
+  position:absolute;
+  top: 25%;
+  left: 29.2%;
+  
+  .create-header {
+    grid-column: 1 / -1;
+    background-color: #C38D9E;
+    color: white;
+  }
+
+  .create-selection {
+    display: flex;
+    flex-direction: column;
+  }
 }
+
 
 

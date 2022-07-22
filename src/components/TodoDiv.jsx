@@ -15,6 +15,8 @@ function TodoDiv({
   handleIsTabOpen,
   todoIsDone,
   handleIsDone,
+  todoProject,
+  todoPriority,
 }) {
   const [openEdit, setOpenEdit] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
@@ -41,6 +43,9 @@ function TodoDiv({
       dueDate={dueDate}
       setInputPriority={setInputPriority}
       setInputDetails={setInputDetails}
+      todoPriority={todoPriority}
+      todoDetails={details}
+      todoProject={todoProject}
     />
   );
 
