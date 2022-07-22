@@ -117,8 +117,6 @@ input, select {
   display: flex;
   justify-content: center;
 
-  
-
   .app {
     width: 100%;
     height: 100vh;
@@ -151,10 +149,10 @@ input, select {
       color: white;
       width: 600px;
       height: 400px;
-      position: absolute;
-      align-self: center;
-      justify-self: center;
-      z-index: 2;
+      z-index: 100;
+      position:absolute;
+      top: 25%;
+      left: 29.2%;
       
       .create-header {
         grid-column: 1 / -1;
@@ -250,6 +248,7 @@ input, select {
 .display {
   background-color: white;
   padding: 30px;
+  overflow: scroll;
 }
 
 .todo-ul {
@@ -267,7 +266,6 @@ input, select {
     align-items: center;
     transition: 200ms;
     background-color: rgb(250, 242, 248);
-    border-radius: 6px;
     font-size: 1.5rem;
     vertical-align: middle;
     font-family: 'Edu NSW ACT Foundation', cursive;
@@ -295,6 +293,7 @@ input, select {
       padding: 5px;
       transition: 200ms;
       cursor: pointer;
+      
 
       &:hover {
         color:white;
@@ -311,6 +310,7 @@ input, select {
 
     .left-items {
       display: flex;
+      align-items: center;
       gap: 10px;
       width: 300px;
 
@@ -331,10 +331,12 @@ input, select {
 .edit-div {
   background: rgba(0, 0, 0, .5);
   color: white;
-  width: 400px;
+  width: 600px;
   height: 400px;
-  z-index: 2;
-  position: relative;
+  z-index: 100;
+  position:absolute;
+  top: 25%;
+  left: 29.2%;
 
   .edit-form {
     display: flex;
@@ -348,9 +350,17 @@ input, select {
   width: 400px;
   height: 400px;
   position: absolute;
-  z-index: 2;
   display: flex;
   flex-direction: column;
+  z-index: 100;
+  position:absolute;
+  top: 25%;
+  left: 29.2%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
 }
 
 

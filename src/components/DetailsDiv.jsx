@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 export default function DetailsDiv({
   title,
@@ -6,7 +7,7 @@ export default function DetailsDiv({
   dueDate,
   setOpenDetails,
 }) {
-  return (
+  return ReactDOM.createPortal(
     <div className="details-div">
       <p>
         Title:
@@ -23,6 +24,7 @@ export default function DetailsDiv({
       <button type="button" onClick={() => setOpenDetails(false)}>
         close
       </button>
-    </div>
+    </div>,
+    document.getElementById("portal")
   );
 }

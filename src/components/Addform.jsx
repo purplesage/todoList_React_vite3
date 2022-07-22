@@ -3,6 +3,7 @@ import { makeTodoContext } from "../context/DataContext";
 import { inputContext } from "../context/InputHandling";
 import AddTodo from "./AddTodo";
 import AddProject from "./AddProject";
+import ReactDOM from "react-dom";
 
 function Addform({
   setIsOpen,
@@ -36,7 +37,7 @@ function Addform({
     resetInputs,
   } = useContext(inputContext);
 
-  return (
+  return ReactDOM.createPortal(
     <div className="add-div">
       <header className="create-header">
         Create a new...
@@ -108,7 +109,8 @@ function Addform({
           />
         )}
       </div>
-    </div>
+    </div>,
+    document.getElementById("Portal")
   );
 }
 

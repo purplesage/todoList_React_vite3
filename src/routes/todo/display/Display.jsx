@@ -34,7 +34,7 @@ function Display({ isProject, setIsProject, requireTab, handleIsTabOpen }) {
       return (
         <p
           style={{
-            color: "darkblue",
+            color: "#69294c",
             fontWeight: "bolder",
           }}
         >
