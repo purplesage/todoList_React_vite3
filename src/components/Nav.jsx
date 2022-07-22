@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
 import ProjectButton from "./ProjectButton";
-import { GrAdd } from "react-icons/gr";
+import { IoAddOutline } from "react-icons/io5";
 
 export default function Nav({
   setIsOpen,
@@ -71,8 +71,8 @@ export default function Nav({
         </button>
       </div>
 
+      <p className="p-header">Projects:</p>
       <div className="project-tabs">
-        <p>Projects:</p>
         {projectList.length > 0 &&
           projectList.map((project, index) => (
             <ProjectButton
@@ -89,7 +89,11 @@ export default function Nav({
           ))}
       </div>
 
-      <GrAdd type="button" onClick={() => setIsOpen(!isOpen)} />
+      <IoAddOutline
+        className="add-button"
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+      />
     </nav>
   );
 }
