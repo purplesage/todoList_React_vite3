@@ -217,7 +217,7 @@ input, select {
         width: 120px;
         height: 120px;
         transition: 200ms;
-        // margin-top: 300px;
+        margin-top: 10px;
         margin-right: 90px;
         align-self: center;
         box-shadow: 2px 2px 7px 1px rgb(104, 104, 104);
@@ -253,7 +253,7 @@ input, select {
           align-items: center;
           font-size: 1.1rem;
           text-align: center;
-          width: 25px;
+          width: 27px;
         }
 
         &:hover {
@@ -274,7 +274,7 @@ input, select {
         flex-direction: column;
         margin-top: 10px;
         margin-left: 8px;
-        height: 340px;
+        height: 300px;
         gap: 5px;
         overflow-y: scroll;
       }

@@ -31,7 +31,7 @@ function AddProject({
         <input
           required
           autoComplete="off"
-          maxLength="20"
+          maxLength="15"
           placeholder="title:"
           type="text"
           name="project-title"
