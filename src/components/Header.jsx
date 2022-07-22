@@ -1,8 +1,8 @@
 import React from "react";
 import { BsJournalCheck } from "react-icons/bs";
-import { app } from "../util/firebaseConfig";
-import { getAuth, signOut } from "firebase/auth";
-const auth = getAuth(app);
+import { signOut } from "firebase/auth";
+import { ImExit } from "react-icons/im";
+import { auth } from "../util/firebaseConfig";
 
 export default function Header() {
   return (
@@ -10,16 +10,19 @@ export default function Header() {
       <h1>
         // TO-DO <BsJournalCheck />{" "}
       </h1>
-      <button
-        type="button"
-        onClick={() => {
-          signOut(auth);
-          //refreshes the page after signout.
-          window.location.reload(false);
-        }}
-      >
-        Sign Out
-      </button>
+
+      <div className="left-items">
+        <ImExit
+          className="exit"
+          type="button"
+          onClick={() => {
+            signOut(auth);
+            //refreshes the page after signout.
+            window.location.reload(false);
+          }}
+        />
+        <p>Sign out</p>
+      </div>
     </header>
   );
 }
