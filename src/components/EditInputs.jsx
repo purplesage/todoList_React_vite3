@@ -25,7 +25,7 @@ export default function EditInputs({
     return {
       id,
       todoTitle,
-      todoDetails,
+      todoDetails: todoDetails || "",
       dueDate,
       todoPriority,
       todoProject,
