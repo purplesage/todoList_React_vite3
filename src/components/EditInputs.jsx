@@ -21,7 +21,6 @@ export default function EditInputs({
   const { handleEditTodo } = useContext(makeTodoContext);
 
   const todoObjectToEdit = () => {
-    console.log(todoPriority);
     return {
       id,
       todoTitle,

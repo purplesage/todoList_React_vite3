@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
 /*
 html5doctor.com Reset Stylesheet
 v1.6.1
@@ -216,7 +217,7 @@ input, select {
         width: 100px;
         height: 100px;
         transition: 200ms;
-        margin-top: 10px;
+        margin-top: 110px;
         margin-right: 90px;
         align-self: center;
         box-shadow: 2px 2px 7px 1px rgb(104, 104, 104);
@@ -246,6 +247,9 @@ input, select {
         // border: red 1px solid;
 
         .number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           background-color:  #a32d6e;
           border:#a32d6e 1px solid;
           color: white;
@@ -253,11 +257,9 @@ input, select {
           font-weight: normal;
           padding: 1px;
           float: right;
-          margin-left: 30px;
-          align-items: center;
-          font-size: 1.1rem;
-          text-align: center;
-          width: 27px;
+          margin-left: 20px;
+          font-size: 1rem;
+          width: 25px;
         }
 
         &:hover {
@@ -278,9 +280,10 @@ input, select {
         flex-direction: column;
         margin-top: 10px;
         margin-left: 8px;
-        height: 300px;
+        height: 200px;
         gap: 5px;
         overflow-y: scroll;
+        width: 90%;
       }
     }
   }
@@ -307,8 +310,6 @@ input, select {
     align-items: center;
     transition: 200ms;
     background-color: rgb(250, 242, 248);
-    // background-color: whitesmoke;
-
     font-size: 1.2rem;
     vertical-align: middle;
     font-family: 'Raleway', sans-serif;
@@ -402,6 +403,9 @@ input, select {
 }
 
 .dark-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
   width: 100%;
@@ -411,26 +415,147 @@ input, select {
   backdrop-filter: blur(6px);
   .add-div {
     display: grid;
-    grid-template: 50px 1fr / 200px 1fr;
-    background: whitesmoke;
+    grid-template: 50px 1fr / 220px 1fr;
+    background: white;
     color: black;
-    width: 600px;
-    height: 400px;
+    width: 950px;
+    height: 450px;
     z-index: 100;
     position:fixed;
-    top: 25%;
-    left: 29.2%;
     box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
     
     .create-header {
+      display: flex;
+      align-items: center;
       grid-column: 1 / -1;
       background-color:  #a32d6e;
       color: white;
+      padding: 15px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      justify-content: space-between;
+
+      .close {
+        cursor: pointer;
+        width: 33px;
+        height: 33px;
+
+        &:hover {
+          color: rgb(2, 179, 120); 
+        }
+      }
     }
   
     .create-selection {
       display: flex;
       flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-right: rgb(195, 195, 195) 1px solid;
+
+      button {
+        display: flex;
+        border: none;
+        background-color: rgb(243, 243, 243);
+        font-size: 1.3rem;
+        text-align: left;
+        gap: 10px;
+        color: #69294c;
+        font-family: 'Lato', sans-serif;
+        letter-spacing: 1px;
+        cursor: pointer;
+        vertical-align:middle;
+
+      }
+    }
+
+    .create-display {
+    font-family: 'Raleway', sans-serif;
+
+      .add-todo-section {
+        height: 100%;
+
+        .add-todo-form {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+
+
+          .top-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+
+            input {
+              border: none;
+              height: 35px;
+              width: 50%;
+              outline: none;
+              font-family: 'Raleway', sans-serif;
+              font-size: 1.3rem;
+            }
+
+            textarea {
+              font-family: 'Raleway', sans-serif;
+              font-size: 1.3rem;
+              resize: none;
+              width: 97%;
+              height: 200px;
+              border: none;
+              outline: none;
+            }
+          }
+
+          .bottom-items {
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 50px;
+
+            .input-label {
+              display: flex;
+            }
+            .date-label {
+              display: flex;
+              align-items: center;
+
+              p {
+                margin-right: 15px;
+              }
+            }
+
+            .priority-inputs {
+              display: flex;
+
+              p {
+                margin-right: 15px;
+              }
+
+              button {
+                margin-left: 300px;
+                border: rgb(2, 179, 120) 2px solid;
+                border-radius: 2px;
+                color: rgb(2, 179, 120);
+                font-size: 1rem;
+                padding: 5px;
+                cursor: pointer;
+                background-color: white;
+                font-weight: 500;
+                &:hover {
+                  color:white;
+                  background-color: rgb(2, 179, 120);
+                }
+              }
+            }
+
+
+          }
+        }
+      }
     }
   }
 }

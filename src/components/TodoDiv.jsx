@@ -99,7 +99,6 @@ function TodoDiv({
           type="button"
           onClick={() => {
             setOpenEdit(true);
-            setInputTitle(title);
           }}
         />
 

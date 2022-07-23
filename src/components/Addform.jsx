@@ -4,6 +4,7 @@ import { inputContext } from "../context/InputHandling";
 import AddTodo from "./AddTodo";
 import AddProject from "./AddProject";
 import ReactDOM from "react-dom";
+import { CgClose } from "react-icons/cg";
 
 function Addform({
   setIsOpen,
@@ -42,8 +43,9 @@ function Addform({
       <div className="add-div">
         <header className="create-header">
           Create a new...
-          <button
+          <CgClose
             type="button"
+            className="close"
             onClick={() => {
               setIsOpen(false);
               resetInputs();
@@ -51,7 +53,7 @@ function Addform({
           >
             {" "}
             close
-          </button>
+          </CgClose>
         </header>
         <nav className="create-selection">
           <button
@@ -62,6 +64,7 @@ function Addform({
               setIsCreateTodo(true);
             }}
           >
+            {isCreateTodo && <p>//</p>}
             To Do
           </button>
           <button
@@ -72,6 +75,7 @@ function Addform({
               setIsCreateProject(true);
             }}
           >
+            {isCreateProject && <p>//</p>}
             Project
           </button>
         </nav>
