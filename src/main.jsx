@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/App.scss";
+import "./styles/scrollbar.css";
 import App from "./App";
 
 //todo: add css styling

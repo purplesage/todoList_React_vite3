@@ -29,6 +29,13 @@ export default function Nav({
     };
   };
 
+  // made for animation purposes.
+  const delayedOpen = () => {
+    setTimeout(() => {
+      setIsOpen(!isOpen);
+    }, 50);
+  };
+
   return (
     <nav className="side-nav">
       <div className="default-tabs">
@@ -92,7 +99,7 @@ export default function Nav({
       <IoAddOutline
         className="add-button"
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => delayedOpen()}
       />
     </nav>
   );
