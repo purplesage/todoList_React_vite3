@@ -80,7 +80,7 @@ export default function EditInputs({
               </label>
             </div>
             <div className="bottom-items">
-              <label htmlFor="todo-dueDate">
+              <label className="date-input" htmlFor="todo-dueDate">
                 <b>Due Date:</b>
 
                 <input
