@@ -17,7 +17,6 @@ export default function InputHandling({ children }) {
   };
 
   function makeTodoObject(edit, todoToEdit = {}) {
-    console.log(todoToEdit.todoDetails);
     return {
       id: edit ? todoToEdit.id : uuid(),
       title: inputTitle || todoToEdit.todoTitle,

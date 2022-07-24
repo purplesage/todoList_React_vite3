@@ -336,6 +336,7 @@ input, select {
       font-size: .8rem;
       padding: 5px;
       transition: 200ms;
+
       cursor: pointer;
       
 
@@ -388,31 +389,65 @@ input, select {
   }
 }
 
-.details-div {
-  background: rgba(0, 0, 0, .5);
-  color: white;
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  position:absolute;
-  top: 25%;
-  left: 29.2%;
-}
+
 
 .dark-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .4);
   position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
   backdrop-filter: blur(6px);
+
+  .details-div {
+    background-color: rgb(250, 242, 248);
+    border-left:#a32d6e 5px solid;
+    color: black;
+    width: 430px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    padding: 15px;
+    gap: 10px;
+    color:#69294c;
+
+    p {
+      width: 100%;
+      // display: flex;
+      // align-items: center;
+    }
+
+    .details-p {
+      display: box;
+      overflow-wrap: break-word;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 100px;
+      line-height: 23px;
+    }
+
+    .exit {
+      width: 30px;
+      height: 30px;
+      left: 62%;
+      position: absolute;
+
+      &:hover {
+        color:rgb(2, 179, 120);
+      }
+    }
+
+    span {
+      margin-right: 10px;
+    }
+  }
   .add-div {
     display: grid;
     grid-template: 50px 1fr / 220px 1fr;
@@ -522,7 +557,7 @@ input, select {
             .date-label {
               display: flex;
               align-items: center;
-
+              
               p {
                 margin-right: 15px;
               }
@@ -530,14 +565,18 @@ input, select {
 
             .priority-inputs {
               display: flex;
+              align-items: center;
 
+              label {
+                margin-right: 5px;
+              }
 
               p {
                 margin-right: 15px;
               }
 
               button {
-                margin-left: 300px;
+                margin-left: 290px;
                 border: rgb(2, 179, 120) 2px solid;
                 border-radius: 2px;
                 color: rgb(2, 179, 120);
@@ -552,8 +591,45 @@ input, select {
                 }
               }
             }
+          }
+        }
+      }
 
+      .add-project-section {
+        height: 100%;
 
+        .add-project-form {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          justify-content: space-between;
+
+          input {
+            border: none;
+            height: 35px;
+            width: 50%;
+            outline: none;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+          }
+          
+          button {
+            border: rgb(2, 179, 120) 2px solid;
+            border-radius: 2px;
+            color: rgb(2, 179, 120);
+            font-size: 1rem;
+            padding: 5px;
+            cursor: pointer;
+            background-color: white;
+            font-weight: 500;
+            width: 160px;
+            margin-bottom: 10px; 
+  
+            &:hover {
+              color:white;
+              background-color: rgb(2, 179, 120);
+            }
           }
         }
       }

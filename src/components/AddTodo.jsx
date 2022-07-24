@@ -55,7 +55,10 @@ function AddTodo(props) {
             <p>Priority:</p>
             <label htmlFor="todo-Priority">
               <fieldset>
-                <label htmlFor="todo-Priority">
+                <label
+                  htmlFor="todo-Priority"
+                  style={{ color: "limegreen", fontWeight: "bold" }}
+                >
                   LOW
                   <input
                     required
@@ -66,7 +69,10 @@ function AddTodo(props) {
                     onChange={(e) => props.setInputPriority(e.target.value)}
                   />
                 </label>
-                <label htmlFor="todo-Priority">
+                <label
+                  htmlFor="todo-Priority"
+                  style={{ color: "orange", fontWeight: "bold" }}
+                >
                   MEDIUM
                   <input
                     type="radio"
@@ -76,7 +82,10 @@ function AddTodo(props) {
                     onChange={(e) => props.setInputPriority(e.target.value)}
                   />
                 </label>
-                <label htmlFor="todo-Priority">
+                <label
+                  htmlFor="todo-Priority"
+                  style={{ color: "crimson", fontWeight: "bold" }}
+                >
                   HIGH
                   <input
                     type="radio"

@@ -13,8 +13,9 @@ function AddProject({
   inputRef,
 }) {
   return (
-    <div className="add-project-form">
+    <div className="add-project-section">
       <form
+        className="add-project-form"
         action="add-project"
         onSubmit={(e) => {
           e.preventDefault();
@@ -32,7 +33,7 @@ function AddProject({
           required
           autoComplete="off"
           maxLength="15"
-          placeholder="title:"
+          placeholder="Project Title:"
           type="text"
           name="project-title"
           id="project-title"
@@ -40,7 +41,7 @@ function AddProject({
           onChange={(e) => setProjectInput(e.target.value)}
         />
 
-        <button type="submit">Create Project</button>
+        <button type="submit">CREATE PROJECT</button>
       </form>
     </div>
   );

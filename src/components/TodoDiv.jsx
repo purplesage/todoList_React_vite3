@@ -57,6 +57,7 @@ function TodoDiv({
       dueDate={dueDate}
       details={details}
       setOpenDetails={setOpenDetails}
+      todoProject={todoProject}
     />
   );
 

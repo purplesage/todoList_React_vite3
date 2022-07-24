@@ -21,7 +21,16 @@ input[type="date"] {
 }
 
 input[type="date"]:hover {
-  background-color: #FFFFFF;
   outline: 0;
   border: rgb(29, 230, 163) 2px solid;
+  color: rgb(29, 230, 163);
+
 }
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  background: green;
+}
+
+
+
