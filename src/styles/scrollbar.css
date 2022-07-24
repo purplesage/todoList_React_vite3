@@ -9,3 +9,19 @@
   background: #a32d6e;
   border-radius: 5px;
 }
+
+input[type="date"] {
+  color: rgb(2, 179, 120);
+  background-color: #FFFFFF;
+  outline: 0;
+  border: rgb(2, 179, 120) 2px solid;
+  padding: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+input[type="date"]:hover {
+  background-color: #FFFFFF;
+  outline: 0;
+  border: rgb(29, 230, 163) 2px solid;
+}

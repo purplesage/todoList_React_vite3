@@ -19,7 +19,7 @@ export default function InputHandling({ children }) {
   function makeTodoObject(edit, todoToEdit = {}) {
     return {
       id: edit ? todoToEdit.id : uuid(),
-      title: inputTitle || todoToEdit.title,
+      title: inputTitle || todoToEdit.todoTitle,
       dueDate: inputDate || todoToEdit.dueDate,
       priority: inputPriority || todoToEdit.todoPriority,
       details: inputDetails || todoToEdit.todoDetails,

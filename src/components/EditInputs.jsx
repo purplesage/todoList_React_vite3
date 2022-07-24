@@ -45,7 +45,6 @@ export default function EditInputs({
           <label htmlFor="todo-title">
             Title:
             <input
-              required
               maxLength="25"
               type="text"
               name="todo-title"
@@ -102,7 +101,7 @@ export default function EditInputs({
                   type="radio"
                   name="todo-priority"
                   id="yellow-radio"
-                  value="goldenrod"
+                  value="orange"
                   onChange={(e) => setInputPriority(e.target.value)}
                 />
               </label>

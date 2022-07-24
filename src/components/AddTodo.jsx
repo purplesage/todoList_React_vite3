@@ -72,7 +72,7 @@ function AddTodo(props) {
                     type="radio"
                     name="todo-priority"
                     id="yellow-radio"
-                    value="goldenrod"
+                    value="orange"
                     onChange={(e) => props.setInputPriority(e.target.value)}
                   />
                 </label>
