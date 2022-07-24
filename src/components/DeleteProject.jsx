@@ -17,7 +17,7 @@ function DeleteProject({
     return id;
   };
   return (
-    <div>
+    <div className="delete-project-div">
       <h1>Empty project!</h1>
       <p>Create a new to-do item or delete project.</p>
       <button
@@ -27,7 +27,7 @@ function DeleteProject({
           handleIsTabOpen("home21133");
         }}
       >
-        Delete Project
+        DELETE PROJECT
       </button>
     </div>
   );

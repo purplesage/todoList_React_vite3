@@ -77,7 +77,7 @@ function TodoDiv({
           checked={todoIsDone}
         />
         {todoIsDone ? (
-          <p>
+          <p style={{ color: "rgba(14, 13, 13, 0.3)" }}>
             <s>{title}</s>
           </p>
         ) : (
@@ -96,14 +96,25 @@ function TodoDiv({
         >
           DETAILS
         </button>
-        <p className="due-date">{dueDate}</p>
+        {todoIsDone ? (
+          <p className="due-date" style={{ color: "rgba(14, 13, 13, 0.3)" }}>
+            {dueDate}
+          </p>
+        ) : (
+          <p className="due-date">{dueDate}</p>
+        )}
 
-        <FiEdit
+        <button
+          disabled="true"
           type="button"
           onClick={() => {
             setOpenEdit(true);
           }}
-        />
+        >
+          <FiEdit
+            style={{ color: todoIsDone ? "rgba(105, 41, 76, 0.3)" : null }}
+          />
+        </button>
 
         <BsFillTrashFill type="button" onClick={() => handleTodoDelete(id)} />
       </div>
