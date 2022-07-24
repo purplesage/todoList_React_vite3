@@ -203,6 +203,7 @@ export default function DataContext({ children, userEmail }) {
     if (!isLoading) {
       const updateTodoList = async () => {
         const docRef = doc(dataBase, `users/${userEmail}`);
+        console.log(todoList);
         await updateDoc(docRef, { todoList });
       };
 

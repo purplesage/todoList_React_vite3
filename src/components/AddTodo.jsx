@@ -19,7 +19,7 @@ function AddTodo(props) {
               required
               autoComplete="off"
               placeholder="Title:"
-              maxLength="25"
+              maxLength="35"
               value={props.inputTitle}
               type="text"
               name="todo-title"
@@ -62,7 +62,7 @@ function AddTodo(props) {
                     type="radio"
                     name="todo-priority"
                     id="green-radio"
-                    value="green"
+                    value="limegreen"
                     onChange={(e) => props.setInputPriority(e.target.value)}
                   />
                 </label>
