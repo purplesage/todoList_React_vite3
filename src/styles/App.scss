@@ -189,7 +189,7 @@ input, select {
       
 
       h1 {
-        margin-left: 30px;
+        margin-left: 20px;
       }
     }
 
@@ -373,24 +373,6 @@ input, select {
   }
 }
 
-.edit-div {
-  background: rgba(0, 0, 0, .5);
-  color: white;
-  width: 600px;
-  height: 400px;
-  z-index: 100;
-  position:absolute;
-  top: 25%;
-  left: 29.2%;
-
-  .edit-form {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-
-
 .dark-overlay {
   display: flex;
   justify-content: center;
@@ -403,9 +385,80 @@ input, select {
   left: 0;
   backdrop-filter: blur(6px);
 
+  .edit-div {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 600px;
+    height: 300px;
+    z-index: 100;
+    border:rgb(2, 179, 120) dashed 5px;
+  
+    .edit-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      font-family: 'Raleway', sans-serif;
+
+      .close {
+        align-self: flex-end;
+        display: flex;
+        height: 35px;
+        width: 35px;
+        color:#69294c;
+        cursor: pointer;
+
+        &:hover{
+          color:rgb(2, 179, 120);
+        }
+      }
+
+      .top-items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        input[type="text"] {
+          border: none;
+          height: 35px;
+          width: 100%;
+          outline: none;
+          font-family: 'Raleway', sans-serif;
+          font-size: 1.3rem;
+        }
+  
+        textarea {
+          font-family: 'Raleway', sans-serif;
+          font-size: 1.3rem;
+          resize: none;
+          width: 97%;
+          height: 70px;
+          border: none;
+          outline: none;
+        }
+      }
+
+      .bottom-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 50px;
+
+        .priority-inputs {
+          display: flex;
+          gap: 10px;
+        }
+      }
+
+     
+    }
+  }
+
   .details-div {
     background-color: rgb(250, 242, 248);
-    border-left:#a32d6e 5px solid;
+    border-radius: 3px;
+    border:#a32d6e 5px dashed;
     color: black;
     width: 430px;
     height: 250px;
@@ -417,6 +470,8 @@ input, select {
     padding: 15px;
     gap: 10px;
     color:#69294c;
+    box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
+
 
     p {
       width: 100%;
@@ -436,8 +491,9 @@ input, select {
     .exit {
       width: 30px;
       height: 30px;
-      left: 62%;
+      left: 61.5%;
       position: absolute;
+      cursor: pointer;
 
       &:hover {
         color:rgb(2, 179, 120);

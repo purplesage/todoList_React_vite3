@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { makeTodoContext } from "../context/DataContext";
+import { CgClose } from "react-icons/cg";
 
 export default function EditInputs({
   todoTitle,
@@ -17,6 +18,7 @@ export default function EditInputs({
   todoPriority,
   setInputDetails,
   inputDetails,
+  resetInputs,
 }) {
   const { handleEditTodo } = useContext(makeTodoContext);
 
@@ -33,96 +35,114 @@ export default function EditInputs({
 
   return ReactDOM.createPortal(
     <>
-      <div className="edit-div">
-        <form
-          className="edit-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleEditTodo(makeTodoObject(true, todoObjectToEdit()));
-            setIsOpen(false);
-          }}
-        >
-          <label htmlFor="todo-title">
-            Title:
-            <input
-              maxLength="35"
-              type="text"
-              name="todo-title"
-              id="todo-title"
-              placeholder={todoTitle}
-              value={inputTitle}
-              onChange={(e) => setInputTitle(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="todo-details">
-            Details:
-            <input
-              value={inputDetails}
-              type="text"
-              name="todo-details"
-              id="todo-details"
-              placeholder={todoDetails}
-              onChange={(e) => setInputDetails(e.target.value)}
-            />
-          </label>
-
-          <label htmlFor="todo-dueDate">
-            Due Date:
-            <input
-              value={dueDate}
-              type="date"
-              name="todo-dueDate"
-              id="todo-dueDate"
-              onChange={(e) => {
-                setInputDate(e.target.value);
+      <div className="dark-overlay">
+        <div className="edit-div">
+          <form
+            className="edit-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleEditTodo(makeTodoObject(true, todoObjectToEdit()));
+              setIsOpen(false);
+              resetInputs();
+            }}
+          >
+            <CgClose
+              className="close"
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                resetInputs();
               }}
             />
-          </label>
-
-          <label htmlFor="todo-Priority">
-            Priority:
-            <fieldset>
-              <label htmlFor="todo-Priority">
-                LOW
+            <div className="top-items">
+              <label htmlFor="todo-title">
                 <input
-                  type="radio"
-                  name="todo-priority"
-                  id="green-radio"
-                  value="limegreen"
-                  onChange={(e) => setInputPriority(e.target.value)}
+                  autoComplete="off"
+                  maxLength="35"
+                  type="text"
+                  name="todo-title"
+                  id="todo-title"
+                  placeholder={`Title: ${todoTitle}`}
+                  value={inputTitle}
+                  onChange={(e) => setInputTitle(e.target.value)}
                 />
               </label>
-
-              <label htmlFor="todo-Priority">
-                MEDIUM
-                <input
-                  type="radio"
-                  name="todo-priority"
-                  id="yellow-radio"
-                  value="orange"
-                  onChange={(e) => setInputPriority(e.target.value)}
+              <label htmlFor="todo-details">
+                <textarea
+                  autoComplete="off"
+                  value={inputDetails}
+                  type="text"
+                  name="todo-details"
+                  id="todo-details"
+                  placeholder={`Details: ${todoDetails}`}
+                  onChange={(e) => setInputDetails(e.target.value)}
                 />
               </label>
+            </div>
+            <div className="bottom-items">
+              <label htmlFor="todo-dueDate">
+                <b>Due Date:</b>
 
-              <label htmlFor="todo-Priority">
-                HIGH
                 <input
-                  type="radio"
-                  name="todo-priority"
-                  id="red-radio"
-                  value="crimson"
-                  onChange={(e) => setInputPriority(e.target.value)}
+                  value={dueDate}
+                  type="date"
+                  name="todo-dueDate"
+                  id="todo-dueDate"
+                  onChange={(e) => {
+                    setInputDate(e.target.value);
+                  }}
                 />
               </label>
-            </fieldset>
-          </label>
+              <label
+                className="priority-inputs"
+                htmlFor="todo-Priority"
+                style={{ color: "limegreen", fontWeight: "bold" }}
+              >
+                <p style={{ fontWeight: "bold", color: "black" }}>Priority:</p>
+                <fieldset>
+                  <label htmlFor="todo-Priority">
+                    LOW
+                    <input
+                      type="radio"
+                      name="todo-priority"
+                      id="green-radio"
+                      value="limegreen"
+                      onChange={(e) => setInputPriority(e.target.value)}
+                    />
+                  </label>
+                  <label
+                    htmlFor="todo-Priority"
+                    style={{ color: "orange", fontWeight: "bold" }}
+                  >
+                    MEDIUM
+                    <input
+                      type="radio"
+                      name="todo-priority"
+                      id="yellow-radio"
+                      value="orange"
+                      onChange={(e) => setInputPriority(e.target.value)}
+                    />
+                  </label>
 
-          <button type="submit">Save</button>
-        </form>
-        <button type="button" onClick={() => setIsOpen(false)}>
-          cancel
-        </button>
+                  <label
+                    style={{ color: "crimson", fontWeight: "bold" }}
+                    htmlFor="todo-Priority"
+                  >
+                    HIGH
+                    <input
+                      type="radio"
+                      name="todo-priority"
+                      id="red-radio"
+                      value="crimson"
+                      onChange={(e) => setInputPriority(e.target.value)}
+                    />
+                  </label>
+                </fieldset>
+                <button type="submit">CONFIRM EDIT</button>
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     </>,
     document.getElementById("portal")

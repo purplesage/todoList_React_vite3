@@ -16,15 +16,13 @@ input[type="date"] {
   outline: 0;
   border: rgb(2, 179, 120) 2px solid;
   padding: 3px;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
 input[type="date"]:hover {
   outline: 0;
-  border: rgb(29, 230, 163) 2px solid;
-  color: rgb(29, 230, 163);
-
+  border: rgb(3, 211, 142) 2px solid;
+  color: rgb(3, 211, 142);
 }
 
 input[type="checkbox"] {

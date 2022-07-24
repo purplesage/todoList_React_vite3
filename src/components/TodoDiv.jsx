@@ -29,6 +29,7 @@ function TodoDiv({
     setInputPriority,
     setInputDetails,
     inputDetails,
+    resetInputs,
   } = useContext(inputContext);
 
   const editInputs = () => (
@@ -48,6 +49,7 @@ function TodoDiv({
       todoDetails={details}
       todoProject={todoProject}
       inputDetails={inputDetails}
+      resetInputs={resetInputs}
     />
   );
 
