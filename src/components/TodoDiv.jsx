@@ -70,6 +70,7 @@ function TodoDiv({
     >
       <div className="left-items">
         <input
+          disabled={todoIsDone}
           type="checkbox"
           name="todo-done"
           id="todo-done"
@@ -105,7 +106,7 @@ function TodoDiv({
         )}
 
         <button
-          disabled="true"
+          disabled={todoIsDone}
           type="button"
           onClick={() => {
             setOpenEdit(true);

@@ -47,12 +47,16 @@ export default function Nav({
             handleIsTabOpen("home21133");
           }}
         >
-          {requireTab("home21133") && <p>//</p>} Home{" "}
-          {todoList.length > 0 ? (
-            <p className="number">{todoList.length}</p>
+          {requireTab("home21133") ? (
+            <span className="default-span">
+              <p>// Home</p>
+            </span>
           ) : (
-            ""
+            <span className="default-span">
+              <p>Home</p>
+            </span>
           )}
+          {todoList.length > 0 && <p className="number">{todoList.length}</p>}
         </button>
         <button
           type="button"
@@ -62,8 +66,16 @@ export default function Nav({
             handleIsTabOpen("today21133");
           }}
         >
-          {requireTab("today21133") && <p>//</p>} Today{" "}
-          {todayLength > 0 ? <p className="number">{todayLength}</p> : ""}
+          {requireTab("today21133") ? (
+            <span className="default-span">
+              <p>// Today</p>
+            </span>
+          ) : (
+            <span className="default-span">
+              <p>Today</p>
+            </span>
+          )}
+          {todayLength > 0 && <p className="number">{todayLength}</p>}
         </button>
         <button
           type="button"
@@ -73,8 +85,16 @@ export default function Nav({
             handleIsTabOpen("week21133");
           }}
         >
-          {requireTab("week21133") && <p>//</p>} Week{" "}
-          {thisWeekLength > 0 ? <p className="number">{thisWeekLength}</p> : ""}
+          {requireTab("week21133") ? (
+            <span className="default-span">
+              <p>// Week</p>
+            </span>
+          ) : (
+            <span className="default-span">
+              <p>Week</p>
+            </span>
+          )}
+          {thisWeekLength > 0 && <p className="number">{thisWeekLength}</p>}
         </button>
       </div>
 

@@ -23,7 +23,7 @@ function DeleteProject({
       <button
         onClick={() => {
           setIsProject(false);
-          handleDeleteProject(projectName, findProjectId());
+          handleDeleteProject(findProjectId());
           handleIsTabOpen("home21133");
         }}
       >

@@ -16,8 +16,15 @@ function ProjectButton(props) {
         props.setIsProject(true);
       }}
     >
-      {props.requireTab(props.projectName) && <p>//</p>}
-      {props.projectName}
+      {props.requireTab(props.projectName) ? (
+        <span className="project-span">
+          <p>// {props.projectName}</p>
+        </span>
+      ) : (
+        <span className="project-span">
+          <p>{props.projectName}</p>
+        </span>
+      )}
 
       {projectLength > 0 && <p className="number">{projectLength}</p>}
     </button>

@@ -111,8 +111,8 @@ export default function DataContext({ children, userEmail }) {
     return todoList.filter((todoObject) => todoObject.project === projectName);
   };
 
-  const handleDeleteProject = (value) => {
-    setProjectList(projectList.filter((project) => project.value !== value));
+  const handleDeleteProject = (id) => {
+    setProjectList(projectList.filter((project) => project.id !== id));
   };
 
   //* tab styling logic-------------------------
