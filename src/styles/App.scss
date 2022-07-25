@@ -435,7 +435,7 @@ input, select {
   .edit-div {
     background-color: white;
     color: black;
-    padding: 10px;
+    padding: 15px;
     width: 600px;
     height: 300px;
     z-index: 100;
@@ -452,10 +452,11 @@ input, select {
       .close {
         align-self: flex-end;
         display: flex;
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
         color:#69294c;
         cursor: pointer;
+        position: absolute;
 
         &:hover{
           color:rgb(2, 179, 120);
@@ -502,6 +503,7 @@ input, select {
         .priority-inputs {
           display: flex;
           gap: 10px;
+          align-items: center;
 
           button {
             margin-left: 130px;
