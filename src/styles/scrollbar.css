@@ -28,5 +28,9 @@ input[type="checkbox"] {
   transform: scale(1.2);
 }
 
+.login-form ::placeholder {
+  color: rgb(209, 189, 204);
+}
+
 
 
