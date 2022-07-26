@@ -76,7 +76,7 @@ export default function DataContext({ children, userEmail }) {
   };
 
   const todayFilter = (() => {
-    const today = format(new Date(), "MMMM do");
+    const today = format(new Date(), "Y-MM-dd");
     return todoList.filter((todoObj) => todoObj.dueDate === today);
   })();
 

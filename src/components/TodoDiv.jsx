@@ -3,6 +3,8 @@ import { makeTodoContext } from "../context/DataContext";
 import DetailsDiv from "./DetailsDiv";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
+import format from "date-fns/format";
+import parseISO from "date-fns/esm/fp/parseISO/index";
 
 function TodoDiv({
   title,
@@ -19,6 +21,8 @@ function TodoDiv({
   const [openDetails, setOpenDetails] = useState(false);
 
   const { handleTodoDelete, handleIsDone } = useContext(makeTodoContext);
+
+  const formatedDate = format(new Date(parseISO(dueDate)), "MMMM do");
 
   return (
     <div
@@ -74,10 +78,10 @@ function TodoDiv({
         </button>
         {todoIsDone ? (
           <p className="due-date" style={{ color: "rgba(14, 13, 13, 0.3)" }}>
-            {dueDate}
+            {formatedDate}
           </p>
         ) : (
-          <p className="due-date">{dueDate}</p>
+          <p className="due-date">{formatedDate}</p>
         )}
 
         <button

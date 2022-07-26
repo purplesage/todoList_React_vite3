@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
 import { inputContext } from "../context/InputHandling";
-import format from "date-fns/format";
-import parseISO from "date-fns/esm/fp/parseISO/index";
 
 function AddTodo({ resetInputs, setIsOpen, isProject }) {
   const { handleAddTodo } = useContext(makeTodoContext);
@@ -61,11 +59,7 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
             <p>Due Date:</p>
             <input
               required
-              onChange={(e) =>
-                setInputDate(
-                  format(new Date(parseISO(e.target.value)), "MMMM do")
-                )
-              }
+              onChange={(e) => setInputDate(e.target.value)}
               type="date"
               name="todo-dueDate"
               id="todo-dueDate"
