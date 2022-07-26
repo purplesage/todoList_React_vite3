@@ -123,17 +123,59 @@ input, select {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  #a32d6e;
+    background-color: #a32d6e;
 
-    .login-form {
-      border: red 1px solid;
-      width: 400px;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      background-color: whitesmoke;
+    .login-div {
+      width: 800px;
+      height: 450px;
+      background: none;
+      display: grid;
+      grid-template: 1fr / 1fr 1fr;
+      box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.664);
+
+      .image-div {
+        border:rgb(2, 179, 120) 5px dashed;
+        background-color: rgb(234, 253, 246);
+        font-size: 3.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+        color: rgb(2, 179, 120);
+        letter-spacing: 3px;
+        height: 450px;
+        gap: 5px;
+
+        q{
+          font-size: .75rem;
+          margin-top: 30px;
+        }
+
+        svg {
+          height: 110px;
+          width: 110px;
+          margin-top: 30px;
+          margin-bottom: 40px;
+          margin-left: 5px;
+        }
+      }
+      
+      .login-form {
+        width: 440px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        background-color: rgb(250, 242, 248);
+        grid-column: 2 / -1;
+        z-index: 1000;
+        border:#a32d6e 5px dashed;
+      }
+
     }
+
     
     .todo-section{
       width: 100%;
@@ -404,8 +446,7 @@ input, select {
       display: flex;
       align-items: center;
       gap: 10px;
-      width: 300px;
-
+      width: 3700px;
     }
 
     .right-items {
@@ -433,7 +474,7 @@ input, select {
   backdrop-filter: blur(6px);
 
   .edit-div {
-    background-color: white;
+    background-color: rgb(234, 253, 246);
     color: black;
     padding: 15px;
     width: 600px;
@@ -469,6 +510,7 @@ input, select {
         gap: 10px;
 
         input[type="text"] {
+          background-color: rgb(234, 253, 246);
           border: none;
           height: 35px;
           width: 100%;
@@ -478,6 +520,7 @@ input, select {
         }
   
         textarea {
+          background-color: rgb(234, 253, 246);
           font-family: 'Raleway', sans-serif;
           font-size: 1.3rem;
           resize: none;
@@ -506,6 +549,7 @@ input, select {
           align-items: center;
 
           button {
+            background-color: rgb(234, 253, 246);
             margin-left: 130px;
             border: rgb(2, 179, 120) 2px solid;
             border-radius: 2px;
@@ -513,7 +557,6 @@ input, select {
             font-size: .9rem;
             padding: 5px;
             cursor: pointer;
-            background-color: white;
             font-weight: 500;
             &:hover {
               color:white;
@@ -532,7 +575,7 @@ input, select {
     border-radius: 3px;
     border:#a32d6e 5px dashed;
     color: black;
-    width: 430px;
+    width: 450px;
     height: 250px;
     display: flex;
     flex-direction: column;

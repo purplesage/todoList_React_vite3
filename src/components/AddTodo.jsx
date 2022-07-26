@@ -19,7 +19,7 @@ function AddTodo(props) {
               required
               autoComplete="off"
               placeholder="Title:"
-              maxLength="35"
+              maxLength="30"
               value={props.inputTitle}
               type="text"
               name="todo-title"

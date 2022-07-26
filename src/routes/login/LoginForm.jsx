@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import { BsJournalCheck } from "react-icons/bs";
 import { auth, googleProvider } from "../../util/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
@@ -30,7 +31,14 @@ function loginForm() {
   };
 
   return (
-    <>
+    <div className="login-div">
+      <div className="image-div">
+        <p>// TO-DO</p>
+        <BsJournalCheck />
+        <q>
+          <i>"Do or do not. There is no try."</i>
+        </q>
+      </div>
       {!isUserSigninUp ? (
         <SignIn
           setIsUserSigninUp={setIsUserSigninUp}
@@ -43,7 +51,7 @@ function loginForm() {
           SignUpSubmitHandler={SignUpSubmitHandler}
         />
       )}
-    </>
+    </div>
   );
 }
 
