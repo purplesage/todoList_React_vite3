@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { makeTodoContext } from "../context/DataContext";
+import { inputContext } from "../context/InputHandling";
 
-function AddTodo(props) {
+function AddTodo({ resetInputs, setIsOpen, isProject }) {
+  const { handleAddTodo } = useContext(makeTodoContext);
+
+  const {
+    inputTitle,
+    setInputTitle,
+    setInputDate,
+    makeTodoObject,
+    setInputPriority,
+    inputDetails,
+    setInputDetails,
+  } = useContext(inputContext);
+
   return (
     <div className="add-todo-section">
       <form
@@ -8,9 +22,9 @@ function AddTodo(props) {
         action="add-todo"
         onSubmit={(e) => {
           e.preventDefault();
-          props.handleAddTodo(props.makeTodoObject(), props.isProject);
-          props.resetInputs();
-          props.setIsOpen(false);
+          handleAddTodo(makeTodoObject(), isProject);
+          resetInputs();
+          setIsOpen(false);
         }}
       >
         <div className="top-items">
@@ -20,11 +34,11 @@ function AddTodo(props) {
               autoComplete="off"
               placeholder="Title:"
               maxLength="30"
-              value={props.inputTitle}
+              value={inputTitle}
               type="text"
               name="todo-title"
               id="todo-title"
-              onChange={(e) => props.setInputTitle(e.target.value)}
+              onChange={(e) => setInputTitle(e.target.value)}
             />
           </label>
           <label htmlFor="todo-details">
@@ -34,8 +48,8 @@ function AddTodo(props) {
               type="text"
               name="todo-details"
               id="todo-details"
-              value={props.inputDetails}
-              onChange={(e) => props.setInputDetails(e.target.value)}
+              value={inputDetails}
+              onChange={(e) => setInputDetails(e.target.value)}
             />
           </label>
         </div>
@@ -45,7 +59,7 @@ function AddTodo(props) {
             <p>Due Date:</p>
             <input
               required
-              onChange={(e) => props.setInputDate(e.target.value)}
+              onChange={(e) => setInputDate(e.target.value)}
               type="date"
               name="todo-dueDate"
               id="todo-dueDate"
@@ -66,7 +80,7 @@ function AddTodo(props) {
                     name="todo-priority"
                     id="green-radio"
                     value="limegreen"
-                    onChange={(e) => props.setInputPriority(e.target.value)}
+                    onChange={(e) => setInputPriority(e.target.value)}
                   />
                 </label>
                 <label
@@ -79,7 +93,7 @@ function AddTodo(props) {
                     name="todo-priority"
                     id="yellow-radio"
                     value="orange"
-                    onChange={(e) => props.setInputPriority(e.target.value)}
+                    onChange={(e) => setInputPriority(e.target.value)}
                   />
                 </label>
                 <label
@@ -92,7 +106,7 @@ function AddTodo(props) {
                     name="todo-priority"
                     id="red-radio"
                     value="crimson"
-                    onChange={(e) => props.setInputPriority(e.target.value)}
+                    onChange={(e) => setInputPriority(e.target.value)}
                   />
                 </label>
               </fieldset>

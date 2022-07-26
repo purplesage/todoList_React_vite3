@@ -6,36 +6,26 @@ import AddProject from "./AddProject";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
 
-function Addform({
-  setIsOpen,
-  isProject,
-  setIsProject,
-  handleAddProjectTab,
-  handleIsTabOpen,
-}) {
+function Addform({ setIsOpen, isProject, setIsProject }) {
   //swtich handlers
   const [isCreateTodo, setIsCreateTodo] = useState(true);
   const [isCreateProject, setIsCreateProject] = useState(false);
+  //!drilled
+  //*used
 
   const {
-    handleAddTodo,
-    handleAddProject,
-    projectInput,
-    setProjectInput,
-    setProjectFilterName,
-    updateRef,
-    inputRef,
+    handleAddProject, //!drilled
+    projectInput, //!drilled
+    setProjectInput, //!drilled
+    setProjectFilterName, //!drilled
+    updateRef, //!drilled
+    inputRef, //!drilled
+    handleAddProjectTab, //!drilled
+    handleIsTabOpen, //!drilled
   } = useContext(makeTodoContext);
 
   const {
-    inputTitle,
-    setInputTitle,
-    setInputDate,
-    makeTodoObject,
-    setInputPriority,
-    inputDetails,
-    setInputDetails,
-    resetInputs,
+    resetInputs, //*used and //!drilled
   } = useContext(inputContext);
 
   return ReactDOM.createPortal(
@@ -82,18 +72,9 @@ function Addform({
         <div className="create-display">
           {isCreateTodo && (
             <AddTodo
-              handleAddTodo={handleAddTodo}
-              inputTitle={inputTitle}
-              setInputTitle={setInputTitle}
-              setInputDate={setInputDate}
-              makeTodoObject={makeTodoObject}
-              setInputPriority={setInputPriority}
-              inputDetails={inputDetails}
-              setInputDetails={setInputDetails}
               resetInputs={resetInputs}
               setIsOpen={setIsOpen}
               isProject={isProject}
-              setIsProject={setIsProject}
             />
           )}
           {isCreateProject && (
