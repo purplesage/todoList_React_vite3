@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { makeTodoContext } from "../context/DataContext";
 
-function AddProject({
-  handleAddProject,
-  setIsOpen,
-  projectInput,
-  setProjectInput,
-  setIsProject,
-  handleAddProjectTab,
-  handleIsTabOpen,
-  setProjectFilterName,
-  updateRef,
-  inputRef,
-}) {
+function AddProject({ setIsOpen, setIsProject }) {
+  const {
+    handleAddProject,
+    projectInput,
+    setProjectInput,
+    setProjectFilterName,
+    updateRef,
+    inputRef,
+    handleAddProjectTab,
+    handleIsTabOpen,
+  } = useContext(makeTodoContext);
+
   return (
     <div className="add-project-section">
       <form
