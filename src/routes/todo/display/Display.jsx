@@ -6,6 +6,7 @@ import DeleteProject from "../../../components/DeleteProject";
 function Display({ isProject, setIsProject }) {
   const {
     todoList,
+    todayFilter,
     thisWeekFilter,
     projectFilter,
     projectFilterName,

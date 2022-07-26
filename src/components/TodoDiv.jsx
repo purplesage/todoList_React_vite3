@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { inputContext } from "../context/InputHandling";
+import { makeTodoContext } from "../context/DataContext";
 import DetailsDiv from "./DetailsDiv";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
@@ -9,59 +9,16 @@ function TodoDiv({
   details,
   dueDate,
   id,
-  handleTodoDelete,
   EditInputs,
   borderColor,
-  handleIsTabOpen,
   todoIsDone,
-  handleIsDone,
   todoProject,
   todoPriority,
 }) {
   const [openEdit, setOpenEdit] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
 
-  const {
-    inputTitle,
-    setInputTitle,
-    setInputDate,
-    makeTodoObject,
-    setInputPriority,
-    setInputDetails,
-    inputDetails,
-    resetInputs,
-  } = useContext(inputContext);
-
-  const editInputs = () => (
-    <EditInputs
-      todoTitle={title}
-      setIsOpen={setOpenEdit}
-      setInputTitle={setInputTitle}
-      setInputDate={setInputDate}
-      makeTodoObject={makeTodoObject}
-      inputTitle={inputTitle}
-      id={id}
-      handleIsTabOpen={handleIsTabOpen}
-      dueDate={dueDate}
-      setInputPriority={setInputPriority}
-      setInputDetails={setInputDetails}
-      todoPriority={todoPriority}
-      todoDetails={details}
-      todoProject={todoProject}
-      inputDetails={inputDetails}
-      resetInputs={resetInputs}
-    />
-  );
-
-  const detailsDiv = () => (
-    <DetailsDiv
-      title={title}
-      dueDate={dueDate}
-      details={details}
-      setOpenDetails={setOpenDetails}
-      todoProject={todoProject}
-    />
-  );
+  const { handleTodoDelete, handleIsDone } = useContext(makeTodoContext);
 
   return (
     <div
@@ -86,8 +43,26 @@ function TodoDiv({
         )}
       </div>
 
-      {openEdit && editInputs()}
-      {!openEdit && openDetails && detailsDiv()}
+      {openEdit && (
+        <EditInputs
+          todoTitle={title}
+          setIsOpen={setOpenEdit}
+          id={id}
+          dueDate={dueDate}
+          todoPriority={todoPriority}
+          todoDetails={details}
+          todoProject={todoProject}
+        />
+      )}
+      {!openEdit && openDetails && (
+        <DetailsDiv
+          title={title}
+          dueDate={dueDate}
+          details={details}
+          setOpenDetails={setOpenDetails}
+          todoProject={todoProject}
+        />
+      )}
 
       <div className="right-items">
         <button
