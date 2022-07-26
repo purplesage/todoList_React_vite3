@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import { makeTodoContext } from "../context/DataContext";
 
-function ProjectButton(props) {
-  const projectLength = props.projectFilter(props.projectName).length;
+function ProjectButton({ setIsProject, projectName }) {
+  const {
+    setProjectFilterName,
+    projectFilter,
+    updateRef,
+    handleIsTabOpen,
+    requireTab,
+  } = useContext(makeTodoContext);
 
+  const projectLength = projectFilter(projectName).length;
   return (
     <button
       type="button"
       style={{
-        fontWeight: props.requireTab(props.projectName) ? "bolder" : "normal",
+        fontWeight: requireTab(projectName) ? "bolder" : "normal",
       }}
       onClick={() => {
-        props.updateRef(props.projectName);
-        props.handleIsTabOpen(props.projectName);
-        props.setProjectFilterName(props.projectName);
-        props.setIsProject(true);
+        updateRef(projectName);
+        handleIsTabOpen(projectName);
+        setProjectFilterName(projectName);
+        setIsProject(true);
       }}
     >
-      {props.requireTab(props.projectName) ? (
+      {requireTab(projectName) ? (
         <span className="project-span">
-          <p>// {props.projectName}</p>
+          <p>// {projectName}</p>
         </span>
       ) : (
         <span className="project-span">
-          <p>{props.projectName}</p>
+          <p>{projectName}</p>
         </span>
       )}
 

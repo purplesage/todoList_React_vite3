@@ -9,8 +9,6 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
   //swtich handlers
   const [isCreateTodo, setIsCreateTodo] = useState(true);
   const [isCreateProject, setIsCreateProject] = useState(false);
-  //!drilled
-  //*used
 
   const { resetInputs } = useContext(inputContext);
 

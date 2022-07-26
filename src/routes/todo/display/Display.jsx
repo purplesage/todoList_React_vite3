@@ -3,19 +3,15 @@ import List from "./List";
 import { makeTodoContext } from "../../../context/DataContext";
 import DeleteProject from "../../../components/DeleteProject";
 
-function Display({ isProject, setIsProject, requireTab, handleIsTabOpen }) {
+function Display({ isProject, setIsProject }) {
   const {
-    handleTodoDelete,
     todoList,
-    todayFilter,
     thisWeekFilter,
     projectFilter,
     projectFilterName,
-    handleDeleteProject,
-    handleIsDone,
-    projectList,
     error,
     isLoading,
+    requireTab,
   } = useContext(makeTodoContext);
 
   const handleMissingContent = (error, isLoading) => {
@@ -50,45 +46,32 @@ function Display({ isProject, setIsProject, requireTab, handleIsTabOpen }) {
     <div className="display">
       {requireTab("home21133") && (
         <List
-          handleTodoDelete={handleTodoDelete}
           todoList={todoList}
-          handleIsTabOpen={handleIsTabOpen}
-          handleIsDone={handleIsDone}
           emptyMessage={handleMissingContent(error, isLoading)}
         />
       )}
 
       {requireTab("today21133") && (
         <List
-          handleTodoDelete={handleTodoDelete}
           todoList={todayFilter}
-          handleIsTabOpen={handleIsTabOpen}
-          handleIsDone={handleIsDone}
+          emptyMessage={handleMissingContent(error, isLoading)}
         />
       )}
 
       {requireTab("week21133") && (
         <List
-          handleTodoDelete={handleTodoDelete}
           todoList={thisWeekFilter}
-          handleIsTabOpen={handleIsTabOpen}
-          handleIsDone={handleIsDone}
+          emptyMessage={handleMissingContent(error, isLoading)}
         />
       )}
 
       {isProject && (
         <List
-          handleTodoDelete={handleTodoDelete}
           todoList={projectFilter(projectFilterName)}
-          handleIsTabOpen={handleIsTabOpen}
-          handleIsDone={handleIsDone}
           emptyMessage={
             <DeleteProject
               projectName={projectFilterName}
-              handleDeleteProject={handleDeleteProject}
               setIsProject={setIsProject}
-              handleIsTabOpen={handleIsTabOpen}
-              projectList={projectList}
             />
           }
         />

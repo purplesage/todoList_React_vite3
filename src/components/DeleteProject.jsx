@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { makeTodoContext } from "../context/DataContext";
 
-function DeleteProject({
-  projectName,
-  handleDeleteProject,
-  setIsProject,
-  handleIsTabOpen,
-  projectList,
-}) {
+function DeleteProject({ projectName, setIsProject }) {
+  const { handleDeleteProject, projectList, handleIsTabOpen } =
+    useContext(makeTodoContext);
+
   const findProjectId = () => {
     const projectObject = projectList.find(
       (project) => project.value === projectName

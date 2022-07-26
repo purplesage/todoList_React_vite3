@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import TodoDiv from "../../../components/TodoDiv";
 import EditInputs from "../../../components/EditInputs";
+import { makeTodoContext } from "../../../context/DataContext";
 
-export default function List({
-  todoList,
-  handleTodoDelete,
-  emptyMessage,
-  handleIsTabOpen,
-  handleIsDone,
-}) {
+export default function List({ todoList, emptyMessage }) {
+  const { handleTodoDelete, handleIsDone, handleIsTabOpen } =
+    useContext(makeTodoContext);
   return (
     <ul className="todo-ul">
       {todoList.length > 0

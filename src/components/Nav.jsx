@@ -3,21 +3,14 @@ import { makeTodoContext } from "../context/DataContext";
 import ProjectButton from "./ProjectButton";
 import { IoAddOutline } from "react-icons/io5";
 
-export default function Nav({
-  setIsOpen,
-  isOpen,
-  setIsProject,
-  requireTab,
-  handleIsTabOpen,
-}) {
+export default function Nav({ setIsOpen, isOpen, setIsProject }) {
   const {
     todoList,
     todayFilter,
     thisWeekFilter,
     projectList,
-    setProjectFilterName,
-    projectFilter,
-    updateRef,
+    requireTab,
+    handleIsTabOpen,
   } = useContext(makeTodoContext);
 
   const todayLength = todayFilter.length;
@@ -107,11 +100,6 @@ export default function Nav({
               type="button"
               setIsProject={setIsProject}
               projectName={project.value}
-              projectFilter={projectFilter}
-              setProjectFilterName={setProjectFilterName}
-              requireTab={requireTab}
-              handleIsTabOpen={handleIsTabOpen}
-              updateRef={updateRef}
             />
           ))}
       </div>
