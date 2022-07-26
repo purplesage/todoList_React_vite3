@@ -225,6 +225,32 @@ input, select {
             }
 
           }
+
+          .sign-up-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            gap: 10px;
+            margin-top: 20px;
+            width: 300px;
+            font-size: .9rem;
+
+            button {
+              border: none;
+              background-color: rgb(250, 242, 248);
+              font-weight: bold;
+              color: rgb(163, 45, 110);
+              cursor: pointer;
+              letter-spacing: 1px;
+              transition: 200ms;
+
+              &:hover {
+                color:rgb(2, 179, 120);
+              }
+
+            }
+          }
         }
 
         label {

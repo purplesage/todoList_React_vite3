@@ -4,7 +4,7 @@ import { BsGoogle } from "react-icons/bs";
 function SignIn({ setIsUserSigninUp, signInSubmitHandler, signInWithGoogle }) {
   return (
     <form className="login-form" onSubmit={(e) => signInSubmitHandler(e)}>
-      <h1>Sign in</h1>
+      <h1>Sign In</h1>
       <label htmlFor="email">
         <p>Email Adress:</p>
         <input
@@ -29,7 +29,7 @@ function SignIn({ setIsUserSigninUp, signInSubmitHandler, signInWithGoogle }) {
       </label>
       <div className="action-buttons">
         <button className="sign-in-button" type="submit">
-          Sign in
+          Sign In
         </button>
         <hr />
         <button
@@ -40,9 +40,12 @@ function SignIn({ setIsUserSigninUp, signInSubmitHandler, signInWithGoogle }) {
           <p>Use Google</p>
           <BsGoogle />
         </button>
-        <button type="button" onClick={() => setIsUserSigninUp(true)}>
-          Sign Up
-        </button>
+        <div className="sign-up-button">
+          <p>Not a member?</p>
+          <button type="button" onClick={() => setIsUserSigninUp(true)}>
+            Sign Up
+          </button>
+        </div>
       </div>
     </form>
   );
