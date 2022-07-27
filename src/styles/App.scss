@@ -161,7 +161,7 @@ input, select {
         }
       }
       
-      .login-form {
+      .signin-form {
         width: 400px;
         height: 450px;
         display: flex;
@@ -222,7 +222,6 @@ input, select {
               width: 20px;
               height: 20px;
             }
-
           }
 
           .sign-up-button {
@@ -284,17 +283,14 @@ input, select {
 
         }
       }
-
     }
 
-    
     .todo-section{
       width: 100%;
       height: 100vh;
       display: grid;
       grid-template: 70px 1fr / 325px 1fr;
     }
-
 
     .header {
       background-color:  #a32d6e;
@@ -338,8 +334,6 @@ input, select {
         }
 
       }
-
-      
 
       h1 {
         margin-left: 20px;
@@ -536,18 +530,14 @@ input, select {
       font-size: .8rem;
       padding: 5px;
       transition: 200ms;
-
       cursor: pointer;
       
-
       &:hover {
         color:white;
         background-color: rgb(2, 179, 120);
       }
     }
 
-
-    
     &:hover{
       box-shadow: rgba(14, 13, 13, 0.356) 2px 2px 3px 1px;
       z-index: 2;
@@ -565,7 +555,6 @@ input, select {
       gap: 25px;
       width: 300px;
       align-items: center;
-
 
       .due-date {
         width: 110px;

@@ -8,8 +8,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
+import styles from "../../styles/modules/authSection.module.css";
 
-function loginForm() {
+function AuthSection() {
   const [isUserSigninUp, setIsUserSigninUp] = useState(false);
 
   const SignUpSubmitHandler = async (e) => {
@@ -31,9 +32,9 @@ function loginForm() {
   };
 
   return (
-    <div className="login-div">
-      <div className="image-div">
-        <p>// TO-DO</p>
+    <div className={styles.auth}>
+      <div className={styles.logo}>
+        <p>//TO-DO</p>
         <BsJournalCheck />
         <q>
           <i>"Do or do not. There is no try."</i>
@@ -55,4 +56,4 @@ function loginForm() {
   );
 }
 
-export default loginForm;
+export default AuthSection;

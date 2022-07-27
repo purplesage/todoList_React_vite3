@@ -1,0 +1,102 @@
+.signUpForm {
+  width: 400px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: rgb(250, 242, 248);
+  grid-column: 2 / -1;
+  z-index: 1000;
+  border:rgb(163, 45, 110) 5px dashed;
+  color: rgb(163, 45, 110);
+  font-family: 'Raleway', sans-serif;
+  gap: 10px;
+}
+
+.signUpForm ::placeholder {
+  color: rgb(209, 189, 204);
+}
+
+.signUpForm label p {
+  font-size: 1.1rem;
+}
+
+.signUpForm input {
+  background-color: rgb(250, 242, 248);
+  border:rgb(209, 189, 204) 2px solid;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  width: 90%;
+  padding: 6px;
+
+}
+
+.signUpForm input:focus {
+  outline: rgb(163, 45, 110) 2px solid;
+  border:2px solid rgba(0, 0, 0, 0);
+}
+
+
+.signUpForm h1 {
+  font-size: 2.1rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.actionButtons {
+  margin-top: 20px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  margin-right: 30px;
+}
+
+.signUpButton {
+  height: 30px;
+  border: rgb(163, 45, 110) 2px solid;
+  color:rgb(163, 45, 110);
+  background-color: rgb(250, 242, 248);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 200ms;
+}
+
+.signUpButton:hover {
+  color: white;
+  background-color: rgb(163, 45, 110);
+}
+
+.signInSwitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 300px;
+  font-size: .9rem;
+}
+
+
+.signInSwitch button {
+  border: none;
+  background-color: rgb(250, 242, 248);
+  font-weight: bold;
+  color: rgb(163, 45, 110);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 200ms;
+}
+
+.signInSwitch button:hover {
+  color:rgb(2, 179, 120);
+}
+
+
+
+

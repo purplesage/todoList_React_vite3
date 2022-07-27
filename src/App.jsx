@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import TodoApp from "./routes/todo/TodoApp";
 import DataContext from "./context/DataContext";
-import LoginForm from "./routes/login/LoginForm";
+import AuthSection from "./routes/login/AuthSection";
 import { auth } from "./util/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
+import styles from "./styles/modules/app.module.css";
 
 function App() {
   const [globalUser, setGlobalUser] = useState(null);
@@ -19,9 +20,9 @@ function App() {
   });
 
   return (
-    <div className="app">
+    <div className={styles.app}>
       <DataContext userEmail={globalUser ? globalUser.email : null}>
-        {!globalUser ? <LoginForm /> : <TodoApp />}
+        {!globalUser ? <AuthSection /> : <TodoApp />}
       </DataContext>
     </div>
   );

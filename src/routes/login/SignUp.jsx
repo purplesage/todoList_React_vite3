@@ -1,8 +1,12 @@
 import React from "react";
+import styles from "../../styles/modules/signUp.module.css";
 
 function SignUp({ setIsUserSigninUp, SignUpSubmitHandler }) {
   return (
-    <form className="login-form" onSubmit={(e) => SignUpSubmitHandler(e)}>
+    <form
+      className={styles.signUpForm}
+      onSubmit={(e) => SignUpSubmitHandler(e)}
+    >
       <h1>Sign Up</h1>
       <label htmlFor="email">
         <p>Email Adress:</p>
@@ -26,11 +30,11 @@ function SignUp({ setIsUserSigninUp, SignUpSubmitHandler }) {
           placeholder="Password"
         />
       </label>
-      <div className="action-buttons">
-        <button type="submit" className="sign-in-button">
+      <div className={styles.actionButtons}>
+        <button type="submit" className={styles.signUpButton}>
           Sign Up
         </button>
-        <div className="sign-up-button">
+        <div className={styles.signInSwitch}>
           <p>Already have an account?</p>
           <button type="button" onClick={() => setIsUserSigninUp(false)}>
             Sign in
