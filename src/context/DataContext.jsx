@@ -12,7 +12,7 @@ import { v4 as uuid } from "uuid";
 import { dataBase } from "../util/firebaseConfig";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
-export const makeTodoContext = createContext({});
+export const appDataContext = createContext({});
 
 export default function DataContext({ children, userEmail }) {
   const reducer = (state, action) => {
@@ -222,7 +222,7 @@ export default function DataContext({ children, userEmail }) {
   }, [projectList]);
 
   return (
-    <makeTodoContext.Provider
+    <appDataContext.Provider
       value={{
         todoList,
         handleAddTodo,
@@ -249,6 +249,6 @@ export default function DataContext({ children, userEmail }) {
       }}
     >
       {children}
-    </makeTodoContext.Provider>
+    </appDataContext.Provider>
   );
 }

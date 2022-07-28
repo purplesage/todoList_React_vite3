@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { makeTodoContext } from "../context/DataContext";
+import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/addProject.module.css";
 
 function AddProject({ setIsOpen, setIsProject }) {
@@ -12,7 +12,7 @@ function AddProject({ setIsOpen, setIsProject }) {
     inputRef,
     handleAddProjectTab,
     handleOpenTab,
-  } = useContext(makeTodoContext);
+  } = useContext(appDataContext);
 
   return (
     <div className={styles.addProjectSection}>

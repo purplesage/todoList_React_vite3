@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { makeTodoContext } from "../context/DataContext";
+import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/projectButton.module.css";
 
 function ProjectButton({ setIsProject, projectName, listLength }) {
@@ -9,7 +9,7 @@ function ProjectButton({ setIsProject, projectName, listLength }) {
     updateRef,
     handleOpenTab,
     requireTabState,
-  } = useContext(makeTodoContext);
+  } = useContext(appDataContext);
 
   const projectLength = listLength(projectFilter(projectName));
 

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { makeTodoContext } from "../context/DataContext";
+import { appDataContext } from "../context/DataContext";
 import { inputContext } from "../context/InputHandling";
 import styles from "../styles/modules/addTodo.module.css";
 
 function AddTodo({ resetInputs, setIsOpen, isProject }) {
-  const { handleAddTodo } = useContext(makeTodoContext);
+  const { handleAddTodo } = useContext(appDataContext);
 
   const {
     inputTitle,

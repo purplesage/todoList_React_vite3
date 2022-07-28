@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { makeTodoContext } from "../context/DataContext";
+import { appDataContext } from "../context/DataContext";
 import ProjectButton from "./ProjectButton";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "../styles/modules/nav.module.css";
@@ -12,7 +12,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
     projectList,
     requireTabState,
     handleOpenTab,
-  } = useContext(makeTodoContext);
+  } = useContext(appDataContext);
 
   const listLength = (list) => {
     return list.filter((todoObject) => todoObject.done === false).length;

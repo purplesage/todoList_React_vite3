@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import List from "./List";
-import { makeTodoContext } from "../../../context/DataContext";
+import { appDataContext } from "../../../context/DataContext";
 import DeleteProject from "../../../components/DeleteProject";
 import styles from "../../../styles/modules/display.module.css";
 
@@ -14,7 +14,7 @@ function Display({ isProject, setIsProject }) {
     error,
     isLoading,
     requireTabState,
-  } = useContext(makeTodoContext);
+  } = useContext(appDataContext);
 
   const handleMissingContent = (error, isLoading) => {
     if (error) {

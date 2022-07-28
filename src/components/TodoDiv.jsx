@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { makeTodoContext } from "../context/DataContext";
+import { appDataContext } from "../context/DataContext";
 import DetailsDiv from "./DetailsDiv";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
@@ -21,7 +21,7 @@ function TodoDiv({
   const [openEdit, setOpenEdit] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
 
-  const { handleTodoDelete, handleIsDone } = useContext(makeTodoContext);
+  const { handleTodoDelete, handleIsDone } = useContext(appDataContext);
 
   const formatedDate = format(new Date(parseISO(dueDate)), "MMMM do");
 
