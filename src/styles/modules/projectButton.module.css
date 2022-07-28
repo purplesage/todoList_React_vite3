@@ -1,0 +1,20 @@
+.projectSpan {
+  width: 180px;
+  font-size: 1.1rem;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  #a32d6e;
+  border:#a32d6e 1px solid;
+  color: white;
+  border-radius: 50%;
+  font-weight: normal;
+  padding: 1px;
+  float: right;
+  margin-left: 5px;
+  font-size: 1rem;
+  width: 25px;
+}

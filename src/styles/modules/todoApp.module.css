@@ -1,0 +1,6 @@
+.todoSection {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template: 70px 1fr / 325px 1fr;
+}

@@ -1,0 +1,47 @@
+.header {
+  background-color:  #a32d6e;
+  grid-column: 1 / -1;
+  color: white;
+  font-size: 3rem;
+  padding: 12px;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 6px;
+  display: flex;
+  align-items: center;
+  border-bottom: rgb(195, 195, 195) 1px solid;
+  justify-content: space-between;
+}
+
+.header svg {
+  vertical-align: text-top;
+}
+
+.header p {
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.header h1 {
+  margin-left: 20px;
+}
+
+.leftItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+.exit {
+  height: 35px;
+  width: 35px;
+  transition: 200ms;
+  cursor:pointer;
+}
+
+.exit:hover {
+  color: rgb(2, 179, 120); 
+}
+
+

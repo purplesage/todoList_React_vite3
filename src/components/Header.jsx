@@ -3,17 +3,18 @@ import { BsJournalCheck } from "react-icons/bs";
 import { signOut } from "firebase/auth";
 import { ImExit } from "react-icons/im";
 import { auth } from "../util/firebaseConfig";
+import styles from "../styles/modules/header.module.css";
 
 export default function Header() {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <h1>
         // TO-DO <BsJournalCheck />{" "}
       </h1>
 
-      <div className="left-items">
+      <div className={styles.leftItems}>
         <ImExit
-          className="exit"
+          className={styles.exit}
           type="button"
           onClick={() => {
             signOut(auth);

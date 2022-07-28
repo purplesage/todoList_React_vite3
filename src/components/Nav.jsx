@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
 import ProjectButton from "./ProjectButton";
 import { IoAddOutline } from "react-icons/io5";
+import styles from "../styles/modules/nav.module.css";
 
 export default function Nav({ setIsOpen, isOpen, setIsProject }) {
   const {
@@ -30,8 +31,8 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
   };
 
   return (
-    <nav className="side-nav">
-      <div className="default-tabs">
+    <nav className={styles.sideNav}>
+      <div className={styles.defaultTabs}>
         <button
           type="button"
           style={tabIsSelectedStyle("home21133")}
@@ -41,15 +42,17 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           }}
         >
           {requireTab("home21133") ? (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>// Home</p>
             </span>
           ) : (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>Home</p>
             </span>
           )}
-          {todoList.length > 0 && <p className="number">{todoList.length}</p>}
+          {todoList.length > 0 && (
+            <p className={styles.number}>{todoList.length}</p>
+          )}
         </button>
         <button
           type="button"
@@ -60,15 +63,15 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           }}
         >
           {requireTab("today21133") ? (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>// Today</p>
             </span>
           ) : (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>Today</p>
             </span>
           )}
-          {todayLength > 0 && <p className="number">{todayLength}</p>}
+          {todayLength > 0 && <p className={styles.number}>{todayLength}</p>}
         </button>
         <button
           type="button"
@@ -79,20 +82,22 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           }}
         >
           {requireTab("week21133") ? (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>// Week</p>
             </span>
           ) : (
-            <span className="default-span">
+            <span className={styles.defaultSpan}>
               <p>Week</p>
             </span>
           )}
-          {thisWeekLength > 0 && <p className="number">{thisWeekLength}</p>}
+          {thisWeekLength > 0 && (
+            <p className={styles.number}>{thisWeekLength}</p>
+          )}
         </button>
       </div>
 
-      <p className="p-header">Projects:</p>
-      <div className="project-tabs">
+      <p className={styles.projectHeader}>Projects:</p>
+      <div className={styles.projectTabs}>
         {projectList.length > 0 &&
           projectList.map((project, index) => (
             <ProjectButton
@@ -105,7 +110,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
       </div>
 
       <IoAddOutline
-        className="add-button"
+        className={styles.addButton}
         type="button"
         onClick={() => delayedOpen()}
       />

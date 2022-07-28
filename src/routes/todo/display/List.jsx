@@ -1,10 +1,11 @@
 import React from "react";
 import TodoDiv from "../../../components/TodoDiv";
 import EditInputs from "../../../components/EditInputs";
+import styles from "../../../styles/modules/list.module.css";
 
 export default function List({ todoList, emptyMessage }) {
   return (
-    <ul className="todo-ul">
+    <ul className={styles.todoUl}>
       {todoList.length > 0
         ? todoList.map((todoObject) => (
             <li key={todoObject.id}>

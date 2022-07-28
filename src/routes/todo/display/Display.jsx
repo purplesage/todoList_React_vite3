@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import List from "./List";
 import { makeTodoContext } from "../../../context/DataContext";
 import DeleteProject from "../../../components/DeleteProject";
+import styles from "../../../styles/modules/display.module.css";
 
 function Display({ isProject, setIsProject }) {
   const {
@@ -44,7 +45,7 @@ function Display({ isProject, setIsProject }) {
   };
 
   return (
-    <div className="display">
+    <div className={styles.display}>
       {requireTab("home21133") && (
         <List
           todoList={todoList}

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
+import styles from "../styles/modules/projectButton.module.css";
 
 function ProjectButton({ setIsProject, projectName }) {
   const {
@@ -25,16 +26,16 @@ function ProjectButton({ setIsProject, projectName }) {
       }}
     >
       {requireTab(projectName) ? (
-        <span className="project-span">
+        <span className={styles.projectSpan}>
           <p>// {projectName}</p>
         </span>
       ) : (
-        <span className="project-span">
+        <span className={styles.projectSpan}>
           <p>{projectName}</p>
         </span>
       )}
 
-      {projectLength > 0 && <p className="number">{projectLength}</p>}
+      {projectLength > 0 && <p className={styles.number}>{projectLength}</p>}
     </button>
   );
 }

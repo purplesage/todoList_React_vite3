@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import Display from "./display/Display";
 import Addform from "../../components/Addform";
+import styles from "../../styles/modules/todoApp.module.css";
 
 function TodoApp() {
   //add form conditional openning state
@@ -13,7 +14,7 @@ function TodoApp() {
   const [isProject, setIsProject] = useState(false);
 
   return (
-    <div className="todo-section">
+    <div className={styles.todoSection}>
       <Header />
       <Nav setIsOpen={setIsOpen} isOpen={isOpen} setIsProject={setIsProject} />
       <InputHandling>

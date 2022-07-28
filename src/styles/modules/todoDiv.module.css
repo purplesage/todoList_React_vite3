@@ -1,0 +1,73 @@
+.todoDiv {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 50px;
+  height: 45px;
+  align-items: center;
+  transition: 200ms;
+  background-color: rgb(250, 242, 248);
+  font-size: 1.2rem;
+  vertical-align: middle;
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.todoDiv:hover{
+  box-shadow: rgba(14, 13, 13, 0.356) 2px 2px 3px 1px;
+  z-index: 2;
+}
+
+.editButton, .deleteButton {
+  background: none;
+  border: none;
+}
+
+.todoDiv svg {
+  color:rgb(105, 41, 76);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.todoDiv svg:hover {
+  color: rgb(2, 179, 120);
+}
+
+.details {
+  border: rgb(2, 179, 120) 1px solid;
+  border-radius: 2px;
+  color: rgb(2, 179, 120);
+  font-size: .8rem;
+  padding: 5px;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.details:hover {
+  color:white;
+  background-color: rgb(2, 179, 120);
+}
+
+.leftItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 3700px;
+}
+
+.rightItems {
+  display: flex;
+  gap: 20px;
+  width: 300px;
+  align-items: center;
+}
+
+.dueDate {
+  width: 130px;
+  font-size: .9rem;
+  display: flex;
+  justify-content: center;
+}

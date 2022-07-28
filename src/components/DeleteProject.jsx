@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
+import styles from "../styles/modules/deleteProject.module.css";
 
 function DeleteProject({ projectName, setIsProject }) {
   const { handleDeleteProject, projectList, handleIsTabOpen } =
@@ -15,7 +16,7 @@ function DeleteProject({ projectName, setIsProject }) {
     return id;
   };
   return (
-    <div className="delete-project-div">
+    <div className={styles.deleteProjectDiv}>
       <h1>Empty project!</h1>
       <p>Create a new to-do item or delete project.</p>
       <button
