@@ -11,11 +11,18 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
     thisWeekFilter,
     projectList,
     requireTabState,
-    handleIsTabOpen,
+    handleOpenTab,
   } = useContext(makeTodoContext);
 
-  const todayLength = todayFilter.length;
-  const thisWeekLength = thisWeekFilter.length;
+  const listLength = (list) => {
+    return list.filter((todoObject) => todoObject.done === false).length;
+  };
+
+  const todoListLength = listLength(todoList);
+
+  const todayLength = listLength(todayFilter);
+
+  const thisWeekLength = listLength(thisWeekFilter);
 
   const tabIsSelectedStyle = (tab) => {
     return {
@@ -38,7 +45,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           style={tabIsSelectedStyle("home21133")}
           onClick={() => {
             setIsProject(false);
-            handleIsTabOpen("home21133");
+            handleOpenTab("home21133");
           }}
         >
           {requireTabState("home21133") ? (
@@ -50,8 +57,8 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
               <p>Home</p>
             </span>
           )}
-          {todoList.length > 0 && (
-            <p className={styles.number}>{todoList.length}</p>
+          {todoListLength > 0 && (
+            <p className={styles.number}>{todoListLength}</p>
           )}
         </button>
         <button
@@ -59,7 +66,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           style={tabIsSelectedStyle("today21133")}
           onClick={() => {
             setIsProject(false);
-            handleIsTabOpen("today21133");
+            handleOpenTab("today21133");
           }}
         >
           {requireTabState("today21133") ? (
@@ -78,7 +85,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
           style={tabIsSelectedStyle("week21133")}
           onClick={() => {
             setIsProject(false);
-            handleIsTabOpen("week21133");
+            handleOpenTab("week21133");
           }}
         >
           {requireTabState("week21133") ? (
@@ -105,6 +112,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
               type="button"
               setIsProject={setIsProject}
               projectName={project.value}
+              listLength={listLength}
             />
           ))}
       </div>

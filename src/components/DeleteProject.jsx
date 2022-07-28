@@ -3,7 +3,7 @@ import { makeTodoContext } from "../context/DataContext";
 import styles from "../styles/modules/deleteProject.module.css";
 
 function DeleteProject({ projectName, setIsProject }) {
-  const { handleDeleteProject, projectList, handleIsTabOpen } =
+  const { handleDeleteProject, projectList, handleOpenTab } =
     useContext(makeTodoContext);
 
   const findProjectId = () => {
@@ -23,7 +23,7 @@ function DeleteProject({ projectName, setIsProject }) {
         onClick={() => {
           setIsProject(false);
           handleDeleteProject(findProjectId());
-          handleIsTabOpen("home21133");
+          handleOpenTab("home21133");
         }}
       >
         DELETE PROJECT

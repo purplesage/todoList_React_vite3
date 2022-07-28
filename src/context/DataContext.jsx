@@ -132,7 +132,7 @@ export default function DataContext({ children, userEmail }) {
     }
   }
 
-  function handleIsTabOpen(tabName) {
+  function handleOpenTab(tabName) {
     tabDispatcher({
       type: "set_is_open",
       tabName,
@@ -167,7 +167,7 @@ export default function DataContext({ children, userEmail }) {
   //* fetch todoList and projectList on auth state change (see in App.jsx):
   useEffect(() => {
     if (userEmail) {
-      handleIsTabOpen("home21133");
+      handleOpenTab("home21133");
       const searchOrCreateUserDocument = async () => {
         try {
           const docRef = doc(dataBase, `users/${userEmail}`);
@@ -239,7 +239,7 @@ export default function DataContext({ children, userEmail }) {
         projectFilterName,
         setProjectFilterName,
         handleIsDone,
-        handleIsTabOpen,
+        handleOpenTab,
         handleAddProjectTab,
         requireTabState,
         error,

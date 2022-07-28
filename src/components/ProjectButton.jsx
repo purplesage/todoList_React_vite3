@@ -2,16 +2,17 @@ import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
 import styles from "../styles/modules/projectButton.module.css";
 
-function ProjectButton({ setIsProject, projectName }) {
+function ProjectButton({ setIsProject, projectName, listLength }) {
   const {
     setProjectFilterName,
     projectFilter,
     updateRef,
-    handleIsTabOpen,
+    handleOpenTab,
     requireTabState,
   } = useContext(makeTodoContext);
 
-  const projectLength = projectFilter(projectName).length;
+  const projectLength = listLength(projectFilter(projectName));
+
   return (
     <button
       type="button"
@@ -20,7 +21,7 @@ function ProjectButton({ setIsProject, projectName }) {
       }}
       onClick={() => {
         updateRef(projectName);
-        handleIsTabOpen(projectName);
+        handleOpenTab(projectName);
         setProjectFilterName(projectName);
         setIsProject(true);
       }}

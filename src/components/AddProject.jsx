@@ -11,7 +11,7 @@ function AddProject({ setIsOpen, setIsProject }) {
     updateRef,
     inputRef,
     handleAddProjectTab,
-    handleIsTabOpen,
+    handleOpenTab,
   } = useContext(makeTodoContext);
 
   return (
@@ -23,7 +23,7 @@ function AddProject({ setIsOpen, setIsProject }) {
           e.preventDefault();
           updateRef(projectInput);
           handleAddProject(inputRef.current);
-          handleIsTabOpen(inputRef.current);
+          handleOpenTab(inputRef.current);
           handleAddProjectTab(inputRef.current);
           setProjectFilterName(inputRef.current);
           setIsProject(true);
