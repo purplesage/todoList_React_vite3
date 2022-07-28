@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
 import { inputContext } from "../context/InputHandling";
+import styles from "../styles/modules/addTodo.module.css";
 
 function AddTodo({ resetInputs, setIsOpen, isProject }) {
   const { handleAddTodo } = useContext(makeTodoContext);
@@ -16,9 +17,9 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
   } = useContext(inputContext);
 
   return (
-    <div className="add-todo-section">
+    <div className={styles.addTodoSection}>
       <form
-        className="add-todo-form"
+        className={styles.addTodoForm}
         action="add-todo"
         onSubmit={(e) => {
           e.preventDefault();
@@ -27,7 +28,7 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
           setIsOpen(false);
         }}
       >
-        <div className="top-items">
+        <div className={styles.topItems}>
           <label htmlFor="todo-title">
             <input
               required
@@ -54,8 +55,8 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
           </label>
         </div>
 
-        <div className="bottom-items">
-          <label className="date-label" htmlFor="todo-dueDate">
+        <div className={styles.bottomItems}>
+          <label className={styles.dateLabel} htmlFor="todo-dueDate">
             <p>Due Date:</p>
             <input
               required
@@ -65,7 +66,7 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
               id="todo-dueDate"
             />
           </label>
-          <div className="priority-inputs">
+          <div className={styles.priorityInputs}>
             <p>Priority:</p>
             <label htmlFor="todo-Priority">
               <fieldset>

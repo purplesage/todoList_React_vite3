@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { makeTodoContext } from "../context/DataContext";
+import styles from "../styles/modules/addProject.module.css";
 
 function AddProject({ setIsOpen, setIsProject }) {
   const {
@@ -14,9 +15,9 @@ function AddProject({ setIsOpen, setIsProject }) {
   } = useContext(makeTodoContext);
 
   return (
-    <div className="add-project-section">
+    <div className={styles.addProjectSection}>
       <form
-        className="add-project-form"
+        className={styles.addProjectForm}
         action="add-project"
         onSubmit={(e) => {
           e.preventDefault();

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
+import styles from "../styles/modules/detailsDiv.module.css";
 
 export default function DetailsDiv({
   title,
@@ -11,14 +12,14 @@ export default function DetailsDiv({
 }) {
   return ReactDOM.createPortal(
     <div className="dark-overlay">
-      <div className="details-div">
+      <div className={styles.detailsDiv}>
         <p>
           <span>
             <b>Title:</b>
           </span>{" "}
           {title}
           <CgClose
-            className="exit"
+            className={styles.exit}
             type="button"
             onClick={() => setOpenDetails(false)}
           >
@@ -37,7 +38,7 @@ export default function DetailsDiv({
           </span>{" "}
           {todoProject}
         </p>
-        <p className="details-p">
+        <p className={styles.detailsP}>
           <span>
             <b>Details:</b>
           </span>

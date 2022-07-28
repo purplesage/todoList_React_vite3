@@ -94,7 +94,7 @@
   color:rgb(2, 179, 120);
 }
 
-input[type="date"] {
+.bottomItems input[type="date"] {
   color: rgb(2, 179, 120);
   outline: 0;
   border: rgb(2, 179, 120) 2px solid;
@@ -103,7 +103,7 @@ input[type="date"] {
   background-color: rgb(234, 253, 246);
 }
 
-input[type="date"]:hover {
+.bottomItems input[type="date"]:hover {
   outline: 0;
   border: rgb(3, 211, 142) 2px solid;
   color: rgb(3, 211, 142);

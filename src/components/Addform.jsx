@@ -4,6 +4,7 @@ import AddTodo from "./AddTodo";
 import AddProject from "./AddProject";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
+import styles from "../styles/modules/addForm.module.css";
 
 function Addform({ setIsOpen, isProject, setIsProject }) {
   //swtich handlers
@@ -14,12 +15,12 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
 
   return ReactDOM.createPortal(
     <div className="dark-overlay">
-      <div className="add-div">
-        <header className="create-header">
+      <div className={styles.addDiv}>
+        <header className={styles.createHeader}>
           Create a new...
           <CgClose
             type="button"
-            className="close"
+            className={styles.close}
             onClick={() => {
               setIsOpen(false);
               resetInputs();
@@ -29,7 +30,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
             close
           </CgClose>
         </header>
-        <nav className="create-selection">
+        <nav className={styles.createSelection}>
           <button
             style={isCreateTodo ? { fontWeight: "bolder" } : null}
             type="button"
@@ -53,7 +54,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
             Project
           </button>
         </nav>
-        <div className="create-display">
+        <div className={styles.createDisplay}>
           {isCreateTodo && (
             <AddTodo
               resetInputs={resetInputs}

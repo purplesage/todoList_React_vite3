@@ -1,0 +1,46 @@
+.detailsDiv {
+  background-color: rgb(250, 242, 248);
+  border-radius: 3px;
+  border:#a32d6e 5px dashed;
+  color: black;
+  width: 450px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  padding: 15px;
+  gap: 10px;
+  color:#69294c;
+  box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
+}
+
+.detailsDiv p {
+  width: 100%;
+}
+
+.detailsDiv span {
+  margin-right: 10px;
+}
+
+.detailsP {
+  display: box;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100px;
+  line-height: 23px;
+}
+
+.exit {
+  width: 30px;
+  height: 30px;
+  left: 61.5%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.exit:hover {
+  color:rgb(2, 179, 120);
+}
