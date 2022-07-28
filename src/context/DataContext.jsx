@@ -152,7 +152,7 @@ export default function DataContext({ children, userEmail }) {
     { name: "week21133", state: false },
   ]);
 
-  function requireTab(tabName) {
+  function requireTabState(tabName) {
     const tab = tabList.find((tabObject) => tabObject.name === tabName);
     if (tab) {
       const state = tab.state;
@@ -241,7 +241,7 @@ export default function DataContext({ children, userEmail }) {
         handleIsDone,
         handleIsTabOpen,
         handleAddProjectTab,
-        requireTab,
+        requireTabState,
         error,
         updateRef,
         inputRef,

@@ -71,9 +71,9 @@
 
 .priorityInputs button {
   margin-left: 290px;
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   border-radius: 2px;
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   font-size: 1rem;
   padding: 5px;
   cursor: pointer;
@@ -83,13 +83,13 @@
 
 .priorityInputs button:hover {
   color:white;
-  background-color: rgb(2, 179, 120);
+  background-color: var(--candyGreen-color);
 }
 
 .bottomItems input[type="date"] {
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   outline: 0;
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   padding: 3px;
   text-transform: uppercase;
   background-color: white;

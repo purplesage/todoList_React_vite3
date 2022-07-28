@@ -20,9 +20,9 @@
 }
 
 .addProjectForm button {
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   border-radius: 2px;
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   font-size: 1rem;
   padding: 5px;
   cursor: pointer;
@@ -34,5 +34,5 @@
 
 .addProjectForm button:hover {
   color:white;
-  background-color: rgb(2, 179, 120);
+  background-color: var(--candyGreen-color);
 }

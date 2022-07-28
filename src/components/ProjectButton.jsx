@@ -8,7 +8,7 @@ function ProjectButton({ setIsProject, projectName }) {
     projectFilter,
     updateRef,
     handleIsTabOpen,
-    requireTab,
+    requireTabState,
   } = useContext(makeTodoContext);
 
   const projectLength = projectFilter(projectName).length;
@@ -16,7 +16,7 @@ function ProjectButton({ setIsProject, projectName }) {
     <button
       type="button"
       style={{
-        fontWeight: requireTab(projectName) ? "bolder" : "normal",
+        fontWeight: requireTabState(projectName) ? "bolder" : "normal",
       }}
       onClick={() => {
         updateRef(projectName);
@@ -25,7 +25,7 @@ function ProjectButton({ setIsProject, projectName }) {
         setIsProject(true);
       }}
     >
-      {requireTab(projectName) ? (
+      {requireTabState(projectName) ? (
         <span className={styles.projectSpan}>
           <p>// {projectName}</p>
         </span>

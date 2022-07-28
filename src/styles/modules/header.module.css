@@ -1,5 +1,5 @@
 .header {
-  background-color:  #a32d6e;
+  background-color:  var(--candyPurple-color);
   grid-column: 1 / -1;
   color: white;
   font-size: 3rem;
@@ -41,7 +41,7 @@
 }
 
 .exit:hover {
-  color: rgb(2, 179, 120); 
+  color: var(--candyGreen-color); 
 }
 
 

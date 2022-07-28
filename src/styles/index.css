@@ -107,6 +107,14 @@ input, select {
 
 /* ------style---reset----ends--here------ */
 
+:root {
+  --whiteGreen-color: rgb(234, 253, 246);
+  --candyGreen-color: rgb(2, 179, 120);
+  --whitePink-color: rgb(250, 242, 248);
+  --candyPurple-color: rgb(163, 45, 110);
+  --vinotintoNight-color: #69294c;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -126,7 +134,7 @@ input, select {
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a32d6e;
+  background: var(--candyPurple-color);
   border-radius: 5px;
 }
 

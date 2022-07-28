@@ -13,7 +13,7 @@ function Display({ isProject, setIsProject }) {
     projectFilterName,
     error,
     isLoading,
-    requireTab,
+    requireTabState,
   } = useContext(makeTodoContext);
 
   const handleMissingContent = (error, isLoading) => {
@@ -46,21 +46,21 @@ function Display({ isProject, setIsProject }) {
 
   return (
     <div className={styles.display}>
-      {requireTab("home21133") && (
+      {requireTabState("home21133") && (
         <List
           todoList={todoList}
           emptyMessage={handleMissingContent(error, isLoading)}
         />
       )}
 
-      {requireTab("today21133") && (
+      {requireTabState("today21133") && (
         <List
           todoList={todayFilter}
           emptyMessage={handleMissingContent(error, isLoading)}
         />
       )}
 
-      {requireTab("week21133") && (
+      {requireTabState("week21133") && (
         <List
           todoList={thisWeekFilter}
           emptyMessage={handleMissingContent(error, isLoading)}

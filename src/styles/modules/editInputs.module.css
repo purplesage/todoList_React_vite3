@@ -1,11 +1,11 @@
 .editDiv {
-  background-color: rgb(234, 253, 246);
+  background-color: var(--whiteGreen-color);
   color: black;
   padding: 15px;
   width: 600px;
   height: 300px;
   z-index: 100;
-  border:rgb(2, 179, 120) dashed 5px;
+  border:var(--candyGreen-color) dashed 5px;
   box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
 }
 
@@ -43,11 +43,11 @@
 }
 
 .priorityInputs button {
-  background-color: rgb(234, 253, 246);
+  background-color: var(--whiteGreen-color);
   margin-left: 130px;
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   border-radius: 2px;
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   font-size: .9rem;
   padding: 5px;
   cursor: pointer;
@@ -56,7 +56,7 @@
 
 .priorityInputs button:hover {
   color:white;
-  background-color: rgb(2, 179, 120);
+  background-color: var(--candyGreen-color);
 }
 
 .topItems {
@@ -66,7 +66,7 @@
 }
 
 .topItems input[type="text"] {
-  background-color: rgb(234, 253, 246);
+  background-color: var(--whiteGreen-color);
   border: none;
   height: 35px;
   width: 100%;
@@ -76,7 +76,7 @@
 }
 
 .topItems textarea {
-  background-color: rgb(234, 253, 246);
+  background-color: var(--whiteGreen-color);
   font-family: 'Raleway', sans-serif;
   font-size: 1.3rem;
   resize: none;
@@ -91,22 +91,22 @@
   display: flex;
   height: 35px;
   width: 35px;
-  color:#69294c;
+  color:var(--vinotintoNight-color);
   cursor: pointer;
   position: absolute;
 }
 
 .close:hover{
-  color:rgb(2, 179, 120);
+  color:var(--candyGreen-color);
 }
 
 .bottomItems input[type="date"] {
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   outline: 0;
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   padding: 3px;
   text-transform: uppercase;
-  background-color: rgb(234, 253, 246);
+  background-color: var(--whiteGreen-color);
 }
 
 .bottomItems input[type="date"]:hover {

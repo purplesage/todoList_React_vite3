@@ -16,7 +16,7 @@
 }
 
 .addButton {
-  background-color: #a32d6e;
+  background-color: var(--candyPurple-color);
   cursor: pointer;
   color: white;
   border-radius: 50%;
@@ -44,7 +44,7 @@
   background-color: rgb(243, 243, 243);
   text-align: left;
   gap: 10px;
-  color: #69294c;
+  color: var(--vinotintoNight-color);
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   cursor: pointer;
@@ -52,7 +52,7 @@
 }
 
 .sideNav button:hover {
-  color: #a32d6e;
+  color: var(--candyPurple-color);
 }
 
 
@@ -65,8 +65,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:  #a32d6e;
-  border:#a32d6e 1px solid;
+  background-color:  var(--candyPurple-color);
+  border:var(--candyPurple-color) 1px solid;
   color: white;
   border-radius: 50%;
   font-weight: normal;

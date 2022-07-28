@@ -10,7 +10,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
     todayFilter,
     thisWeekFilter,
     projectList,
-    requireTab,
+    requireTabState,
     handleIsTabOpen,
   } = useContext(makeTodoContext);
 
@@ -19,7 +19,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
 
   const tabIsSelectedStyle = (tab) => {
     return {
-      fontWeight: requireTab(tab) ? "bold" : "normal",
+      fontWeight: requireTabState(tab) ? "bold" : "normal",
     };
   };
 
@@ -41,7 +41,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
             handleIsTabOpen("home21133");
           }}
         >
-          {requireTab("home21133") ? (
+          {requireTabState("home21133") ? (
             <span className={styles.defaultSpan}>
               <p>// Home</p>
             </span>
@@ -62,7 +62,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
             handleIsTabOpen("today21133");
           }}
         >
-          {requireTab("today21133") ? (
+          {requireTabState("today21133") ? (
             <span className={styles.defaultSpan}>
               <p>// Today</p>
             </span>
@@ -81,7 +81,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
             handleIsTabOpen("week21133");
           }}
         >
-          {requireTab("week21133") ? (
+          {requireTabState("week21133") ? (
             <span className={styles.defaultSpan}>
               <p>// Week</p>
             </span>

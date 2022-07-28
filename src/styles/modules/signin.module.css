@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background-color: rgb(250, 242, 248);
+  background-color: var(--whitePink-color);
   grid-column: 2 / -1;
   z-index: 1000;
-  border:rgb(163, 45, 110) 5px dashed;
-  color: rgb(163, 45, 110);
+  border:var(--candyPurple-color) 5px dashed;
+  color: var(--candyPurple-color);
   font-family: 'Raleway', sans-serif;
   gap: 10px;
 }
@@ -21,7 +21,7 @@
 }
 
 .signInForm input {
-  background-color: rgb(250, 242, 248);
+  background-color: var(--whitePink-color);
   border:rgb(209, 189, 204) 2px solid;
   border-radius: 4px;
   height: 40px;
@@ -32,7 +32,7 @@
 }
 
 .signInForm input:focus {
-  outline: rgb(163, 45, 110) 2px solid;
+  outline: var(--candyPurple-color) 2px solid;
   border:2px solid rgba(0, 0, 0, 0);
 }
 
@@ -58,9 +58,9 @@ width: 100%;
 
 .signInButton {
   height: 30px;
-  border: rgb(163, 45, 110) 2px solid;
-  color:rgb(163, 45, 110);
-  background-color: rgb(250, 242, 248);
+  border: var(--candyPurple-color) 2px solid;
+  color:var(--candyPurple-color);
+  background-color: var(--whitePink-color);
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 5px;
@@ -69,18 +69,18 @@ width: 100%;
 
 .signInButton:hover {
   color: white;
-  background-color: rgb(163, 45, 110);
+  background-color: var(--candyPurple-color);
 }
 
 .signInGoogle {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: rgb(2, 179, 120) 2px solid;
+  border: var(--candyGreen-color) 2px solid;
   height: 30px;
   border-radius: 5px;
   font-size: 1.2rem;
-  color: rgb(2, 179, 120);
+  color: var(--candyGreen-color);
   gap: 10px;
   cursor: pointer;
   transition: 200ms;
@@ -92,7 +92,7 @@ width: 100%;
 }
 
 .signInGoogle:hover{
-  background-color: rgb(2, 179, 120);
+  background-color: var(--candyGreen-color);
   color:white;
 }
 
@@ -109,14 +109,14 @@ width: 100%;
 
 .signUpSwitch button {
   border: none;
-  background-color: rgb(250, 242, 248);
+  background-color: var(--whitePink-color);
   font-weight: bold;
-  color: rgb(163, 45, 110);
+  color: var(--candyPurple-color);
   cursor: pointer;
   letter-spacing: 1px;
   transition: 200ms;
 }
 
 .signUpSwitch button:hover {
-  color:rgb(2, 179, 120);
+  color:var(--candyGreen-color);
 }
