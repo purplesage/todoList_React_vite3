@@ -36,6 +36,12 @@
   align-items: center;
 }
 
+.priorityInputs input[type="radio"] {
+  margin-bottom: 7px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 .priorityInputs button {
   background-color: rgb(234, 253, 246);
   margin-left: 130px;

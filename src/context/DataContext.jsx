@@ -162,13 +162,12 @@ export default function DataContext({ children, userEmail }) {
 
   //* content availability state.
   const [error, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   //* fetch todoList and projectList on auth state change (see in App.jsx):
   useEffect(() => {
     if (userEmail) {
       handleIsTabOpen("home21133");
-      setIsLoading(true);
       const searchOrCreateUserDocument = async () => {
         try {
           const docRef = doc(dataBase, `users/${userEmail}`);
@@ -200,24 +199,24 @@ export default function DataContext({ children, userEmail }) {
 
   //* update todoList on state change.
   useEffect(() => {
-    if (!isLoading) {
-      const updateTodoList = async () => {
-        const docRef = doc(dataBase, `users/${userEmail}`);
-        await updateDoc(docRef, { todoList });
-      };
+    const updateTodoList = async () => {
+      const docRef = doc(dataBase, `users/${userEmail}`);
+      await updateDoc(docRef, { todoList });
+    };
 
+    if (!isLoading) {
       updateTodoList();
     }
   }, [todoList]);
 
   //* update projectList on state change.
   useEffect(() => {
-    if (!isLoading) {
-      const updateTodoList = async () => {
-        const docRef = doc(dataBase, `users/${userEmail}`);
-        await updateDoc(docRef, { projectList });
-      };
+    const updateTodoList = async () => {
+      const docRef = doc(dataBase, `users/${userEmail}`);
+      await updateDoc(docRef, { projectList });
+    };
 
+    if (!isLoading) {
       updateTodoList();
     }
   }, [projectList]);

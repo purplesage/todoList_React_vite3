@@ -102,7 +102,7 @@ function TodoDiv({
         </button>
 
         <button
-          class={styles.deleteButton}
+          className={styles.deleteButton}
           type="button"
           onClick={() => handleTodoDelete(id)}
         >

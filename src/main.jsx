@@ -5,4 +5,8 @@ import "./styles/index.css";
 
 //todo: add css styling
 //todo: fix edit bug.
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
