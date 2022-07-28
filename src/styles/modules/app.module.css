@@ -4,5 +4,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient( 178.9deg,  rgba(163, 45, 110) 5.1%, rgba(229,113,159,1) 109.3% );
+  background-image: linear-gradient( 178.9deg,  var(--candyPurple-color) 5.1%, rgba(229,113,159,1) 109.3% );
 }
