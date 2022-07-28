@@ -1,0 +1,110 @@
+.editDiv {
+  background-color: rgb(234, 253, 246);
+  color: black;
+  padding: 15px;
+  width: 600px;
+  height: 300px;
+  z-index: 100;
+  border:rgb(2, 179, 120) dashed 5px;
+  box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.bottomItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 50px;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.priorityInputs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.priorityInputs button {
+  background-color: rgb(234, 253, 246);
+  margin-left: 130px;
+  border: rgb(2, 179, 120) 2px solid;
+  border-radius: 2px;
+  color: rgb(2, 179, 120);
+  font-size: .9rem;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.priorityInputs button:hover {
+  color:white;
+  background-color: rgb(2, 179, 120);
+}
+
+.topItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topItems input[type="text"] {
+  background-color: rgb(234, 253, 246);
+  border: none;
+  height: 35px;
+  width: 100%;
+  outline: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+}
+
+.topItems textarea {
+  background-color: rgb(234, 253, 246);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  resize: none;
+  width: 97%;
+  height: 70px;
+  border: none;
+  outline: none;
+}
+
+.close {
+  align-self: flex-end;
+  display: flex;
+  height: 35px;
+  width: 35px;
+  color:#69294c;
+  cursor: pointer;
+  position: absolute;
+}
+
+.close:hover{
+  color:rgb(2, 179, 120);
+}
+
+input[type="date"] {
+  color: rgb(2, 179, 120);
+  outline: 0;
+  border: rgb(2, 179, 120) 2px solid;
+  padding: 3px;
+  text-transform: uppercase;
+  background-color: rgb(234, 253, 246);
+}
+
+input[type="date"]:hover {
+  outline: 0;
+  border: rgb(3, 211, 142) 2px solid;
+  color: rgb(3, 211, 142);
+}

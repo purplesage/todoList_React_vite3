@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { makeTodoContext } from "../context/DataContext";
 import { inputContext } from "../context/InputHandling";
-
 import { CgClose } from "react-icons/cg";
+import styles from "../styles/modules/editInputs.module.css";
 
 export default function EditInputs({
   todoTitle,
@@ -41,9 +41,9 @@ export default function EditInputs({
   return ReactDOM.createPortal(
     <>
       <div className="dark-overlay">
-        <div className="edit-div">
+        <div className={styles.editDiv}>
           <form
-            className="edit-form"
+            className={styles.editForm}
             onSubmit={(e) => {
               e.preventDefault();
               handleEditTodo(makeTodoObject(true, todoObjectToEdit()));
@@ -52,14 +52,14 @@ export default function EditInputs({
             }}
           >
             <CgClose
-              className="close"
+              className={styles.close}
               type="button"
               onClick={() => {
                 setIsOpen(false);
                 resetInputs();
               }}
             />
-            <div className="top-items">
+            <div className={styles.topItems}>
               <label htmlFor="todo-title">
                 <input
                   autoComplete="off"
@@ -84,8 +84,8 @@ export default function EditInputs({
                 />
               </label>
             </div>
-            <div className="bottom-items">
-              <label className="date-input" htmlFor="todo-dueDate">
+            <div className={styles.bottomItems}>
+              <label className={styles.dateInput} htmlFor="todo-dueDate">
                 <b>Due Date:</b>
 
                 <input
@@ -99,7 +99,7 @@ export default function EditInputs({
                 />
               </label>
               <label
-                className="priority-inputs"
+                className={styles.priorityInputs}
                 htmlFor="todo-Priority"
                 style={{ color: "limegreen", fontWeight: "bold" }}
               >

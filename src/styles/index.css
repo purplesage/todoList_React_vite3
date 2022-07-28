@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
-
+@import "./overlay.css";
 /*
 html5doctor.com Reset Stylesheet
 v1.6.1
@@ -122,7 +122,7 @@ input, select {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f390c7;
+  background: #f0abd1;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb {
