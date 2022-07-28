@@ -85,11 +85,11 @@ export default function DataContext({ children, userEmail }) {
   );
 
   //* project state logic----------------
-
   const [projectList, setProjectList] = useState([]);
   const [projectInput, setProjectInput] = useState("");
   const [projectFilterName, setProjectFilterName] = useState("");
 
+  //*ref used to avoid bugs when manipulating projectInput state.
   const inputRef = useRef("");
 
   const updateRef = (input) => {
@@ -197,7 +197,7 @@ export default function DataContext({ children, userEmail }) {
     }
   }, [userEmail]);
 
-  //* update todoList on state change.
+  //* update firestore todoList on state change.
   useEffect(() => {
     const updateTodoList = async () => {
       const docRef = doc(dataBase, `users/${userEmail}`);
@@ -209,7 +209,7 @@ export default function DataContext({ children, userEmail }) {
     }
   }, [todoList]);
 
-  //* update projectList on state change.
+  //* update firestore projectList on state change.
   useEffect(() => {
     const updateTodoList = async () => {
       const docRef = doc(dataBase, `users/${userEmail}`);
