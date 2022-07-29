@@ -1,16 +1,16 @@
 .auth {
-  max-width: 700px;
-  min-height: 450px;
+  width: 50%;
   background: none;
   display: grid;
-  grid-template: 1fr / 1fr 400px;
+  grid-template: 1fr / 1fr 1.3fr;
   box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.664);
 }
 
 .logo {
   border:var(--candyGreen-color) 5px dashed;
   background-color: var(--whiteGreen-color);
-  font-size: 3.5rem;
+  /* font-size: 3.5rem; */
+  font-size: clamp(1rem, 3.5vw, 3.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +19,13 @@
   font-family: 'Roboto Condensed', sans-serif;
   color: var(--candyGreen-color);
   letter-spacing: 3px;
-  min-height: 450px;
+  width: 100%;
   gap: 5px;
-  max-width: 300px;
+  max-width: 100%;
 }
 
 .logo q{
-  font-size: .7rem;
+  font-size: .8rem;
 }
 
 .logo svg {
@@ -36,4 +36,38 @@
 
 .logo p {
   margin-top: 50px;
+}
+
+
+
+@media (max-width: 500px) {
+  .auth {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    flex-direction: row;
+    font-size: 2rem;
+    padding: 0;
+    width: 100vw;
+    padding: 1rem 0;
+    border: dashed var(--candyGreen-color) 3px;
+  }
+
+  .logo p {
+    margin-top: 0;
+    font-size: 3rem;
+    letter-spacing: 5px;
+  }
+
+  .logo svg {
+    display: none;
+  }
+  
+  .logo q {
+    display: none;
+  }
+
 }

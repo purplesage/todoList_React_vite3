@@ -34,6 +34,7 @@ function SignUp({ setIsUserSigninUp, SignUpSubmitHandler }) {
         <button type="submit" className={styles.signUpButton}>
           Sign Up
         </button>
+        <hr />
         <div className={styles.signInSwitch}>
           <p>Already have an account?</p>
           <button type="button" onClick={() => setIsUserSigninUp(false)}>

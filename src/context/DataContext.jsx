@@ -15,7 +15,7 @@ import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 export const appDataContext = createContext({});
 
 export default function DataContext({ children, userEmail }) {
-  const reducer = (state, action) => {
+  const todoListReducer = (state, action) => {
     switch (action.type) {
       case "add_todo": {
         return [...state, action.todoObject];
@@ -48,7 +48,7 @@ export default function DataContext({ children, userEmail }) {
     throw Error(`Unknown action: ${action.type}`);
   };
 
-  const [todoList, dispatcher] = useReducer(reducer, []);
+  const [todoList, dispatcher] = useReducer(todoListReducer, []);
 
   const handleAddTodo = (todoObject, isProject) => {
     if (!isProject) {

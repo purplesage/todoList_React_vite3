@@ -1,12 +1,10 @@
 .signInForm {
-  max-width: 400px;
-  min-height: 450px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 30px;
   background-color: var(--whitePink-color);
   grid-column: 2 / -1;
-  z-index: 1000;
   border:var(--candyPurple-color) 5px dashed;
   color: var(--candyPurple-color);
   font-family: 'Raleway', sans-serif;
@@ -48,7 +46,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 200px;
+  width: 60%;
   margin-right: 30px;
 }
 
@@ -98,12 +96,9 @@ width: 100%;
 
 .signUpSwitch {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
   gap: 10px;
   margin-top: 20px;
-  width: 300px;
+  width: 100%;
   font-size: .9rem;
 }
 
@@ -119,4 +114,55 @@ width: 100%;
 
 .signUpSwitch button:hover {
   color:var(--candyGreen-color);
+}
+
+@media (max-width: 360px) {
+  .signInForm {
+    border: dashed 3px var(--candyPurple-color);
+    align-items: center;
+  }
+
+  .signInForm h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  .signInGoogle {
+    font-size: .9rem;
+  }
+
+  .actionButtons {
+    margin-right: 0px;
+    width: 90%;
+  }
+
+  .signInButton {
+    width: 80%;
+    align-self: center;
+  }
+
+  .signInGoogle {
+    width: 80%;
+    align-self: center;
+  }
+
+  .signInForm input {
+    height: 35px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    width: 100%;
+    padding: 6px;
+  }
+
+  .signInForm label p {
+    font-size: 1rem;
+  }
+
+  .signUpSwitch  {
+    width: 100%;
+    align-self: center;
+    gap: 20px;
+  }
+  
 }
