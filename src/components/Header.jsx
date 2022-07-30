@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import { ImExit } from "react-icons/im";
 import { auth } from "../util/firebaseConfig";
 import styles from "../styles/modules/header.module.css";
+import MenuButton from "./MenuButton";
 
 export default function Header() {
   return (
@@ -24,6 +25,7 @@ export default function Header() {
         />
         <p>Sign out</p>
       </div>
+      <MenuButton className={styles.menuButton} />
     </header>
   );
 }

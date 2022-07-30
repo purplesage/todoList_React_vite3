@@ -12,6 +12,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
     projectList,
     requireTabState,
     handleOpenTab,
+    navDisplay,
   } = useContext(appDataContext);
 
   const listLength = (list) => {
@@ -38,7 +39,10 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
   };
 
   return (
-    <nav className={styles.sideNav}>
+    <nav
+      style={{ display: navDisplay ? "flex" : null }}
+      className={styles.sideNav}
+    >
       <div className={styles.defaultTabs}>
         <button
           type="button"

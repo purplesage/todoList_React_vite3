@@ -44,6 +44,13 @@
   color: var(--candyGreen-color); 
 }
 
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+}
+
+
 
 @media (max-width: 500px) {
   .header {
@@ -58,6 +65,16 @@
 
   .header p {
     display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .menuButton svg {
+    color: white;
+    width: 25px;
+    height: 25px;
   }
 }
 
