@@ -23,7 +23,7 @@ function TodoDiv({
 
   const { handleTodoDelete, handleIsDone } = useContext(appDataContext);
 
-  const formatedDate = format(new Date(parseISO(dueDate)), "MMMM do");
+  const formatedDate = format(new Date(parseISO(dueDate)), "MMM do");
 
   return (
     <div

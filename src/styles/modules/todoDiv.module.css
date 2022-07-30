@@ -76,19 +76,20 @@
   .todoDiv  {
     font-size: .8rem;
     gap: 10px;
+    height: max(fit-content, 45px);
   }
 
   .details {
-    font-size: .5rem;
-    padding: 1px;
+    font-size: .6rem;
+    padding: 5px;
     margin-right: 5px;
+    width: 45px;
   }
 
   .dueDate {
-    width: 90px;
+    width: 65px;
     font-size: .7rem;
     align-items: center;
-
   }
 
   .leftItems {
@@ -97,7 +98,7 @@
   }
 
   .rightItems {
-    gap: 5px;
+    gap: 10px;
     width: 300px;
 
   }
@@ -108,7 +109,10 @@
   }
 
   .title {
-    outline: 2px solid red;
-    text-overflow: clip;
+    width: 100px;
+  }
+
+  .todoDiv button {
+    padding: 0;
   }
 }
