@@ -40,11 +40,14 @@ function TodoDiv({
           checked={todoIsDone}
         />
         {todoIsDone ? (
-          <p style={{ color: "rgba(14, 13, 13, 0.3)" }}>
+          <p
+            className={styles.title}
+            style={{ color: "rgba(14, 13, 13, 0.3)" }}
+          >
             <s>{title}</s>
           </p>
         ) : (
-          <p>{title}</p>
+          <p className={styles.title}>{title}</p>
         )}
       </div>
 

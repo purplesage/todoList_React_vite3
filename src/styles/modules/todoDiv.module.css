@@ -60,7 +60,7 @@
 
 .rightItems {
   display: flex;
-  gap: 20px;
+  gap: 5px;
   width: 300px;
   align-items: center;
 }
@@ -70,4 +70,45 @@
   font-size: .9rem;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 500px) {
+  .todoDiv  {
+    font-size: .8rem;
+    gap: 10px;
+  }
+
+  .details {
+    font-size: .5rem;
+    padding: 1px;
+    margin-right: 5px;
+  }
+
+  .dueDate {
+    width: 90px;
+    font-size: .7rem;
+    align-items: center;
+
+  }
+
+  .leftItems {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .rightItems {
+    gap: 5px;
+    width: 300px;
+
+  }
+
+  .todoDiv svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .title {
+    outline: 2px solid red;
+    text-overflow: clip;
+  }
 }

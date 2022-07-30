@@ -5,7 +5,6 @@ import fireBaseAPIkey from "../apikey";
 
 
 const firebaseConfig = {
-  //todo: hide api key
   apiKey: fireBaseAPIkey,
   authDomain: "todo-list-c49be.firebaseapp.com",
   projectId: "todo-list-c49be",

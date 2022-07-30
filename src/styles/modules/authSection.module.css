@@ -10,8 +10,6 @@
 
 .logo {
   border:var(--candyGreen-color) 5px dashed;
-  border-top-left-radius: 12%;
-  border-bottom-left-radius: 12%;
   background-color: var(--whiteGreen-color);
   font-size: clamp(1rem, 3.5vw, 3.5rem);
   display: flex;

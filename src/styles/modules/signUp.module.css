@@ -1,6 +1,6 @@
 .signUpForm {
   width: 100%;
-  height: 453.2px;
+  height: 448.78px;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -102,11 +102,11 @@
   .signUpForm {
     border: dashed 4px var(--candyPurple-color);
     align-items: center;
-    border-top: none;
+    height: 452.41px;
   }
 
   .signUpForm h1 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
     letter-spacing: 2px;
   }

@@ -121,11 +121,10 @@ width: 100%;
   .signInForm {
     border: dashed 4px var(--candyPurple-color);
     align-items: center;
-    border-top: none;
   }
 
   .signInForm h1 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
     letter-spacing: 2px;
   }

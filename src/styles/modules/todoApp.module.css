@@ -4,3 +4,9 @@
   display: grid;
   grid-template: 70px 1fr / 325px 1fr;
 }
+
+@media (max-width: 500px) {
+  .todoSection {
+  grid-template: 70px 1fr / 1fr;
+  }
+}
