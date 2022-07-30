@@ -4,12 +4,15 @@
   display: grid;
   grid-template: 1fr / 1fr 1.3fr;
   box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.664);
+  border-top-left-radius: 12%;
+  border-bottom-left-radius: 12%;
 }
 
 .logo {
   border:var(--candyGreen-color) 5px dashed;
+  border-top-left-radius: 12%;
+  border-bottom-left-radius: 12%;
   background-color: var(--whiteGreen-color);
-  /* font-size: 3.5rem; */
   font-size: clamp(1rem, 3.5vw, 3.5rem);
   display: flex;
   flex-direction: column;
@@ -58,6 +61,7 @@
     border: dashed var(--candyGreen-color) 4px;
     border-top-right-radius: 2rem;
     border-top-left-radius: 2rem;
+    border-bottom-left-radius: 0%;
   }
 
   .logo p {
