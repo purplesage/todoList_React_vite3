@@ -164,7 +164,7 @@ export default function DataContext({ children, userEmail }) {
   const [error, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [navDisplay, setNavDisplay] = useState(false);
+  const [isMobileNav, setIsMobileNav] = useState(false);
 
   //* fetch todoList and projectList on auth state change (see in App.jsx):
   useEffect(() => {
@@ -248,8 +248,8 @@ export default function DataContext({ children, userEmail }) {
         updateRef,
         inputRef,
         isLoading,
-        navDisplay,
-        setNavDisplay,
+        isMobileNav,
+        setIsMobileNav,
       }}
     >
       {children}

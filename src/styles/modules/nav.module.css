@@ -98,6 +98,36 @@
 @media (max-width: 500px) {
   .sideNav {
     display: none;
+    position: absolute;
+    width: 70%;
+    z-index: 30;
+    right: 0;
+    top: 70px;
+    padding: 30px 5px 30px 30px;
+    border-left: rgb(195, 195, 195) 1px solid;
+    box-shadow: -2px 1px 30px 3px rgb(51, 51, 51);
+    height: 85%;
+
+  }
+
+  .defaultSpan {
+    width: 100px;
+  }
+
+  .projectTabs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .addButton {
+    margin-top: 70px;
+    margin-left: 40px;
+    align-self: center;
+    width: 80px;
+    height: 80px;
   }
 
 }
