@@ -117,13 +117,14 @@ width: 100%;
 }
 
 @media (max-width: 360px) {
+  
   .signInForm {
-    border: dashed 3px var(--candyPurple-color);
+    border: dashed 4px var(--candyPurple-color);
     align-items: center;
   }
 
   .signInForm h1 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 10px;
     letter-spacing: 2px;
   }
@@ -153,6 +154,8 @@ width: 100%;
     margin-top: 10px;
     width: 100%;
     padding: 6px;
+    margin-bottom: 10px;
+
   }
 
   .signInForm label p {
@@ -164,5 +167,4 @@ width: 100%;
     align-self: center;
     gap: 20px;
   }
-  
 }
