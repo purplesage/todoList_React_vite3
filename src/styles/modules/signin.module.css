@@ -116,11 +116,12 @@ width: 100%;
   color:var(--candyGreen-color);
 }
 
-@media (max-width: 360px) {
-  
+@media (max-width: 500px) {
+
   .signInForm {
     border: dashed 4px var(--candyPurple-color);
     align-items: center;
+    border-top: none;
   }
 
   .signInForm h1 {
