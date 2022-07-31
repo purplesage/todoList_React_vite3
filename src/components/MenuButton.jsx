@@ -8,7 +8,7 @@ function MenuButton({ className }) {
 
   return (
     <button onClick={() => setIsMobileNav(!isMobileNav)} className={className}>
-      {isMobileNav ? <FiMenu /> : <CgClose />}
+      {!isMobileNav ? <FiMenu /> : <CgClose />}
     </button>
   );
 }

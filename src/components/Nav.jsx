@@ -40,7 +40,7 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
 
   return (
     <nav
-      style={!isMobileNav ? { display: "flex" } : null}
+      style={isMobileNav ? { display: "flex" } : null}
       className={styles.sideNav}
     >
       <div className={styles.defaultTabs}>
