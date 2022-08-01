@@ -4,7 +4,8 @@ import { inputContext } from "../context/InputHandling";
 import styles from "../styles/modules/addTodo.module.css";
 
 function AddTodo({ resetInputs, setIsOpen, isProject }) {
-  const { handleAddTodo, setIsMobileNav } = useContext(appDataContext);
+  const { handleAddTodo, setIsMobileNav, handleNotificationAnimation } =
+    useContext(appDataContext);
 
   const {
     inputTitle,
@@ -27,6 +28,7 @@ function AddTodo({ resetInputs, setIsOpen, isProject }) {
           resetInputs();
           setIsOpen(false);
           setIsMobileNav(false);
+          handleNotificationAnimation();
         }}
       >
         <div className={styles.topItems}>

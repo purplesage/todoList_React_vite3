@@ -5,14 +5,14 @@
   padding: 50px 0px 0px 60px;
   font-size: 1.6rem;
   border-right: rgb(195, 195, 195) 1px solid;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .projectHeader {
   margin-top: 30px;
   font-size: 1.5rem;
   text-decoration: underline;
-  color: rgb(2, 160, 107)
+  color: rgb(2, 160, 107);
 }
 
 .addButton {
@@ -45,16 +45,15 @@
   text-align: left;
   gap: 10px;
   color: var(--vinotintoNight-color);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   letter-spacing: 1px;
   cursor: pointer;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 .sideNav button:hover {
   color: var(--candyPurple-color);
 }
-
 
 .defaultSpan {
   width: 100px;
@@ -65,8 +64,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:  var(--candyPurple-color);
-  border:var(--candyPurple-color) 1px solid;
+  background-color: var(--candyPurple-color);
+  border: var(--candyPurple-color) 1px solid;
   color: white;
   border-radius: 50%;
   font-weight: normal;
@@ -103,7 +102,6 @@
   to {
     transform: translate(0%);
   }
-  
 }
 
 .signOut {
@@ -116,7 +114,7 @@
 }
 
 .signOut p {
-  font-size: .5em;
+  font-size: 0.5em;
   color: var(--vinotintoNight-color);
   letter-spacing: 3px;
   font-weight: bold;
@@ -140,10 +138,9 @@
     padding: 30px 5px 30px 30px;
     height: 90.5%;
     animation: navAnimation 300ms;
-    animation-timing-function:ease-in;
+    animation-timing-function: ease-in;
     border-left: rgb(195, 195, 195) 2px solid;
   }
-
 
   .defaultSpan {
     width: 100px;

@@ -3,6 +3,7 @@ import List from "./List";
 import { appDataContext } from "../../../context/DataContext";
 import DeleteProject from "../../../components/DeleteProject";
 import styles from "../../../styles/modules/display.module.css";
+import Notification from "../../../components/Notification";
 
 function Display({ isProject, setIsProject }) {
   const {
@@ -14,6 +15,7 @@ function Display({ isProject, setIsProject }) {
     error,
     isLoading,
     requireTabState,
+    notificationDisplay,
   } = useContext(appDataContext);
 
   const handleMissingContent = (error, isLoading) => {
@@ -78,6 +80,8 @@ function Display({ isProject, setIsProject }) {
           }
         />
       )}
+
+      <Notification message={"//Added"} display={notificationDisplay} />
     </div>
   );
 }

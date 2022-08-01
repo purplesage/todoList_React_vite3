@@ -1,0 +1,41 @@
+@keyframes notificationPopUp {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.notification {
+  font-family: "Roboto Condensed", sans-serif;
+  display: none;
+  justify-content: center;
+  background-color: var(--candyGreen-color);
+  color: white;
+  position: absolute;
+  width: 10%;
+  padding: 5px;
+  top: 80%;
+  left: 50%;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  box-shadow: 1px 1px 8px 1px black;
+  font-size: bolder;
+  animation: notificationPopUp 4000ms;
+  animation-timing-function: ease;
+  opacity: 0;
+}
+
+@media (max-width: 500px) {
+  .notification {
+    width: 30%;
+    left: 30%;
+  }
+}

@@ -165,6 +165,15 @@ export default function DataContext({ children, userEmail }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const [isMobileNav, setIsMobileNav] = useState(false);
+  const [notificationDisplay, setNotificationDisplay] = useState(false);
+
+  const handleNotificationAnimation = () => {
+    setNotificationDisplay(true);
+
+    setTimeout(() => {
+      setNotificationDisplay(false);
+    }, 4500);
+  };
 
   //* fetch todoList and projectList on auth state change (see in App.jsx):
   useEffect(() => {
@@ -250,6 +259,8 @@ export default function DataContext({ children, userEmail }) {
         isLoading,
         isMobileNav,
         setIsMobileNav,
+        notificationDisplay,
+        handleNotificationAnimation,
       }}
     >
       {children}
