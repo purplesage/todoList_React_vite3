@@ -95,6 +95,17 @@
   width: 95%;
 }
 
+@keyframes navAnimation {
+  from {
+    transform: translate(100%);
+  }
+
+  to {
+    transform: translate(0%);
+  }
+  
+}
+
 @media (max-width: 500px) {
   .sideNav {
     display: none;
@@ -104,11 +115,12 @@
     right: 0;
     top: 70px;
     padding: 30px 5px 30px 30px;
-    border-left: rgb(195, 195, 195) 1px solid;
-    box-shadow: -1px 1px 30px 1px rgb(51, 51, 51);
-    height: 85%;
-
+    height: 90.5%;
+    animation: navAnimation 300ms;
+    animation-timing-function:ease-in;
+    border-left: rgb(195, 195, 195) 2px solid;
   }
+
 
   .defaultSpan {
     width: 100px;

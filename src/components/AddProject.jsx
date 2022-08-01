@@ -12,6 +12,7 @@ function AddProject({ setIsOpen, setIsProject }) {
     inputRef,
     handleAddProjectTab,
     handleOpenTab,
+    setIsMobileNav,
   } = useContext(appDataContext);
 
   return (
@@ -29,6 +30,7 @@ function AddProject({ setIsOpen, setIsProject }) {
           setIsProject(true);
           setIsOpen(false);
           setProjectInput("");
+          setIsMobileNav(false);
         }}
       >
         <input

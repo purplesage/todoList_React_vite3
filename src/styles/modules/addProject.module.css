@@ -36,3 +36,14 @@
   color:white;
   background-color: var(--candyGreen-color);
 }
+
+@media (max-width: 500px) {
+  .addProjectForm input {
+    width: 95%;
+    font-size: 1rem;
+  }
+
+  .addProjectForm button {
+    font-size: .9rem;
+  }
+}

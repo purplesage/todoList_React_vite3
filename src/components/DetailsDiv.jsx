@@ -13,19 +13,18 @@ export default function DetailsDiv({
   return ReactDOM.createPortal(
     <div className="dark-overlay">
       <div className={styles.detailsDiv}>
+        <CgClose
+          className={styles.exit}
+          type="button"
+          onClick={() => setOpenDetails(false)}
+        />
         <p>
           <span>
             <b>Title:</b>
           </span>{" "}
           {title}
-          <CgClose
-            className={styles.exit}
-            type="button"
-            onClick={() => setOpenDetails(false)}
-          >
-            close
-          </CgClose>
         </p>
+
         <p>
           <span>
             <b>Due Date:</b>

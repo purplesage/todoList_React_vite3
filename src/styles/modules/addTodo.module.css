@@ -100,3 +100,65 @@
   border: rgb(3, 211, 142) 2px solid;
   color: rgb(3, 211, 142);
 }
+
+@media (max-width: 500px) {
+  .topItems input {
+    height: 30px;
+    width: 49vw;
+    font-size: 1rem;
+  }
+
+  .topItems textarea {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    width: 49vw;
+    height: 80px;
+  }
+
+  .bottomItems {
+    font-weight: 500;
+    gap: 10px;
+    margin-top: 1px;
+    font-size: .9rem;
+  }
+
+  .priorityInputs label {
+    margin-right: 5px;
+    font-size: .7rem;
+  }
+
+
+  .priorityInputs p {
+    margin-right: 5px;
+    font-size: .9rem;
+
+  }
+
+  .priorityInputs fieldset {
+    width: 80px;
+  }
+  
+
+  .bottomItems input[type="date"] {
+    width: 60%;
+    height: 25px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    margin-top: 15px;
+  }
+
+  .priorityInputs button {
+    margin-left: 0px;
+    font-size: .8rem;
+    
+  }
+
+  .dateLabel {
+    height: 20%;
+  }
+
+  .dateLabel p {
+    margin-right: 5px;
+  }
+
+}

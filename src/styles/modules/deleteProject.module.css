@@ -32,3 +32,16 @@
   color:white;
   background-color: var(--candyGreen-color);
 }
+
+@media (max-width: 500px) {
+  .deleteProjectDiv h1 {
+    font-size: 2rem;
+    margin-top: 15px;
+  }
+  
+  .deleteProjectDiv p {
+    font-size: 1.3rem;
+  }
+  
+
+}
