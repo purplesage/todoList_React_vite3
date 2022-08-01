@@ -12,6 +12,7 @@ import styles from "../../styles/modules/authSection.module.css";
 
 function AuthSection() {
   const [isUserSigninUp, setIsUserSigninUp] = useState(false);
+  const [isError, setisError] = useState(false);
 
   const SignUpSubmitHandler = async (e) => {
     e.preventDefault();
@@ -22,9 +23,15 @@ function AuthSection() {
 
   const signInSubmitHandler = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    await signInWithEmailAndPassword(auth, email, password);
+
+    try {
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.log(err);
+      setisError(true);
+    }
   };
 
   const signInWithGoogle = async () => {
@@ -45,6 +52,7 @@ function AuthSection() {
           setIsUserSigninUp={setIsUserSigninUp}
           signInSubmitHandler={signInSubmitHandler}
           signInWithGoogle={signInWithGoogle}
+          isError={isError}
         />
       ) : (
         <SignUp
