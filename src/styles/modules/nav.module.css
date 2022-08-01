@@ -130,13 +130,13 @@
 @media (max-width: 500px) {
   .sideNav {
     display: none;
-    position: absolute;
+    position: fixed;
     width: 70%;
     z-index: 30;
     right: 0;
     top: 70px;
     padding: 30px 5px 30px 30px;
-    height: 90.5%;
+    height: 95%;
     animation: navAnimation 300ms;
     animation-timing-function: ease-in;
     border-left: rgb(195, 195, 195) 2px solid;

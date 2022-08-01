@@ -3,10 +3,11 @@
   height: 100vh;
   display: grid;
   grid-template: 70px 1fr / 325px 1fr;
+  overflow: hidden;
 }
 
 @media (max-width: 500px) {
   .todoSection {
-  grid-template: 70px 1fr / 1fr;
+    grid-template: 70px 1fr / 1fr;
   }
 }
