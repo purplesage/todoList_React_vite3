@@ -3,6 +3,7 @@ import { appDataContext } from "../context/DataContext";
 import ProjectButton from "./ProjectButton";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "../styles/modules/nav.module.css";
+import SignOut from "./SignOut";
 
 export default function Nav({ setIsOpen, isOpen, setIsProject }) {
   const {
@@ -126,6 +127,12 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
         type="button"
         onClick={() => delayedOpen()}
       />
+
+      {isMobileNav && (
+        <div className={styles.signOut}>
+          <SignOut /> <p>Sign Out</p>
+        </div>
+      )}
     </nav>
   );
 }

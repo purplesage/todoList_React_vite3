@@ -1,10 +1,8 @@
 import React from "react";
 import { BsJournalCheck } from "react-icons/bs";
-import { signOut } from "firebase/auth";
-import { ImExit } from "react-icons/im";
-import { auth } from "../util/firebaseConfig";
 import styles from "../styles/modules/header.module.css";
 import MenuButton from "./MenuButton";
+import SignOut from "./SignOut";
 
 export default function Header() {
   return (
@@ -14,18 +12,24 @@ export default function Header() {
       </h1>
 
       <div className={styles.leftItems}>
-        <ImExit
-          className={styles.exit}
-          type="button"
-          onClick={() => {
-            signOut(auth);
-            //refreshes the page after signout.
-            window.location.reload(false);
-          }}
-        />
+        <SignOut className={styles.exit} />
         <p>Sign out</p>
       </div>
       <MenuButton className={styles.menuButton} />
     </header>
+  );
+}
+
+function ExitButton({ signOut, auth }) {
+  return (
+    <ImExit
+      className={styles.exit}
+      type="button"
+      onClick={() => {
+        signOut(auth); //refreshes the page after signout.
+
+        window.location.reload(false);
+      }}
+    />
   );
 }
