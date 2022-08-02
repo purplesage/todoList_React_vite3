@@ -1,29 +1,28 @@
 @keyframes popUpAnimation {
   from {
-    transform: scale(0)
+    transform: scale(0);
   }
 
   to {
-    transform: scale(1)
+    transform: scale(1);
   }
 }
-
 
 .detailsDiv {
   background-color: var(--whitePink-color);
   border-radius: 3px;
-  border:var(--candyPurple-color) 5px dashed;
+  border: var(--candyPurple-color) 5px dashed;
   color: black;
   width: 450px;
   height: 250px;
   display: flex;
   flex-direction: column;
   z-index: 100;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.1rem;
   padding: 15px;
   gap: 10px;
-  color:var(--vinotintoNight-color);
+  color: var(--vinotintoNight-color);
   box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
   animation: popUpAnimation 350ms;
 }
@@ -37,7 +36,7 @@
 }
 
 .detailsP {
-  display: box;
+  display: flex;
   overflow-wrap: break-word;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -54,11 +53,8 @@
 }
 
 .exit:hover {
-  color:var(--candyGreen-color);
+  color: var(--candyGreen-color);
 }
-
-
-
 
 @media (max-width: 500px) {
   .detailsDiv {
@@ -67,10 +63,10 @@
     display: flex;
     flex-direction: column;
     z-index: 100;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 1.1rem;
     padding: 30px 30px 15px 15px;
-    color:var(--vinotintoNight-color);
+    color: var(--vinotintoNight-color);
     box-shadow: 2px 2px 20px 1px rgb(51, 51, 51);
   }
 
