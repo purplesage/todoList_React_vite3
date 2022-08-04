@@ -4,7 +4,7 @@ import { appDataContext } from "../../../context/DataContext";
 import DeleteProject from "../../../components/DeleteProject";
 import styles from "../../../styles/modules/display.module.css";
 import Notification from "../../../components/Notification";
-
+import StorageList from "../../../components/StorageList";
 function Display({ isProject, setIsProject }) {
   const {
     todoList,
@@ -16,6 +16,7 @@ function Display({ isProject, setIsProject }) {
     isLoading,
     requireTabState,
     notificationDisplay,
+    storageList,
   } = useContext(appDataContext);
 
   const handleMissingContent = (error, isLoading) => {
@@ -79,6 +80,10 @@ function Display({ isProject, setIsProject }) {
             />
           }
         />
+      )}
+
+      {requireTabState("storages21133") && (
+        <StorageList list={storageList} emptyMessage={"storage is empty"} />
       )}
 
       <Notification message={"//Added"} display={notificationDisplay} />

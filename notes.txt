@@ -1,0 +1,183 @@
+Here in this document are written all the things which i learned from making this project.
+I'll follow the flow of the app, trying to explain how everything works.
+
+1-. Upon entering the app, the user first encounters the auth (or login) section. (see in routes/login). In it, everything concerning firebase auth is implemented.
+
+Looking into AuthSection.jsx we may find three very interesting things:
+
+  a-. createUserWithEmailAndPassword(): this function is imported from firebase/auth. It is used to create an user and save it into the auth section in the firebase console. It takes three arguments. The auth of the app (see in firebaseConfig.js), an email string and a password string.
+
+  For this project i learned that you can actually refer to the value of an input inside a form element from the form values itself.
+
+  In order to do so we take the 'target' property of the 'e' object of a form, and then we refer to the id of the input we wish to extract the value from. For example:
+
+  const email = e.target.email.value;
+
+  b-. signInWithEmailAndPassword() takes the same arguments as createUserWithEmailAndPassword(), the function's name is very specific as to what it does.
+
+  c-.signInWithPopup() specifies a way of signin in with a custom provider (such as google). In this case it allows the user to sign using a pop up that shows a google sign in interface which will be used to authorize a person to enter the app. This function takes two arguments: the app's auth and the specific provider we wish to use. (see in firebaseConfig.js);
+
+  d-. when styling my app with scss i quickly realized that i had created an entire mess of a jungle of css which was incredibly confusing since all the css was written in a single file which contained elements nested into elements nested into elements... and so on. So i looked for a way to actually manage my css in a more, well, 'managable' way. I found out that it was possible to create css 'modules' which allowed me to abstract the styling of each component into a single file. This made the css very easy to read and to refactor/mantain.
+
+  In order to do so i created a css element which contained the 'module' keyword in it's name, as such:
+
+  "someComponent.module.css"
+
+  Techincally, the 'module' keyword is not necessary, because vite actually bundles every single css file in the project into a single file. The module keyword is used to 'tell' css that each class must be prefixed with a random string, so as to prevent duplicate classes, which would cause bugs to happen in the styling.
+
+  Thus, in order to use these classes in our components we must refer to them as such:
+
+  first, we import the css module into our component file.
+
+  second, when writing an element's class we must use curvy brackets and then refer to the name of the import followed by the name of the class, for example, if we import our css file as 'styles' (which is a convention name), then we implement our classes as such:
+
+      <div className={styles.logo}>
+
+
+After the user signs up then the app is finally rendered. It contains the rest of the components used in the app.
+
+Here i will write something about every single one of them:
+
+First, i must talk about the app component itself.
+
+In it, it is determined whether a user has succesfully logged in. This is done by using the onAuthStateChanged() function (imported from firebase/auth).
+
+This function allows us to determine what the app does in case that the user has succesfully logged in.
+
+In this case what my app does is change the state of a useState hook called 'globalUser', by passing it the argument 'user' from the onAuthStateChanged() function itself. This function needs the 'auth' in order to work. the user argument is passed by a callback arrow function. (see App.jsx)
+
+Once a 'global' user is detected, it is passed to a context provider component called 'Data Context'. Although not the whole 'user' object is passed, but only it's "email" property, which is a string.
+
+Then, the existence of a globalUser (or lack thereof) conditionally renders either the AuthSection component, or the TodoApp component.
+
+TodoApp.jsx: 
+
+  This component is used to determine the app's layout and implements the "InputHandling" context provider for the elements which are going to be using it.
+
+  In it we find two useState hooks:
+
+  "isOpen" (used to handle the display of the "AddForm" component) 
+
+  "isProject" (used to determine whether the user is currently in a project list section, so as to determine if a todo element belongs to a project or not)
+
+  In TodoApp.jsx we find the next elements:
+
+
+  1-. Header
+
+    --In it lays the elements that form the header logo and app's name. But also the SignOut button, and the menu button (for the mobile version).
+
+    a-. SignOut: it implements the signOut() function, which is imported from firebase/auth. It takes the "auth" as argument and it simply signs the user out.
+
+    As a caveat, i learned a way to force refresh the page: 
+
+    window.location.reload(false);
+
+    This is done to reset all the states which where changed during the user's interaction with the app.
+
+    b-. MenuButton: In the mobile version of the app, this button is rendered and used in order to show the Nav element.
+
+  2-. Nav
+
+    --in it are displayed the buttons which, on pressing, will determine which kind of 'todo' element will be displayed in the 'Display' element. Also the special 'Project Button' which works the same way, but is rendered dynamically upon project creation.
+
+    This special button probably contains the most clever part of the entire app. Although being clever (in my own opinion) doesn't mean that it is complicated.
+
+    On click, it changes the state of the tabs to false (see tabReducer in DataContext.jsx), except the tab that refers to the project, so as to conditionally render the todos that pertain to that project.
+
+
+  3-. Display
+
+  conditionally renders todos depending on which tab is selected.
+
+  4-. AddForm (conditionally rendered)
+
+
+
+  5-. InputHandling (context provider).
+
+
+
+  -----------------------------------------------
+
+  Technologies used:
+
+  a-.react/js/jsx
+
+    1-.useState
+    2-. useContext
+    3-. ReactDOM.createPortal
+    4-. Conditional rendering
+    5-. prop drilling.
+    6-. react icons.
+    7-. ternary operator.
+    8-. short cirtuiting.
+    9-. array methods (filter, map).
+    10-.IIFE's.
+    11-. useRef
+    12-. page refresh
+    13-. date formatting, format()
+    14-. list rendering
+    15-. createContext1
+    16-. useReducer
+    17-.useEffect
+    18-.date-fns related stuff
+    19-. uuid
+    20-. reducer function.
+    21-. reducer dispatch functions.
+    22-. async/await
+    23-. working with state as input.
+
+  b-. css: 
+  
+    1-. css modules.
+    2-. @keyframes. (animation)
+    3-. @media. (responsiveness)
+    4-. transform.
+    5-. overlay.
+
+  c-. html:
+
+    1-. fieldset
+    2-. label
+    3-. text input
+    4-. date input
+    5-. checkbox input
+    6-. radio input
+    7-. some semantic elements.
+    8-. button types.
+    9-. inline styling
+    10-. form input value
+
+  d-. firebase:
+
+   1-. general congig.
+   2-. firebase/auth
+   3-. firestore (backend/database).
+   4-. hosting
+   5-. signOut()
+   6-.createUserWithEmailAndPassword()
+   7-.signInWithEmailAndPassword()
+   8-.signInWithPopup
+   9-. doc
+   10-. getDoc
+   11-. setDoc
+   12-. updateDoc
+   13-. firebaseConfig
+   14-. initializeApp()
+   15-. getFirestore()
+   16-. getAuth
+   17-. new GoogleAuthProvider()
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,11 +9,13 @@ import format from "date-fns/format";
 import isThisWeek from "date-fns/esm/isThisWeek/index";
 import parseISO from "date-fns/esm/fp/parseISO/index";
 import { v4 as uuid } from "uuid";
-import { dataBase } from "../util/firebaseConfig";
+import { dataBase, storage } from "../util/firebaseConfig";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { ref, uploadBytes, listAll } from "firebase/storage";
 
 export const appDataContext = createContext({});
 
+//* TODO state logic
 export default function DataContext({ children, userEmail }) {
   const todoListReducer = (state, action) => {
     switch (action.type) {
@@ -115,6 +117,69 @@ export default function DataContext({ children, userEmail }) {
     setProjectList(projectList.filter((project) => project.id !== id));
   };
 
+  //* storageS state logic-----------------------------
+  const [storageTitleInput, setstorageTitleInput] = useState("");
+  const [storageFileInput, setstorageFileInput] = useState("");
+
+  const storagesReducer = (state, action) => {
+    switch (action.type) {
+      case "add_storage": {
+        return [...state, action.newstorage];
+      }
+
+      case "delete_storage": {
+        return state.filter((storageObject) => storageObject.id !== action.id);
+      }
+
+      case "load_storageList": {
+        return [...action.storageList];
+      }
+    }
+  };
+
+  /* const uploadToStorage = async (newstorage) => {
+    if (!newstorage) return;
+    const fileRef = ref(
+      storage,
+      `users/${userEmail}_files/${newstorage[1].title}/${newstorage[0].file.name}`
+    );
+    await uploadBytes(fileRef, newstorage[0]);
+  }; */
+
+  const handleLoadstorageList = (storageList) => {
+    storagesDispatcher({ type: "load_storageList", storageList });
+  };
+
+  const handleAddstorage = (newstorage) => {
+    storagesDispatcher({ type: "add_storage", newstorage });
+    /* uploadToStorage(newstorage[0]); */
+  };
+
+  const handleDeletestorage = (id) => {
+    storagesDispatcher({ type: "delete_storage", id });
+  };
+
+  const [storageList, storagesDispatcher] = useReducer(storagesReducer, []);
+
+  //! fetch storage files links on user authentication test.
+
+  // useEffect(() => {
+  //   listAll(ref(storage, `${userEmail}_files`))
+  // });
+
+  //! update storages in firebase on state change
+
+  useEffect(() => {
+    const updatestorageList = async () => {
+      const docRef = doc(dataBase, `users/${userEmail}`);
+      await updateDoc(docRef, { storageList });
+    };
+
+    if (!isLoading) {
+      updatestorageList();
+    }
+  });
+
   //* tab styling logic-------------------------
   function tabReducer(state, action) {
     switch (action.type) {
@@ -150,6 +215,7 @@ export default function DataContext({ children, userEmail }) {
     { name: "home21133", state: true },
     { name: "today21133", state: false },
     { name: "week21133", state: false },
+    { name: "storages21133", state: false },
   ]);
 
   function requireTabState(tabName) {
@@ -188,6 +254,7 @@ export default function DataContext({ children, userEmail }) {
             const docInfo = checkDocExistence.data();
             handleLoadTodos(docInfo.todoList);
             setProjectList(docInfo.projectList);
+            handleLoadstorageList(docInfo.storageList);
             docInfo.projectList.forEach((projectObject) => {
               handleAddProjectTab(projectObject.value, true);
             });
@@ -195,6 +262,7 @@ export default function DataContext({ children, userEmail }) {
             await setDoc(docRef, {
               todoList: [],
               projectList: [],
+              storageList: [],
             });
           }
           setIsLoading(false);
@@ -261,6 +329,13 @@ export default function DataContext({ children, userEmail }) {
         setIsMobileNav,
         notificationDisplay,
         handleNotificationAnimation,
+        storageList,
+        handleAddstorage,
+        storageTitleInput,
+        setstorageTitleInput,
+        storageFileInput,
+        setstorageFileInput,
+        handleDeletestorage,
       }}
     >
       {children}

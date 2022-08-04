@@ -1,0 +1,22 @@
+.storageGrid {
+  display: grid;
+  gap: 5px;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+.storageGrid li:nth-child(odd) {
+  background: var(--whiteGreen-color);
+  border: var(--candyGreen-color) dashed 3px;
+  color: var(--candyGreen-color);
+}
+
+.storageGrid li:hover {
+  box-shadow: 1px 1px 5px 1px rgb(78, 78, 78);
+  transform: scale(1.1);
+}
+
+.storageGrid li:nth-child(even) {
+  background: var(--whitePink-color);
+  border: var(--candyPurple-color) dashed 3px;
+  color: var(--vinotintoNight-color);
+}

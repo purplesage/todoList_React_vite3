@@ -19,17 +19,3 @@ export default function Header() {
     </header>
   );
 }
-
-function ExitButton({ signOut, auth }) {
-  return (
-    <ImExit
-      className={styles.exit}
-      type="button"
-      onClick={() => {
-        signOut(auth); //refreshes the page after signout.
-
-        window.location.reload(false);
-      }}
-    />
-  );
-}

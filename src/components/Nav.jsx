@@ -106,6 +106,28 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
             <p className={styles.number}>{thisWeekLength}</p>
           )}
         </button>
+
+        <button
+          type="button"
+          style={tabIsSelectedStyle("storages21133")}
+          onClick={() => {
+            setIsProject(false);
+            handleOpenTab("storages21133");
+          }}
+        >
+          {requireTabState("storages21133") ? (
+            <span className={styles.defaultSpan}>
+              <p>// Storage</p>
+            </span>
+          ) : (
+            <span className={styles.defaultSpan}>
+              <p>Storage</p>
+            </span>
+          )}
+          {/* {thisWeekLength > 0 && (
+            <p className={styles.number}>{thisWeekLength}</p>
+          )} */}
+        </button>
       </div>
 
       <p className={styles.projectHeader}>Projects:</p>
