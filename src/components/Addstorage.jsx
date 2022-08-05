@@ -16,11 +16,13 @@ function Addstorage({ setIsOpen }) {
     return {
       id: uuid(),
       title: storageTitleInput,
+      notes: [],
+      files: [],
     };
   };
+
   return (
     <form
-      action="/action_page.php"
       onSubmit={(e) => {
         e.preventDefault();
         handleAddstorage(newstorage());

@@ -6,6 +6,7 @@
   grid-template: 60px 1fr / 1fr;
   width: 100%;
   height: 100vh;
+  background: var(--whitePink-color);
 }
 
 .storageGrid h1 {
@@ -22,8 +23,16 @@
   border: purple 3px solid;
 }
 
-.storageBody {
+.storageBodyGrid {
   width: 100%;
   height: 100%;
-  background-color: red;
+  display: grid;
+  grid-template: auto / auto;
+}
+
+.note {
+  background: red;
+  color: white;
+  width: 100px;
+  height: 100px;
 }

@@ -134,6 +134,30 @@ export default function DataContext({ children, userEmail }) {
       case "load_storageList": {
         return [...action.storageList];
       }
+
+      case "add_note": {
+        return state.map((storageObject) =>
+          storageObject.id === action.id
+            ? {
+                ...storageObject,
+                notes: [...storageObject.notes, action.newNote],
+              }
+            : storageObject
+        );
+      }
+
+      case "delete_note": {
+        return state.map((storageObject) =>
+          storageObject.id === action.storageID
+            ? {
+                ...storageObject,
+                notes: storageObject.notes.filter(
+                  (note) => note.id !== action.noteID
+                ),
+              }
+            : storageObject
+        );
+      }
     }
   };
 
@@ -145,6 +169,14 @@ export default function DataContext({ children, userEmail }) {
     );
     await uploadBytes(fileRef, newstorage[0]);
   }; */
+
+  const handleDeleteNote = (noteID, storageID) => {
+    storagesDispatcher({ type: "delete_note", noteID, storageID });
+  };
+
+  const handleAddNote = (id, newNote) => {
+    storagesDispatcher({ type: "add_note", id, newNote });
+  };
 
   const handleLoadstorageList = (storageList) => {
     storagesDispatcher({ type: "load_storageList", storageList });
@@ -336,6 +368,8 @@ export default function DataContext({ children, userEmail }) {
         storageFileInput,
         setstorageFileInput,
         handleDeletestorage,
+        handleAddNote,
+        handleDeleteNote,
       }}
     >
       {children}
