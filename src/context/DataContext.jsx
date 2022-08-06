@@ -11,7 +11,7 @@ import parseISO from "date-fns/esm/fp/parseISO/index";
 import { v4 as uuid } from "uuid";
 import { dataBase, storage } from "../util/firebaseConfig";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, listAll } from "firebase/storage";
+import { ref, uploadBytes, listAll, getBytes } from "firebase/storage";
 
 export const appDataContext = createContext({});
 
@@ -158,17 +158,43 @@ export default function DataContext({ children, userEmail }) {
             : storageObject
         );
       }
+
+      case "add_file": {
+        return state.map((storageObject) =>
+          storageObject.id === action.id
+            ? {
+                ...storageObject,
+                files: [...storageObject.files, action.newFile],
+              }
+            : storageObject
+        );
+      }
     }
   };
 
-  /* const uploadToStorage = async (newstorage) => {
-    if (!newstorage) return;
+  const uploadToStorage = async (fileObject, storageName) => {
+    if (!fileObject) return;
     const fileRef = ref(
       storage,
-      `users/${userEmail}_files/${newstorage[1].title}/${newstorage[0].file.name}`
+      `users/${userEmail}_files/${storageName}/${fileObject.title}/${fileObject.name}`
     );
-    await uploadBytes(fileRef, newstorage[0]);
-  }; */
+    await uploadBytes(fileRef, fileObject.file);
+  };
+
+  const handleAddFile = (id, newFile) => {
+    storagesDispatcher({ type: "add_file", id, newFile });
+  };
+
+  //! fetch storage files links on user authentication test.
+
+  const fetchFile = async (storageName, fileTitle) => {
+    const fileRef = ref(
+      storage,
+      `users/${userEmail}_files/${storageName}/${fileTitle}`
+    );
+
+    const fetch = await getBytes(fileRef);
+  };
 
   const handleDeleteNote = (noteID, storageID) => {
     storagesDispatcher({ type: "delete_note", noteID, storageID });
@@ -184,7 +210,6 @@ export default function DataContext({ children, userEmail }) {
 
   const handleAddstorage = (newstorage) => {
     storagesDispatcher({ type: "add_storage", newstorage });
-    /* uploadToStorage(newstorage[0]); */
   };
 
   const handleDeletestorage = (id) => {
@@ -193,13 +218,7 @@ export default function DataContext({ children, userEmail }) {
 
   const [storageList, storagesDispatcher] = useReducer(storagesReducer, []);
 
-  //! fetch storage files links on user authentication test.
-
-  // useEffect(() => {
-  //   listAll(ref(storage, `${userEmail}_files`))
-  // });
-
-  //! update storages in firebase on state change
+  //* update storages in firebase on state change
 
   useEffect(() => {
     const updatestorageList = async () => {
@@ -210,7 +229,7 @@ export default function DataContext({ children, userEmail }) {
     if (!isLoading) {
       updatestorageList();
     }
-  });
+  }, [storageList]);
 
   //* tab styling logic-------------------------
   function tabReducer(state, action) {
@@ -370,6 +389,8 @@ export default function DataContext({ children, userEmail }) {
         handleDeletestorage,
         handleAddNote,
         handleDeleteNote,
+        uploadToStorage,
+        handleAddFile,
       }}
     >
       {children}

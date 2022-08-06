@@ -1,0 +1,12 @@
+.addNote {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 35vw;
+  width: 400px;
+  height: 200px;
+  background-color: blueviolet;
+  z-index: 1000;
+  outline: red 2px solid;
+}

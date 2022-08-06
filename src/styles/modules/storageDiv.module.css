@@ -1,8 +1,9 @@
 .storage {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   width: fit-content;
-  padding: 0.7rem;
+  padding: 0.5rem;
+
   /* background: var(--whiteGreen-color);
   border: dashed 3px var(--candyGreen-color); */
 }

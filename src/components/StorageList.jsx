@@ -11,7 +11,7 @@ function storageList({ list, emptyMessage }) {
               key={listObject.id}
               id={listObject.id}
               title={listObject.title}
-              file={listObject.file}
+              files={listObject.files}
               notes={listObject.notes}
             />
           ))

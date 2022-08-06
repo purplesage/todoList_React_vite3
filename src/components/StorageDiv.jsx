@@ -4,7 +4,7 @@ import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/storageDiv.module.css";
 import Storagebody from "./Storagebody";
 
-function StorageDiv({ id, title, file, notes }) {
+function StorageDiv({ id, title, files, notes }) {
   const { handleDeletestorage } = useContext(appDataContext);
   const [showFile, setShowFile] = useState(null);
 
@@ -18,11 +18,11 @@ function StorageDiv({ id, title, file, notes }) {
       </div>
       {showFile && (
         <Storagebody
-          fileSrc={file}
           title={title}
           showFile={showFile}
           setShowFile={setShowFile}
           notes={notes}
+          files={files}
           id={id}
         />
       )}

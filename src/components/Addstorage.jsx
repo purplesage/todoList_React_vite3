@@ -42,13 +42,6 @@ function Addstorage({ setIsOpen }) {
         onChange={(e) => setstorageTitleInput(e.target.value)}
       />
 
-      <input
-        type="file"
-        name="file-input"
-        id="file-input"
-        onChange={(e) => setstorageFileInput(e.target.files[0])}
-      />
-
       <button type="submit">add storage</button>
     </form>
   );

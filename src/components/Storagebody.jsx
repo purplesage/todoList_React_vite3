@@ -3,17 +3,14 @@ import styles from "../styles/modules/storageBody.module.css";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
 import { appDataContext } from "../context/DataContext";
-import { v4 as uuid } from "uuid";
+import AddNoteForm from "./AddNoteForm";
+import AddFileForm from "./AddFileForm";
 
-function storagebody({ notes, title, setShowFile, showFile, id }) {
-  const [noteTitle, setNoteTitle] = useState("");
-  const [noteBody, setNoteBody] = useState("");
+function storagebody({ notes, title, setShowFile, showFile, id, files }) {
+  const [showNoteInputs, setShowNoteInputs] = useState(false);
+  const [showFileInputs, setShowFileInputs] = useState(false);
 
-  const { handleAddNote, handleDeleteNote } = useContext(appDataContext);
-
-  const newNote = () => {
-    return { title: noteTitle, body: noteBody, id: uuid() };
-  };
+  const { handleDeleteNote } = useContext(appDataContext);
 
   return ReactDOM.createPortal(
     <div className={styles.storageGrid}>
@@ -23,7 +20,6 @@ function storagebody({ notes, title, setShowFile, showFile, id }) {
           type="button"
           onClick={() => {
             setShowFile(false);
-            console.log("from fileDiv", showFile);
           }}
         >
           <CgClose />
@@ -44,32 +40,44 @@ function storagebody({ notes, title, setShowFile, showFile, id }) {
             </div>
           ))}
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleAddNote(id, newNote());
-        }}
-        className="add"
-      >
-        <input
-          value={noteTitle}
-          onChange={(e) => setNoteTitle(e.target.value)}
-          placeholder="Note title:"
-          type="text"
-          name="note-title"
-          id="note-title"
-        />
-        <textarea
-          value={noteBody}
-          onChange={(e) => setNoteBody(e.target.value)}
-          placeholder="Note body:"
-          name="noteBody"
-          id="noteBody"
-          cols="30"
-          rows="10"
-        ></textarea>
-        <button type="submit">add note</button>
-      </form>
+
+      <div className={styles.storageBodyGrid}>
+        {files.length > 0 &&
+          files.map((fileObject) => (
+            <div key={fileObject.id} className={styles.note}>
+              <h2>{fileObject.title}</h2>
+              <h2>{fileObject.name}</h2>
+
+              {/* <p>{noteObject.body}</p>
+              <button
+                type="button"
+                onClick={() => handleDeleteNote(noteObject.id, id)}
+              >
+                delete note
+              </button> */}
+            </div>
+          ))}
+      </div>
+
+      <div className={styles.filesDiv}>
+        <button type="button" onClick={() => setShowNoteInputs(true)}>
+          open-N-inputs
+        </button>
+        <button type="button" onClick={() => setShowFileInputs(true)}>
+          open-F-inputs
+        </button>
+        {showNoteInputs && (
+          <AddNoteForm id={id} setShowNoteInputs={setShowNoteInputs} />
+        )}
+
+        {showFileInputs && (
+          <AddFileForm
+            setShowFileInputs={setShowFileInputs}
+            title={title}
+            id={id}
+          />
+        )}
+      </div>
     </div>,
     document.getElementById("portal")
   );
