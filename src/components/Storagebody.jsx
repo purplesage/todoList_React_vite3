@@ -5,6 +5,7 @@ import { CgClose } from "react-icons/cg";
 import { appDataContext } from "../context/DataContext";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
+import File from "./File";
 
 function storagebody({ notes, title, setShowFile, showFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
@@ -45,15 +46,30 @@ function storagebody({ notes, title, setShowFile, showFile, id, files }) {
         {files.length > 0 &&
           files.map((fileObject) => (
             <div key={fileObject.id} className={styles.note}>
-              <h2>{fileObject.title}</h2>
+              <File
+                fileTitle={fileObject.title}
+                fileName={fileObject.name}
+                storageTitle={title}
+                storageId={id}
+                fileId={fileObject.id}
+              />
+              {/* <h2>{fileObject.title}</h2>
               <h2>{fileObject.name}</h2>
-
-              {/* <p>{noteObject.body}</p>
+              {isEmbedOpen && <iframe src={fetchFileUrl}>link test </iframe>}
               <button
                 type="button"
-                onClick={() => handleDeleteNote(noteObject.id, id)}
+                onClick={() => {
+                  setIsEmbedOpen(true);
+                  fetchFile(title, fileObject.title, fileObject.name);
+                }}
               >
-                delete note
+                open embed
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDeleteFile(fileObject.id, id)}
+              >
+                delete
               </button> */}
             </div>
           ))}

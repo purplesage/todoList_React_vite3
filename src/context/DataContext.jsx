@@ -11,7 +11,12 @@ import parseISO from "date-fns/esm/fp/parseISO/index";
 import { v4 as uuid } from "uuid";
 import { dataBase, storage } from "../util/firebaseConfig";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, listAll, getBytes } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
 export const appDataContext = createContext({});
 
@@ -169,6 +174,19 @@ export default function DataContext({ children, userEmail }) {
             : storageObject
         );
       }
+
+      case "delete_file": {
+        return state.map((storageObject) =>
+          storageObject.id === action.storageID
+            ? {
+                ...storageObject,
+                files: storageObject.files.filter(
+                  (file) => file.id !== action.fileID
+                ),
+              }
+            : storageObject
+        );
+      }
     }
   };
 
@@ -185,15 +203,33 @@ export default function DataContext({ children, userEmail }) {
     storagesDispatcher({ type: "add_file", id, newFile });
   };
 
+  const handleDeleteFile = (fileID, storageID) => {
+    storagesDispatcher({ type: "delete_file", fileID, storageID });
+  };
+
   //! fetch storage files links on user authentication test.
 
-  const fetchFile = async (storageName, fileTitle) => {
+  // const [fetchFileUrl, setFetchFileUrl] = useState("");
+
+  const fileRef = (storageTitle, fileTitle, fileName) => {
     const fileRef = ref(
       storage,
-      `users/${userEmail}_files/${storageName}/${fileTitle}`
+      `users/${userEmail}_files/${storageTitle}/${fileTitle}/${fileName}`
     );
+    return fileRef;
+  };
 
-    const fetch = await getBytes(fileRef);
+  const fetchFile = async (storageTitle, fileTitle, fileName, setUrlState) => {
+    const file_ref = fileRef(storageTitle, fileTitle, fileName);
+
+    const fetchFileUrl = await getDownloadURL(file_ref);
+    setUrlState(fetchFileUrl);
+  };
+
+  const deleteFileFromStorage = async (storageTitle, fileTitle, fileName) => {
+    const file_ref = fileRef(storageTitle, fileTitle, fileName);
+
+    await deleteObject(file_ref);
   };
 
   const handleDeleteNote = (noteID, storageID) => {
@@ -391,6 +427,9 @@ export default function DataContext({ children, userEmail }) {
         handleDeleteNote,
         uploadToStorage,
         handleAddFile,
+        fetchFile,
+        handleDeleteFile,
+        deleteFileFromStorage,
       }}
     >
       {children}
