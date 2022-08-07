@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { appDataContext } from "../context/DataContext";
+import FileEmbed from "./FileEmbed";
 
 function File({ fileTitle, fileName, storageTitle, storageId, fileId }) {
   const [isEmbedOpen, setIsEmbedOpen] = useState(false);
@@ -12,7 +13,8 @@ function File({ fileTitle, fileName, storageTitle, storageId, fileId }) {
     <>
       <h2>{fileTitle}</h2>
       <h2>{fileName}</h2>
-      {isEmbedOpen && <iframe src={fetchFileUrl}>link test </iframe>}
+      <FileEmbed isEmbedOpen={isEmbedOpen} fetchFileUrl={fetchFileUrl} />
+      {/* {isEmbedOpen && <iframe src={fetchFileUrl}>link test </iframe>} */}
       <button
         type="button"
         onClick={() => {

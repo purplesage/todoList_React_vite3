@@ -7,7 +7,7 @@ import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
 import File from "./File";
 
-function storagebody({ notes, title, setShowFile, showFile, id, files }) {
+function storagebody({ notes, title, setShowFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
   const [showFileInputs, setShowFileInputs] = useState(false);
 
@@ -30,7 +30,7 @@ function storagebody({ notes, title, setShowFile, showFile, id, files }) {
         {notes.length > 0 &&
           notes.map((noteObject) => (
             <div key={noteObject.id} className={styles.note}>
-              <h2>{noteObject.title}</h2>
+              <h2>{noteObject.title}:</h2>
               <p>{noteObject.body}</p>
               <button
                 type="button"
