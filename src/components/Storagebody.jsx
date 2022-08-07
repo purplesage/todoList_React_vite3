@@ -27,7 +27,7 @@ function storagebody({ notes, title, setShowFile, id, files }) {
           <CgClose />
         </button>
       </h1>
-      <div className={styles.storageBodyGrid}>
+      <div className={styles.storageBodyNoteGrid}>
         <Masonry
           columns={4}
           spacing={2} /* className={styles.storageBodyGrid} */
@@ -50,37 +50,25 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </Masonry>
       </div>
 
-      <div>
-        {files.length > 0 &&
+      <div className={styles.storageBodyFileGrid}>
+        <h1>Folder Storage:</h1>
+        {files.length > 0 ? (
           files.map((fileObject) => (
-            <div key={fileObject.id} className={styles.note}>
+            <div key={fileObject.id} className={styles.file}>
               <File
                 fileTitle={fileObject.title}
                 fileName={fileObject.name}
                 storageTitle={title}
                 storageId={id}
                 fileId={fileObject.id}
+                embedClass={styles.embedFile}
+                embedGridClass={styles.embedGrid}
               />
-              {/* <h2>{fileObject.title}</h2>
-              <h2>{fileObject.name}</h2>
-              {isEmbedOpen && <iframe src={fetchFileUrl}>link test </iframe>}
-              <button
-                type="button"
-                onClick={() => {
-                  setIsEmbedOpen(true);
-                  fetchFile(title, fileObject.title, fileObject.name);
-                }}
-              >
-                open embed
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDeleteFile(fileObject.id, id)}
-              >
-                delete
-              </button> */}
             </div>
-          ))}
+          ))
+        ) : (
+          <p className={styles.emptyMessage}>Empty</p>
+        )}
       </div>
 
       <div className={styles.filesDiv}>

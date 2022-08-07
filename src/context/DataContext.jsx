@@ -254,7 +254,7 @@ export default function DataContext({ children, userEmail }) {
 
   const [storageList, storagesDispatcher] = useReducer(storagesReducer, []);
 
-  //* update storages in firebase on state change
+  //* update storageList in firebase on state change
 
   useEffect(() => {
     const updatestorageList = async () => {
