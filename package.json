@@ -13,6 +13,7 @@
     "@babel/core": "^7.18.2",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@mui/lab": "^5.0.0-alpha.93",
     "@mui/material": "^5.9.3",
     "babel-loader": "^8.2.5",
     "colcade": "^0.2.0",

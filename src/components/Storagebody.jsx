@@ -6,6 +6,7 @@ import { appDataContext } from "../context/DataContext";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
 import File from "./File";
+import Masonry from "@mui/lab/Masonry";
 
 function storagebody({ notes, title, setShowFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
@@ -27,22 +28,29 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </button>
       </h1>
       <div className={styles.storageBodyGrid}>
-        {notes.length > 0 &&
-          notes.map((noteObject) => (
-            <div key={noteObject.id} className={styles.note}>
-              <h2>{noteObject.title}:</h2>
-              <p>{noteObject.body}</p>
-              <button
-                type="button"
-                onClick={() => handleDeleteNote(noteObject.id, id)}
-              >
-                delete note
-              </button>
-            </div>
-          ))}
+        <Masonry
+          columns={4}
+          spacing={2} /* className={styles.storageBodyGrid} */
+        >
+          {notes.length > 0 &&
+            notes.map((noteObject) => (
+              <div key={noteObject.id} className={styles.note}>
+                <div className={styles.noteTitleDiv}>
+                  <h2>{noteObject.title}</h2>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteNote(noteObject.id, id)}
+                  >
+                    <CgClose />
+                  </button>
+                </div>
+                <p>{noteObject.body}</p>
+              </div>
+            ))}
+        </Masonry>
       </div>
 
-      <div className={styles.storageBodyGrid}>
+      <div>
         {files.length > 0 &&
           files.map((fileObject) => (
             <div key={fileObject.id} className={styles.note}>

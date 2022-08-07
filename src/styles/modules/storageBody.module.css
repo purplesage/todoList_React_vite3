@@ -26,12 +26,11 @@
 
 .storageBodyGrid {
   width: 100%;
-  height: 100%;
-  display: grid;
-  padding: 50px;
-  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-  gap: 15px;
+  height: 70%;
+  padding: 15px 0 15px 15px;
   overflow-y: scroll;
+  overflow-x: hidden;
+  outline: red 2px solid;
 }
 
 .note {
@@ -43,10 +42,43 @@
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  word-wrap: break-word;
+  gap: 5px;
+  box-shadow: 1px 1px 6px 1px rgb(54, 54, 54);
 }
 
-.note h2 {
+.noteTitleDiv {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.noteTitleDiv button {
+  padding: 0 auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+
+.noteTitleDiv button svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: rgb(9, 102, 1);
+  transition: 500ms;
+}
+
+.noteTitleDiv button svg:hover {
+  background-color: var(--candyPurple-color);
+  border-radius: 50%;
+  color: var(--candyGreen-color);
+  transform: scale(1.2) rotate(360deg);
+}
+
+.noteTitleDiv h2 {
+  letter-spacing: 1px;
   font-size: 1.3rem;
   color: var(--candyPurple-color);
   text-decoration: underline;

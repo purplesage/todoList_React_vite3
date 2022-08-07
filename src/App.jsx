@@ -21,6 +21,7 @@ function App() {
 
   return (
     <div className={styles.app}>
+      {/* <CssBaseline /> */}
       <DataContext userEmail={globalUser ? globalUser.email : null}>
         {!globalUser ? <AuthSection /> : <TodoApp />}
       </DataContext>
