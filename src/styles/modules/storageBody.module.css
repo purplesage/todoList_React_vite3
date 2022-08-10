@@ -26,11 +26,12 @@
 
 .storageBodyNoteGrid {
   width: 100%;
-  height: 100%;
+  height: 150%;
   grid-row: 2 / 3;
   padding: 15px 0 15px 15px;
   overflow-y: scroll;
   overflow-x: hidden;
+  border: red 2px solid;
 }
 
 .storageBodyFileGrid {
@@ -191,6 +192,8 @@
   word-wrap: break-word;
   gap: 5px;
   box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
+  transition: 250ms;
+  cursor: pointer;
 }
 
 .noteTitleDiv {
@@ -284,14 +287,20 @@
 
 .openFileStorage:hover {
   background-color: var(--vinotintoNight-color);
-  border-color: white;
-  color: white;
+  border-color: var(--whitePink-color);
+  color: var(--whitePink-color);
   border-width: 3px;
+  box-shadow: 1px 1px 5px 1px black;
 }
 
 .openFileStorage svg {
   height: 5rem;
   width: 5rem;
+}
+
+.openFileStorage:active {
+  transform: scale(0.97);
+  box-shadow: 1px 1px 1px 1px rgb(26, 26, 26);
 }
 
 .openAddNoteForm {
@@ -321,7 +330,13 @@
 
 .openAddNoteForm:hover {
   background-color: var(--vinotintoNight-color);
-  border-color: white;
-  color: white;
+  border-color: var(--whitePink-color);
+  color: var(--whitePink-color);
   border-width: 3px;
+  box-shadow: 1px 1px 5px 1px black;
+}
+
+.openAddNoteForm:active {
+  transform: scale(0.97);
+  box-shadow: 1px 1px 1px 1px rgb(26, 26, 26);
 }

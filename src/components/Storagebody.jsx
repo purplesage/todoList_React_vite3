@@ -5,12 +5,12 @@ import { CgClose } from "react-icons/cg";
 import { AiFillFileAdd } from "react-icons/ai";
 import { appDataContext } from "../context/DataContext";
 import { MdStorage } from "react-icons/md";
-import { GrNotes } from "react-icons/gr";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
 import File from "./File";
 import Masonry from "@mui/lab/Masonry";
 import { MdOutlineStickyNote2 } from "react-icons/md";
+import Note from "./Note";
 
 function storagebody({ notes, title, setShowFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
@@ -37,18 +37,16 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         <Masonry columns={4} spacing={2}>
           {notes.length > 0 &&
             notes.map((noteObject) => (
-              <div key={noteObject.id} className={styles.note}>
-                <div className={styles.noteTitleDiv}>
-                  <h2>{noteObject.title}</h2>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteNote(noteObject.id, id)}
-                  >
-                    <CgClose />
-                  </button>
-                </div>
-                <p>{noteObject.body}</p>
-              </div>
+              <Note
+                key={noteObject.id}
+                noteId={noteObject.id}
+                noteCLS={styles.note}
+                noteTitleDivCLS={styles.noteTitleDiv}
+                noteTitle={noteObject.title}
+                id={id}
+                noteBody={noteObject.body}
+                handleDeleteNote={handleDeleteNote}
+              />
             ))}
         </Masonry>
       </div>
@@ -70,6 +68,10 @@ function storagebody({ notes, title, setShowFile, id, files }) {
       >
         <MdOutlineStickyNote2 />
       </button>
+
+      {showNoteInputs && (
+        <AddNoteForm id={id} setShowNoteInputs={setShowNoteInputs} />
+      )}
 
       {displayStorageFiles && (
         <div className={styles.storageBodyFileGrid}>
@@ -138,3 +140,15 @@ function storagebody({ notes, title, setShowFile, id, files }) {
 }
 
 export default storagebody;
+
+{
+  /* <div key={noteObject.id} className={styles.note}>
+  <div className={styles.noteTitleDiv}>
+    <h2>{noteObject.title}</h2>
+    <button type="button" onClick={() => handleDeleteNote(noteObject.id, id)}>
+      <CgClose />
+    </button>
+  </div>
+  <p>{noteObject.body}</p>
+</div>; */
+}
