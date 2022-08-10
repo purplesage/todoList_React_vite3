@@ -31,7 +31,6 @@
   padding: 15px 0 15px 15px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border: red 2px solid;
 }
 
 .storageBodyFileGrid {
@@ -192,8 +191,11 @@
   word-wrap: break-word;
   gap: 5px;
   box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
-  transition: 250ms;
   cursor: pointer;
+}
+
+.note:hover {
+  background-color: rgb(5, 167, 113);
 }
 
 .noteTitleDiv {

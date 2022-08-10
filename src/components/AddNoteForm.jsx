@@ -41,6 +41,7 @@ function AddNote({ id, setShowNoteInputs }) {
         id="noteBody"
         cols="30"
         rows="10"
+        maxLength="800"
       ></textarea>
       <button type="submit">add note</button>
     </form>,
