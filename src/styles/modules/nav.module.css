@@ -23,7 +23,7 @@
   width: 90px;
   height: 90px;
   transition: 200ms;
-  margin-top: 150px;
+  margin-top: 120px;
   margin-right: 90px;
   align-self: center;
   box-shadow: 2px 2px 7px 1px rgb(104, 104, 104);
@@ -90,7 +90,7 @@
   margin-left: 4px;
   height: 200px;
   gap: 15px;
-  overflow-y: scroll;
+  overflow-y: scroll auto;
   width: 95%;
 }
 

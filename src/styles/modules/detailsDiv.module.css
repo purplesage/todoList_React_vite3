@@ -39,7 +39,7 @@
   display: flex;
   overflow-wrap: break-word;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: scroll auto;
   height: 100px;
   line-height: 23px;
 }

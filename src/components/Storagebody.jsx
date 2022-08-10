@@ -13,6 +13,8 @@ function storagebody({ notes, title, setShowFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
   const [showFileInputs, setShowFileInputs] = useState(false);
 
+  const [displayStorageFiles, setDisplayStorageFiles] = useState(false);
+
   const { handleDeleteNote } = useContext(appDataContext);
 
   return ReactDOM.createPortal(
@@ -51,40 +53,51 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </Masonry>
       </div>
 
-      <div className={styles.storageBodyFileGrid}>
-        <h1>Folder Storage:</h1>
-        <div className={styles.storageBodyFileFlex}>
-          {files.length > 0 &&
-            files.map((fileObject) => (
-              <div key={fileObject.id} className={styles.file}>
-                <File
-                  fileTitle={fileObject.title}
-                  fileName={fileObject.name}
-                  storageTitle={title}
-                  storageId={id}
-                  fileId={fileObject.id}
-                  embedClass={styles.embedFile}
-                  embedGridClass={styles.embedGrid}
-                />
-              </div>
-            ))}
-          {!showFileInputs ? (
-            <button
-              className={styles.addFileButton}
-              type="button"
-              onClick={() => setShowFileInputs(true)}
-            >
-              <AiFillFileAdd />
+      <button type="button" onClick={() => setDisplayStorageFiles(true)}>
+        Open file storage
+      </button>
+
+      {displayStorageFiles && (
+        <div className={styles.storageBodyFileGrid}>
+          <h1>
+            Folder Storage:{" "}
+            <button type="button" onClick={() => setDisplayStorageFiles(false)}>
+              <CgClose />
             </button>
-          ) : (
-            <AddFileForm
-              setShowFileInputs={setShowFileInputs}
-              title={title}
-              id={id}
-            />
-          )}
+          </h1>
+          <div className={styles.storageBodyFileFlex}>
+            {files.length > 0 &&
+              files.map((fileObject) => (
+                <div key={fileObject.id} className={styles.file}>
+                  <File
+                    fileTitle={fileObject.title}
+                    fileName={fileObject.name}
+                    storageTitle={title}
+                    storageId={id}
+                    fileId={fileObject.id}
+                    embedClass={styles.embedFile}
+                    embedGridClass={styles.embedGrid}
+                  />
+                </div>
+              ))}
+            {!showFileInputs ? (
+              <button
+                className={styles.addFileButton}
+                type="button"
+                onClick={() => setShowFileInputs(true)}
+              >
+                <AiFillFileAdd />
+              </button>
+            ) : (
+              <AddFileForm
+                setShowFileInputs={setShowFileInputs}
+                title={title}
+                id={id}
+              />
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* <div className={styles.filesDiv}>
         <button type="button" onClick={() => setShowNoteInputs(true)}>

@@ -47,6 +47,7 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         name="note-title"
         id="note-title"
         maxLength="25"
+        autoComplete="off"
       />
       <input
         type="file"
