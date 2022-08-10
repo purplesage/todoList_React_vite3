@@ -68,3 +68,7 @@
   color: white;
   font-style: italic;
 }
+
+.MuiLoadingButton-loadingIndicator {
+  color: var(--candyGreen-color);
+}

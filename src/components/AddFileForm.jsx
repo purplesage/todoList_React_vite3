@@ -3,7 +3,7 @@ import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addFileForm.module.css";
 import { appDataContext } from "../context/DataContext";
 import { v4 as uuid } from "uuid";
-import { HiOutlineCloudUpload } from "react-icons/hi";
+import { ImCloudUpload } from "react-icons/im";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 function AddFileForm({ setShowFileInputs, title, id }) {
@@ -22,17 +22,21 @@ function AddFileForm({ setShowFileInputs, title, id }) {
     };
   };
 
+  const fileToAdd = () => {
+    handleAddFile(id, newFileObject(true));
+  };
+
   return (
     <form
       className={styles.addFileForm}
       onSubmit={(e) => {
         e.preventDefault();
-        uploadToStorage(newFileObject(), title);
-        handleAddFile(id, newFileObject(true));
-        setShowFileInputs(false);
+        uploadToStorage(newFileObject(), title, fileToAdd, setShowFileInputs);
+        // setShowFileInputs(false);
       }}
     >
       <button
+        disabled={isUploading}
         className={styles.close}
         type="button"
         onClick={() => setShowFileInputs(false)}
@@ -40,6 +44,8 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         <CgClose />
       </button>
       <input
+        disabled={isUploading}
+        required
         value={fileTitle}
         onChange={(e) => setFileTitle(e.target.value)}
         placeholder="File title:"
@@ -50,16 +56,24 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         autoComplete="off"
       />
       <input
+        disabled={isUploading}
+        required
         type="file"
         name="file-input"
         id="file-input"
         onChange={(e) => setFile(e.target.files[0])}
       />
       <LoadingButton
-        startIcon={<HiOutlineCloudUpload />}
+        startIcon={!isUploading ? <ImCloudUpload /> : null}
+        endIcon={null}
         variant="outlined"
         type="submit"
         loading={isUploading}
+        sx={{
+          fontWeight: "bold",
+          width: "9rem",
+          svg: { color: "#1976d2" },
+        }}
       >
         Upload
       </LoadingButton>

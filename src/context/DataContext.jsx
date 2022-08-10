@@ -202,7 +202,12 @@ export default function DataContext({ children, userEmail }) {
   //! fetch storage files links on user authentication test.
   const [isUploading, setIsUploading] = useState(false);
 
-  const uploadToStorage = async (fileObject, storageName) => {
+  const uploadToStorage = async (
+    fileObject,
+    storageName,
+    addFileToList,
+    setShowFileInputs
+  ) => {
     setIsUploading(true);
     try {
       if (!fileObject) return;
@@ -210,10 +215,14 @@ export default function DataContext({ children, userEmail }) {
         storage,
         `users/${userEmail}_files/${storageName}/${fileObject.title}/${fileObject.name}`
       );
-      const upload = await uploadBytesResumable(fileRef, fileObject.file);
-      await upload.then(setIsUploading(false));
+
+      const onCompleted = () => {
+        setIsUploading(false), addFileToList(), setShowFileInputs(false);
+      };
+
+      await uploadBytesResumable(fileRef, fileObject.file).then(onCompleted);
     } catch (err) {
-      console.log(err.message);
+      console.warn(err.message);
     }
   };
 
