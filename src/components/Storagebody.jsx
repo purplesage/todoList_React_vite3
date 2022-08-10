@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from "../styles/modules/storageBody.module.css";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
+import { AiFillFileAdd } from "react-icons/ai";
 import { appDataContext } from "../context/DataContext";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
@@ -52,26 +53,40 @@ function storagebody({ notes, title, setShowFile, id, files }) {
 
       <div className={styles.storageBodyFileGrid}>
         <h1>Folder Storage:</h1>
-        {files.length > 0 ? (
-          files.map((fileObject) => (
-            <div key={fileObject.id} className={styles.file}>
-              <File
-                fileTitle={fileObject.title}
-                fileName={fileObject.name}
-                storageTitle={title}
-                storageId={id}
-                fileId={fileObject.id}
-                embedClass={styles.embedFile}
-                embedGridClass={styles.embedGrid}
-              />
-            </div>
-          ))
-        ) : (
-          <p className={styles.emptyMessage}>Empty</p>
-        )}
+        <div className={styles.storageBodyFileFlex}>
+          {files.length > 0 &&
+            files.map((fileObject) => (
+              <div key={fileObject.id} className={styles.file}>
+                <File
+                  fileTitle={fileObject.title}
+                  fileName={fileObject.name}
+                  storageTitle={title}
+                  storageId={id}
+                  fileId={fileObject.id}
+                  embedClass={styles.embedFile}
+                  embedGridClass={styles.embedGrid}
+                />
+              </div>
+            ))}
+          {!showFileInputs ? (
+            <button
+              className={styles.addFileButton}
+              type="button"
+              onClick={() => setShowFileInputs(true)}
+            >
+              <AiFillFileAdd />
+            </button>
+          ) : (
+            <AddFileForm
+              setShowFileInputs={setShowFileInputs}
+              title={title}
+              id={id}
+            />
+          )}
+        </div>
       </div>
 
-      <div className={styles.filesDiv}>
+      {/* <div className={styles.filesDiv}>
         <button type="button" onClick={() => setShowNoteInputs(true)}>
           open-N-inputs
         </button>
@@ -89,7 +104,7 @@ function storagebody({ notes, title, setShowFile, id, files }) {
             id={id}
           />
         )}
-      </div>
+      </div> */}
     </div>,
     document.getElementById("portal")
   );

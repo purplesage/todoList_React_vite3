@@ -1,5 +1,8 @@
 import React, { useState, useContext } from "react";
 import { appDataContext } from "../context/DataContext";
+import { MdOpenInFull } from "react-icons/md";
+import { BsFillTrashFill } from "react-icons/bs";
+
 import FileEmbed from "./FileEmbed";
 
 function File({
@@ -19,7 +22,7 @@ function File({
 
   return (
     <>
-      <h2>"{fileTitle}"</h2>
+      <h2>{fileTitle}</h2>
       <p>
         <i>{fileName}</i>
       </p>
@@ -39,7 +42,7 @@ function File({
           fetchFile(storageTitle, fileTitle, fileName, setFetchFileUrl);
         }}
       >
-        portal embed
+        <MdOpenInFull /> {"OPEN"}
       </button>
       <button
         type="button"
@@ -48,7 +51,7 @@ function File({
           deleteFileFromStorage(storageTitle, fileTitle, fileName);
         }}
       >
-        delete
+        <BsFillTrashFill />
       </button>
     </>
   );

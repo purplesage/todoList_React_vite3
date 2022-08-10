@@ -16,6 +16,7 @@ import {
   uploadBytes,
   getDownloadURL,
   deleteObject,
+  uploadBytesResumable,
 } from "firebase/storage";
 
 export const appDataContext = createContext({});
@@ -190,15 +191,6 @@ export default function DataContext({ children, userEmail }) {
     }
   };
 
-  const uploadToStorage = async (fileObject, storageName) => {
-    if (!fileObject) return;
-    const fileRef = ref(
-      storage,
-      `users/${userEmail}_files/${storageName}/${fileObject.title}/${fileObject.name}`
-    );
-    await uploadBytes(fileRef, fileObject.file);
-  };
-
   const handleAddFile = (id, newFile) => {
     storagesDispatcher({ type: "add_file", id, newFile });
   };
@@ -208,8 +200,22 @@ export default function DataContext({ children, userEmail }) {
   };
 
   //! fetch storage files links on user authentication test.
+  const [isUploading, setIsUploading] = useState(false);
 
-  // const [fetchFileUrl, setFetchFileUrl] = useState("");
+  const uploadToStorage = async (fileObject, storageName) => {
+    setIsUploading(true);
+    try {
+      if (!fileObject) return;
+      const fileRef = ref(
+        storage,
+        `users/${userEmail}_files/${storageName}/${fileObject.title}/${fileObject.name}`
+      );
+      const upload = await uploadBytesResumable(fileRef, fileObject.file);
+      await upload.then(setIsUploading(false));
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const fileRef = (storageTitle, fileTitle, fileName) => {
     const fileRef = ref(
@@ -430,6 +436,7 @@ export default function DataContext({ children, userEmail }) {
         fetchFile,
         handleDeleteFile,
         deleteFileFromStorage,
+        isUploading,
       }}
     >
       {children}

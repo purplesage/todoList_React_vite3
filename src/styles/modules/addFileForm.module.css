@@ -1,12 +1,44 @@
-.addFile {
-  position: fixed;
+.addFileForm {
   display: flex;
-  flex-direction: column;
-  top: 50%;
-  left: 35vw;
-  width: 400px;
-  height: 200px;
-  background-color: blueviolet;
-  z-index: 1000;
-  outline: red 2px solid;
+  align-items: center;
+  background-color: var(--vinotintoNight-color);
+  padding: 10px;
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  gap: 15px;
+}
+
+.addFileForm .close {
+  width: fit-content;
+  background: none;
+  border: var(--candyGreen-color) 1px solid;
+  border-radius: 50%;
+  transition: 200ms;
+  padding: 5px;
+}
+
+.addFileForm .close svg {
+  color: var(--candyGreen-color);
+  height: 1.1rem;
+  width: 1.1rem;
+  cursor: pointer;
+}
+
+.addFileForm .close:hover {
+  box-shadow: 1px 1px 5px 1px rgb(34, 34, 34);
+  background-color: #6d2a4f;
+}
+
+.addFileForm input[type="text"] {
+  background: none;
+  border: var(--candyGreen-color) 1px solid;
+  border-radius: 0.5rem;
+  height: 35px;
+  width: 100%;
+  outline: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem;
+  color: var(--candyGreen-color);
 }

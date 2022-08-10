@@ -1,13 +1,16 @@
 import React, { useState, useContext } from "react";
+import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addFileForm.module.css";
 import { appDataContext } from "../context/DataContext";
 import { v4 as uuid } from "uuid";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 function AddFileForm({ setShowFileInputs, title, id }) {
   const [fileTitle, setFileTitle] = useState("");
   const [file, setFile] = useState("");
 
-  const { uploadToStorage, handleAddFile } = useContext(appDataContext);
+  const { uploadToStorage, handleAddFile, isUploading } =
+    useContext(appDataContext);
 
   const newFileObject = (toState) => {
     return {
@@ -20,16 +23,20 @@ function AddFileForm({ setShowFileInputs, title, id }) {
 
   return (
     <form
+      className={styles.addFileForm}
       onSubmit={(e) => {
         e.preventDefault();
         uploadToStorage(newFileObject(), title);
         handleAddFile(id, newFileObject(true));
         setShowFileInputs(false);
       }}
-      className={styles.addFile}
     >
-      <button type="button" onClick={() => setShowFileInputs(false)}>
-        close
+      <button
+        className={styles.close}
+        type="button"
+        onClick={() => setShowFileInputs(false)}
+      >
+        <CgClose />
       </button>
       <input
         value={fileTitle}
@@ -45,7 +52,9 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         id="file-input"
         onChange={(e) => setFile(e.target.files[0])}
       />
-      <button type="submit">Add file</button>
+      <LoadingButton type="submit" loading={isUploading}>
+        Upload
+      </LoadingButton>
     </form>
   );
 }
