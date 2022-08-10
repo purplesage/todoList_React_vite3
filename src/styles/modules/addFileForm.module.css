@@ -34,11 +34,32 @@
   border: var(--candyGreen-color) 1px solid;
   border-radius: 0.5rem;
   height: 35px;
-  width: 100%;
+  width: 55%;
   outline: none;
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
-  font-weight: bold;
   padding: 0.4rem;
   color: var(--candyGreen-color);
+}
+
+.addFileForm input[type="file"]::-webkit-file-upload-button {
+  background: none;
+  border: var(--candyGreen-color) 1px solid;
+  color: var(--candyGreen-color);
+  content: "hello";
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.addFileForm input[type="file"]::-webkit-file-upload-button:hover {
+  color: rgb(6, 211, 142);
+  border-color: rgb(6, 211, 142);
+}
+
+.addFileForm input[type="file"] {
+  color: white;
+  font-style: italic;
 }

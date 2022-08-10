@@ -3,6 +3,7 @@ import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addFileForm.module.css";
 import { appDataContext } from "../context/DataContext";
 import { v4 as uuid } from "uuid";
+import { HiOutlineCloudUpload } from "react-icons/hi";
 import LoadingButton from "@mui/lab/LoadingButton";
 
 function AddFileForm({ setShowFileInputs, title, id }) {
@@ -45,6 +46,7 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         type="text"
         name="note-title"
         id="note-title"
+        maxLength="25"
       />
       <input
         type="file"
@@ -52,7 +54,12 @@ function AddFileForm({ setShowFileInputs, title, id }) {
         id="file-input"
         onChange={(e) => setFile(e.target.files[0])}
       />
-      <LoadingButton type="submit" loading={isUploading}>
+      <LoadingButton
+        startIcon={<HiOutlineCloudUpload />}
+        variant="outlined"
+        type="submit"
+        loading={isUploading}
+      >
         Upload
       </LoadingButton>
     </form>

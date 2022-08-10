@@ -31,7 +31,6 @@
   padding: 15px 0 15px 15px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border: red 2px solid;
 }
 
 .storageBodyFileGrid {
