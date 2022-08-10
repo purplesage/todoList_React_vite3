@@ -264,3 +264,64 @@
   width: 1.5rem;
   color: white;
 }
+
+.openFileStorage {
+  display: flex;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  bottom: 15vh;
+  left: 2rem;
+  cursor: pointer;
+  border: var(--candyGreen-color) 8px solid;
+  border-radius: 50%;
+  padding: 20px;
+  color: var(--candyGreen-color);
+  background-color: var(--candyPurple-color);
+  box-shadow: 1px 1px 10px 1px black;
+  transition: 150ms;
+}
+
+.openFileStorage:hover {
+  background-color: var(--vinotintoNight-color);
+  border-color: white;
+  color: white;
+  border-width: 3px;
+}
+
+.openFileStorage svg {
+  height: 5rem;
+  width: 5rem;
+}
+
+.openAddNoteForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  bottom: 15vh;
+  right: 2rem;
+  background: none;
+  cursor: pointer;
+  border: var(--candyPurple-color) 8px solid;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: var(--candyGreen-color);
+  box-shadow: 1px 1px 10px 1px black;
+  transition: 150ms;
+  color: var(--candyPurple-color);
+}
+
+.openAddNoteForm svg {
+  height: 5rem;
+  width: 5rem;
+}
+
+.openAddNoteForm:hover {
+  background-color: var(--vinotintoNight-color);
+  border-color: white;
+  color: white;
+  border-width: 3px;
+}

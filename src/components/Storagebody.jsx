@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
 import { AiFillFileAdd } from "react-icons/ai";
 import { appDataContext } from "../context/DataContext";
+import { MdStorage } from "react-icons/md";
+import { GrNotes } from "react-icons/gr";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
 import File from "./File";
 import Masonry from "@mui/lab/Masonry";
+import { MdOutlineStickyNote2 } from "react-icons/md";
 
 function storagebody({ notes, title, setShowFile, id, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
@@ -31,10 +34,7 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </button>
       </h1>
       <div className={styles.storageBodyNoteGrid}>
-        <Masonry
-          columns={4}
-          spacing={2} /* className={styles.storageBodyGrid} */
-        >
+        <Masonry columns={4} spacing={2}>
           {notes.length > 0 &&
             notes.map((noteObject) => (
               <div key={noteObject.id} className={styles.note}>
@@ -53,8 +53,22 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </Masonry>
       </div>
 
-      <button type="button" onClick={() => setDisplayStorageFiles(true)}>
-        Open file storage
+      {/* show buttons */}
+
+      <button
+        className={styles.openFileStorage}
+        type="button"
+        onClick={() => setDisplayStorageFiles(true)}
+      >
+        <MdStorage />
+      </button>
+
+      <button
+        className={styles.openAddNoteForm}
+        type="button"
+        onClick={() => setShowNoteInputs(true)}
+      >
+        <MdOutlineStickyNote2 />
       </button>
 
       {displayStorageFiles && (
