@@ -7,7 +7,7 @@ function Addstorage({ setIsOpen }) {
   const {
     storageTitleInput,
     setstorageTitleInput,
-    handleAddstorage,
+    handleAddStorage,
     handleOpenTab,
   } = useContext(appDataContext);
 
@@ -24,9 +24,10 @@ function Addstorage({ setIsOpen }) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleAddstorage(newstorage());
+        handleAddStorage(newstorage());
         handleOpenTab("storages21133");
         setIsOpen(false);
+        setstorageTitleInput("");
       }}
     >
       <input

@@ -259,7 +259,12 @@ export default function DataContext({ children, userEmail }) {
     storagesDispatcher({ type: "load_storageList", storageList });
   };
 
-  const handleAddstorage = (newstorage) => {
+  const handleAddStorage = (newstorage) => {
+    const findDuplicate = storageList.find(
+      (storageObject) => storageObject.title === newstorage.title
+    );
+
+    if (findDuplicate) return;
     storagesDispatcher({ type: "add_storage", newstorage });
   };
 
@@ -432,7 +437,7 @@ export default function DataContext({ children, userEmail }) {
         notificationDisplay,
         handleNotificationAnimation,
         storageList,
-        handleAddstorage,
+        handleAddStorage,
         storageTitleInput,
         setstorageTitleInput,
         storageFileInput,
