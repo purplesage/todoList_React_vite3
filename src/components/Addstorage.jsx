@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { v4 as uuid } from "uuid";
 import { appDataContext } from "../context/DataContext";
+import styles from "../styles/modules/addStorage.module.css";
 
 function Addstorage({ setIsOpen }) {
   const {
     storageTitleInput,
     setstorageTitleInput,
-    storageFileInput,
-    setstorageFileInput,
     handleAddstorage,
     handleOpenTab,
   } = useContext(appDataContext);

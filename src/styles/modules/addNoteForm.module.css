@@ -31,7 +31,7 @@
   border-color: rgb(1, 102, 72);
 }
 
-textarea {
+.addNote textarea {
   white-space: pre;
   background: none;
   border: rgb(1, 102, 72) 2px solid;
@@ -42,7 +42,7 @@ textarea {
   font-family: "Lato", sans-serif;
 }
 
-textarea::placeholder {
+.addNote textarea::placeholder {
   color: rgb(1, 102, 72);
 }
 

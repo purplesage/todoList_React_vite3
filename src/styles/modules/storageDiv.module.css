@@ -1,33 +1,44 @@
 .storage {
-  display: inline-block;
-  flex-direction: column;
+  display: flex;
   width: fit-content;
-  padding: 0.5rem;
-
-  /* background: var(--whiteGreen-color);
-  border: dashed 3px var(--candyGreen-color); */
+  cursor: pointer;
+  font-family: "Roboto Condensed", sans-serif;
+  background-position: center;
+  position: relative;
 }
 
 .storage button {
   align-self: flex-end;
   background: none;
   border: none;
-  width: 2rem;
+  width: fit-content;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+  cursor: pointer;
 }
 
 .storage svg {
-  height: 20px;
-  width: 20px;
+  height: 1.3rem;
+  width: 1.3rem;
+  color: rgb(1, 102, 72);
+  transition: 300ms;
+}
+
+.storage svg:hover {
+  background-color: var(--candyPurple-color);
+  border-radius: 50%;
+  color: var(--candyGreen-color);
+  transform: scale(1.2) rotate(360deg);
 }
 
 .storageDiv {
   display: flex;
-  align-items: center;
   font-size: 1.4rem;
-  font-family: "Roboto Condensed", sans-serif;
-  height: 100%;
-  cursor: pointer;
+  color: var(--candyPurple-color);
+  border-bottom: var(--candyPurple-color) 2px dashed;
 }

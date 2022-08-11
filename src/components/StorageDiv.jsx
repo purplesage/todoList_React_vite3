@@ -9,13 +9,15 @@ function StorageDiv({ id, title, files, notes }) {
   const [showFile, setShowFile] = useState(null);
 
   return (
-    <li className={styles.storage}>
-      <div className={styles.storageDiv} onClick={() => setShowFile(true)}>
-        <h1>{title}</h1>
-        <button type="button" onClick={() => handleDeletestorage(id)}>
-          <CgClose />
-        </button>
-      </div>
+    <>
+      <li className={styles.storage} onClick={() => setShowFile(true)}>
+        <div className={styles.storageDiv}>
+          <h1>{title}</h1>
+          <button type="button" onClick={() => handleDeletestorage(id)}>
+            <CgClose />
+          </button>
+        </div>
+      </li>
       {showFile && (
         <Storagebody
           title={title}
@@ -26,7 +28,7 @@ function StorageDiv({ id, title, files, notes }) {
           id={id}
         />
       )}
-    </li>
+    </>
   );
 }
 
