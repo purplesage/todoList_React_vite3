@@ -1,1 +1,53 @@
+.embedGrid {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  z-index: 1000;
+}
 
+.embedGrid .title {
+  width: 100%;
+  height: 8%;
+  border-radius: none;
+  display: flex;
+  align-items: center;
+  background-color: var(--candyPurple-color);
+  color: white;
+  letter-spacing: 3px;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.embedGrid .title p {
+  font-size: 2.5rem;
+  display: flex;
+  gap: 10px;
+}
+
+.embedGrid .title .close {
+  border: none;
+  background: none;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.embedGrid .title .close svg {
+  color: var(--candyGreen-color);
+  height: 3rem;
+  width: 3rem;
+}
+
+.embedGrid .title .close :hover {
+  color: var(--vinotintoNight-color);
+}
+
+.embedFile {
+  width: 100%;
+  height: 100%;
+}

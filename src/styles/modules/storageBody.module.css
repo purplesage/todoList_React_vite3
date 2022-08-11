@@ -16,7 +16,7 @@
   background: var(--candyPurple-color);
   color: white;
   font-size: 2.5rem;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,12 +24,30 @@
   letter-spacing: 3px;
 }
 
+.storageGrid h1 button {
+  background: none;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+.storageGrid h1 button svg {
+  width: 3rem;
+  height: 3rem;
+  color: var(--candyGreen-color);
+  cursor: pointer;
+}
+
+.storageGrid h1 button svg:hover {
+  color: var(--vinotintoNight-color);
+}
+
 .storageBodyNoteGrid {
   width: 100%;
   height: 150%;
   grid-row: 2 / 3;
   padding: 15px 0 15px 15px;
-  overflow-y: scroll;
+  overflow-y: scroll auto;
   overflow-x: hidden;
 }
 
@@ -150,12 +168,12 @@
   gap: 40px;
 }
 
-.embedGrid {
+/* .embedGrid {
   display: grid;
+  position: absolute;
   grid-template: 60px 1fr / 1fr;
   width: 100vw;
   height: 100vh;
-  position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -173,7 +191,7 @@
   grid-row: 2 / 3;
   width: 100%;
   height: 100%;
-}
+} */
 
 .file h2 {
   color: var(--candyGreen-color);
@@ -192,6 +210,7 @@
   gap: 5px;
   box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
   cursor: pointer;
+  transition: 600ms;
 }
 
 .note:hover {
@@ -217,7 +236,7 @@
 .noteTitleDiv button svg {
   width: 1.6rem;
   height: 1.6rem;
-  color: rgb(9, 102, 1);
+  color: rgb(1, 102, 72);
   transition: 300ms;
 }
 
@@ -275,7 +294,7 @@
   position: absolute;
   width: fit-content;
   height: fit-content;
-  bottom: 15vh;
+  bottom: 8vh;
   left: 2rem;
   cursor: pointer;
   border: var(--candyGreen-color) 8px solid;
@@ -312,7 +331,7 @@
   position: absolute;
   width: fit-content;
   height: fit-content;
-  bottom: 15vh;
+  bottom: 8vh;
   right: 2rem;
   background: none;
   cursor: pointer;

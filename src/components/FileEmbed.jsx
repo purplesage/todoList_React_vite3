@@ -1,30 +1,29 @@
 import React from "react";
 import { CgClose } from "react-icons/cg";
+import styles from "../styles/modules/fileEmbed.module.css";
+import { AiOutlineFileText } from "react-icons/ai";
 
-function FileEmbed({
-  isEmbedOpen,
-  setIsEmbedOpen,
-  fetchFileUrl,
-  embedClass,
-  fileTitle,
-  embedGridClass,
-}) {
+function FileEmbed({ setIsEmbedOpen, fetchFileUrl, fileTitle }) {
   return (
-    <>
-      {isEmbedOpen && (
-        <div className={embedGridClass}>
-          <iframe className={embedClass} src={fetchFileUrl}>
-            link test{" "}
-          </iframe>
-          <h1>
-            "{fileTitle}"{" "}
-            <button type="button" onClick={() => setIsEmbedOpen(false)}>
-              <CgClose />
-            </button>
-          </h1>
-        </div>
-      )}
-    </>
+    <div className={styles.embedGrid}>
+      <h2 className={styles.title}>
+        <p>
+          <AiOutlineFileText />
+          {fileTitle}{" "}
+        </p>
+
+        <button
+          className={styles.close}
+          type="button"
+          onClick={() => setIsEmbedOpen(false)}
+        >
+          <CgClose />
+        </button>
+      </h2>
+      <iframe className={styles.embedFile} src={fetchFileUrl}>
+        link test{" "}
+      </iframe>
+    </div>
   );
 }
 

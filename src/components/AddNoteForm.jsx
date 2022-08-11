@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { appDataContext } from "../context/DataContext";
+import { CgClose } from "react-icons/cg";
+
 import { v4 as uuid } from "uuid";
 import ReactDOM from "react-dom";
 import styles from "../styles/modules/addNoteForm.module.css";
@@ -22,24 +24,30 @@ function AddNote({ id, setShowNoteInputs }) {
         setShowNoteInputs(false);
       }}
     >
-      <button type="button" onClick={() => setShowNoteInputs(false)}>
-        close
-      </button>
-      <input
-        value={noteTitle}
-        onChange={(e) => setNoteTitle(e.target.value)}
-        placeholder="Note title:"
-        type="text"
-        name="note-title"
-        id="note-title"
-      />
+      <div className={styles.headerDiv}>
+        <button type="button" onClick={() => setShowNoteInputs(false)}>
+          <CgClose />
+        </button>
+        <input
+          autoComplete="off"
+          required
+          value={noteTitle}
+          onChange={(e) => setNoteTitle(e.target.value)}
+          placeholder="Note title:"
+          type="text"
+          name="note-title"
+          id="note-title"
+        />
+      </div>
+
       <textarea
+        required
         value={noteBody}
         onChange={(e) => setNoteBody(e.target.value)}
         placeholder="Note body:"
         name="noteBody"
         id="noteBody"
-        cols="30"
+        cols="10"
         rows="10"
         maxLength="800"
       ></textarea>

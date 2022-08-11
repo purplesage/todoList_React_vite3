@@ -1,12 +1,83 @@
 .addNote {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  bottom: 15vh;
-  right: 2rem;
-  width: 400px;
-  height: 200px;
-  background-color: blueviolet;
-  z-index: 1000;
-  outline: red 2px solid;
+  bottom: 4.5vh;
+  right: 0;
+  width: 32%;
+  height: 30%;
+  background-color: var(--candyGreen-color);
+  outline: var(--candyPurple-color) 2px solid;
+  padding: 15px;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  gap: 10px;
+  box-shadow: 1px 1px 20px 2px black;
+}
+
+.addNote button {
+  width: fit-content;
+  height: fit-content;
+  border: var(--candyPurple-color) 2px solid;
+  background: none;
+  color: var(--candyPurple-color);
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.addNote button:hover {
+  color: rgb(1, 102, 72);
+  border-color: rgb(1, 102, 72);
+}
+
+textarea {
+  white-space: pre;
+  background: none;
+  border: rgb(1, 102, 72) 2px solid;
+  font-size: 1.1rem;
+  outline: none;
+  color: var(--candyPurple-color);
+  border-radius: 0.5rem;
+  font-family: "Lato", sans-serif;
+}
+
+textarea::placeholder {
+  color: rgb(1, 102, 72);
+}
+
+.headerDiv {
+  display: flex;
+  align-items: center;
+}
+
+.headerDiv input {
+  background: none;
+  border: rgb(1, 102, 72) 2px solid;
+  font-size: 1.3rem;
+  color: var(--candyPurple-color);
+  outline: none;
+  border-radius: 0.3rem;
+}
+
+.headerDiv ::placeholder {
+  color: rgb(1, 102, 72);
+}
+
+.headerDiv button {
+  background: none;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.headerDiv button :hover {
+  color: rgb(1, 102, 72);
+}
+
+.headerDiv button svg {
+  color: var(--candyPurple-color);
+  width: 1.8rem;
+  height: 1.8rem;
 }

@@ -84,17 +84,16 @@ function storagebody({ notes, title, setShowFile, id, files }) {
           <div className={styles.storageBodyFileFlex}>
             {files.length > 0 &&
               files.map((fileObject) => (
-                <div key={fileObject.id} className={styles.file}>
-                  <File
-                    fileTitle={fileObject.title}
-                    fileName={fileObject.name}
-                    storageTitle={title}
-                    storageId={id}
-                    fileId={fileObject.id}
-                    embedClass={styles.embedFile}
-                    embedGridClass={styles.embedGrid}
-                  />
-                </div>
+                <File
+                  cls={styles.file}
+                  fileTitle={fileObject.title}
+                  fileName={fileObject.name}
+                  storageTitle={title}
+                  storageId={id}
+                  fileId={fileObject.id}
+                  embedClass={styles.embedFile}
+                  embedGridClass={styles.embedGrid}
+                />
               ))}
             {!showFileInputs ? (
               <button
