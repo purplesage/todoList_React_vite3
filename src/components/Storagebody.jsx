@@ -34,7 +34,7 @@ function storagebody({ notes, title, setShowFile, id, files }) {
         </button>
       </h1>
       <div className={styles.storageBodyNoteGrid}>
-        <Masonry columns={4} spacing={2}>
+        <Masonry columns={{ xs: 2, sm: 4 }} spacing={2}>
           {notes.length > 0 &&
             notes.map((noteObject) => (
               <Note
@@ -85,6 +85,7 @@ function storagebody({ notes, title, setShowFile, id, files }) {
             {files.length > 0 &&
               files.map((fileObject) => (
                 <File
+                  key={fileObject.id}
                   cls={styles.file}
                   fileTitle={fileObject.title}
                   fileName={fileObject.name}

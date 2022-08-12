@@ -1,7 +1,8 @@
 .display {
   background-color: white;
   padding: 30px;
-  overflow-y: scroll;
+  overflow-y: scroll auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 500px) {

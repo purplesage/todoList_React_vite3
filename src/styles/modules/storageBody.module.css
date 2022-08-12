@@ -16,7 +16,7 @@
   background: var(--candyPurple-color);
   color: white;
   font-size: 2.5rem;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -167,31 +167,6 @@
   align-items: center;
   gap: 40px;
 }
-
-/* .embedGrid {
-  display: grid;
-  position: absolute;
-  grid-template: 60px 1fr / 1fr;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.embedGrid h1 {
-  grid-row: 1 / 2;
-  width: 100%;
-  background-color: var(--vinotintoNight-color);
-  color: var(--candyGreen-color);
-  text-decoration: none;
-}
-
-.embedFile {
-  grid-row: 2 / 3;
-  width: 100%;
-  height: 100%;
-} */
 
 .file h2 {
   color: var(--candyGreen-color);
@@ -360,4 +335,51 @@
 .openAddNoteForm:active {
   transform: scale(0.97);
   box-shadow: 1px 1px 1px 1px rgb(26, 26, 26);
+}
+
+@media (max-width: 500px) {
+  .storageGrid h1 {
+    font-size: 2rem;
+  }
+
+  .storageGrid h1 button svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .noteTitleDiv h2 {
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    color: var(--candyPurple-color);
+    text-decoration: underline;
+  }
+
+  .openFileStorage svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .openAddNoteForm svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .storageBodyFileGrid {
+    bottom: 5%;
+    width: 100vw;
+    border-radius: 0;
+  }
+
+  .file {
+    background-color: var(--vinotintoNight-color);
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 }

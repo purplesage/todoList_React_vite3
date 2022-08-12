@@ -47,9 +47,6 @@ function AddNote({ id, setShowNoteInputs }) {
         placeholder="Note body:"
         name="noteBody"
         id="noteBody"
-        cols="10"
-        rows="10"
-        maxLength="800"
       ></textarea>
       <button type="submit">add note</button>
     </form>,

@@ -5,6 +5,8 @@
   font-family: "Roboto Condensed", sans-serif;
   background-position: center;
   position: relative;
+  margin-top: 1vh;
+  margin-left: 1vw;
 }
 
 .storage button {
@@ -41,4 +43,11 @@
   font-size: 1.4rem;
   color: var(--candyPurple-color);
   border-bottom: var(--candyPurple-color) 2px dashed;
+}
+
+@media (max-width: 500px) {
+  .storage button {
+    top: 2rem;
+    left: 0.5rem;
+  }
 }

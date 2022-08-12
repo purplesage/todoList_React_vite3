@@ -5,12 +5,18 @@ import styles from "../styles/modules/storageDiv.module.css";
 import Storagebody from "./Storagebody";
 
 function StorageDiv({ id, title, files, notes }) {
-  const { handleDeletestorage } = useContext(appDataContext);
+  const { handleDeletestorage, setIsMobileNav } = useContext(appDataContext);
   const [showFile, setShowFile] = useState(null);
 
   return (
     <>
-      <li className={styles.storage} onClick={() => setShowFile(true)}>
+      <li
+        className={styles.storage}
+        onClick={() => {
+          setShowFile(true);
+          setIsMobileNav(false);
+        }}
+      >
         <div className={styles.storageDiv}>
           <h1>{title}</h1>
           <button type="button" onClick={() => handleDeletestorage(id)}>

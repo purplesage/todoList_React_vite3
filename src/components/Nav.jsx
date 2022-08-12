@@ -117,11 +117,11 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
         >
           {requireTabState("storages21133") ? (
             <span className={styles.defaultSpan}>
-              <p>// Storage</p>
+              <p>// Folders</p>
             </span>
           ) : (
             <span className={styles.defaultSpan}>
-              <p>Storage</p>
+              <p>Folders</p>
             </span>
           )}
           {/* {thisWeekLength > 0 && (

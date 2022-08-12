@@ -14,11 +14,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 20vw;
-  height: 20vh;
+  width: 18vw;
+  height: 18vh;
   transition: 200ms;
 }
 
 .storageGrid li:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 500px) {
+  .storageGrid {
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+  }
+
+  .storageGrid li {
+    width: 8.5rem;
+    height: 10rem;
+  }
 }

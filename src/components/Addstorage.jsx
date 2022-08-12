@@ -9,6 +9,7 @@ function Addstorage({ setIsOpen }) {
     setstorageTitleInput,
     handleAddStorage,
     handleOpenTab,
+    setIsMobileNav,
   } = useContext(appDataContext);
 
   const newstorage = () => {
@@ -22,19 +23,21 @@ function Addstorage({ setIsOpen }) {
 
   return (
     <form
+      className={styles.addStorageForm}
       onSubmit={(e) => {
         e.preventDefault();
         handleAddStorage(newstorage());
         handleOpenTab("storages21133");
         setIsOpen(false);
         setstorageTitleInput("");
+        setIsMobileNav(false);
       }}
     >
       <input
         required
         autoComplete="off"
         maxLength="30"
-        placeholder="Title"
+        placeholder="Folder title:"
         type="text"
         name="storage-title"
         id="storage-title"
@@ -42,7 +45,7 @@ function Addstorage({ setIsOpen }) {
         onChange={(e) => setstorageTitleInput(e.target.value)}
       />
 
-      <button type="submit">add storage</button>
+      <button type="submit">ADD FOLDER</button>
     </form>
   );
 }

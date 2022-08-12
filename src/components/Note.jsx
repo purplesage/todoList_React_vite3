@@ -25,7 +25,7 @@ function Note({
   return (
     <div
       style={modalStyle ? customStyle() : null}
-      onClick={() => setModalStyle(!modalStyle)}
+      onDoubleClick={() => setModalStyle(!modalStyle)}
       className={noteCLS}
     >
       <div className={noteTitleDivCLS}>

@@ -3,14 +3,15 @@
   flex-direction: column;
   background-color: rgb(243, 243, 243);
   padding: 50px 0px 0px 60px;
-  font-size: 1.6rem;
+  /* padding: calc(35px + 0.390625vw) 0px 0px calc(45px + 0.390625vw); */
+
   border-right: rgb(195, 195, 195) 1px solid;
   font-family: "Lato", sans-serif;
 }
 
 .projectHeader {
   margin-top: 30px;
-  font-size: 1.5rem;
+  font-size: calc(1.3rem + 0.390625vw);
   text-decoration: underline;
   color: rgb(2, 160, 107);
 }
@@ -23,7 +24,7 @@
   width: 90px;
   height: 90px;
   transition: 200ms;
-  margin-top: 120px;
+  margin-top: 50px;
   margin-right: 90px;
   align-self: center;
   box-shadow: 2px 2px 7px 1px rgb(104, 104, 104);
@@ -57,7 +58,7 @@
 
 .defaultSpan {
   width: 100px;
-  font-size: 1.3rem;
+  font-size: calc(1rem + 0.390625vw);
 }
 
 .number {
@@ -109,12 +110,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-right: 30px;
 }
 
 .signOut p {
-  font-size: 0.5em;
+  font-size: 0.8rem;
   color: var(--vinotintoNight-color);
   letter-spacing: 3px;
   font-weight: bold;
@@ -122,7 +123,7 @@
 
 .signOut svg {
   color: var(--candyGreen-color);
-  transform: scale(1.3);
+  transform: scale(2);
   margin-bottom: 10px;
   margin-top: 5px;
 }
@@ -131,7 +132,7 @@
   .sideNav {
     display: none;
     position: fixed;
-    width: 70%;
+    width: 50%;
     z-index: 30;
     right: 0;
     top: 70px;
@@ -152,10 +153,11 @@
     gap: 15px;
     margin-left: 0px;
     width: 100%;
+    height: 25%;
   }
 
   .addButton {
-    margin-top: 50px;
+    margin-top: 0;
     margin-left: 60px;
     width: 80px;
     height: 80px;

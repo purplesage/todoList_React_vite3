@@ -27,10 +27,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
               setIsOpen(false);
               resetInputs();
             }}
-          >
-            {" "}
-            close
-          </CgClose>
+          />
         </header>
         <nav className={styles.createSelection}>
           <button
@@ -42,8 +39,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
               setIsCreateTodo(true);
             }}
           >
-            {isCreateTodo && <p>//</p>}
-            To Do
+            {isCreateTodo ? <p>// To Do</p> : <p>To Do</p>}
           </button>
           <button
             style={isCreateProject ? { fontWeight: "bolder" } : null}
@@ -54,8 +50,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
               setIsCreateProject(true);
             }}
           >
-            {isCreateProject && <p>//</p>}
-            Project
+            {isCreateProject ? <p>//Project</p> : <p>Project</p>}
           </button>
           <button
             style={isCreatestorage ? { fontWeight: "bolder" } : null}
@@ -66,8 +61,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
               setIsCreatestorage(true);
             }}
           >
-            {isCreatestorage && <p>//</p>}
-            Storage
+            {isCreatestorage ? <p>// Folder</p> : <p>Folder</p>}
           </button>
         </nav>
 

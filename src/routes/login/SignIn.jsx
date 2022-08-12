@@ -32,7 +32,6 @@ function SignIn({
       <label htmlFor="email">
         <p>Email Adress:</p>
         <input
-          autoComplete="off"
           required
           type="email"
           name="email"
