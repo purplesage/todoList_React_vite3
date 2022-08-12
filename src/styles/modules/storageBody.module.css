@@ -1,3 +1,13 @@
+@keyframes folderOpen {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 .storageGrid {
   display: flex;
   flex-direction: column;
@@ -9,6 +19,9 @@
   grid-template: 60px 1fr / 1fr;
   background: var(--whitePink-color);
   font-family: "Lato", sans-serif;
+  animation-name: folderOpen;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
 }
 
 .storageGrid h1 {

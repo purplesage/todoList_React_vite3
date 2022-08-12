@@ -78,7 +78,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
           )}
 
           {isCreatestorage && (
-            <Addstorage setIsOpen={setIsOpen} isProject={isProject} />
+            <Addstorage setIsOpen={setIsOpen} setIsProject={setIsProject} />
           )}
         </div>
       </div>

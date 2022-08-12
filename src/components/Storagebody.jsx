@@ -19,7 +19,7 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
   const [displayStorageFiles, setDisplayStorageFiles] = useState(false);
 
   return ReactDOM.createPortal(
-    <div className={styles.storageGrid}>
+    <main className={styles.storageGrid}>
       <h1>
         <p className={styles.folderTitle}>
           <AiFillFolder />
@@ -34,13 +34,13 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
           <CgClose />
         </button>
       </h1>
-      <div className={styles.storageBodyNoteGrid}>
+      <section className={styles.storageBodyNoteGrid}>
         <Masonry columns={{ xs: 2, sm: 4 }} spacing={2}>
           <NoteList notes={notes} storageID={storageID} />
         </Masonry>
-      </div>
+      </section>
 
-      {/* show buttons */}
+      {/* buttons that toggle form display */}
 
       <button
         className={styles.openFileStorage}
@@ -66,7 +66,7 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
       )}
 
       {displayStorageFiles && (
-        <div className={styles.storageBodyFileGrid}>
+        <section className={styles.storageBodyFileGrid}>
           <h1>
             Folder Storage:{" "}
             <button type="button" onClick={() => setDisplayStorageFiles(false)}>
@@ -96,9 +96,9 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
               />
             )}
           </div>
-        </div>
+        </section>
       )}
-    </div>,
+    </main>,
     document.getElementById("portal")
   );
 }

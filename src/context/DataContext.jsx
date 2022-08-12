@@ -13,10 +13,10 @@ import { dataBase, storage } from "../util/firebaseConfig";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import {
   ref,
-  uploadBytes,
   getDownloadURL,
   deleteObject,
   uploadBytesResumable,
+  list,
 } from "firebase/storage";
 
 export const appDataContext = createContext({});
@@ -202,36 +202,44 @@ export default function DataContext({ children, userEmail }) {
   //* fetch storage files links on user authentication test.
   const [isUploading, setIsUploading] = useState(false);
 
+  const fileRef = (storageTitle, fileName) => {
+    const fileRef = ref(
+      storage,
+      `users/${userEmail}_files/${storageTitle}/${fileName}`
+    );
+    return fileRef;
+  };
+
   const uploadToStorage = async (
     fileObject,
-    storageName,
+    storageTitle,
     addFileToList,
     setShowFileInputs
   ) => {
     setIsUploading(true);
     try {
       if (!fileObject) return;
-      const fileRef = ref(
-        storage,
-        `users/${userEmail}_files/${storageName}/${fileObject.title}/${fileObject.name}`
-      );
+
+      const ref = fileRef(storageTitle, fileObject.name);
 
       const onCompleted = () => {
         setIsUploading(false), addFileToList(), setShowFileInputs(false);
       };
 
-      await uploadBytesResumable(fileRef, fileObject.file).then(onCompleted);
+      await uploadBytesResumable(ref, fileObject.file).then(onCompleted);
     } catch (err) {
       console.warn(err.message);
     }
   };
 
-  const fileRef = (storageTitle, fileTitle, fileName) => {
-    const fileRef = ref(
-      storage,
-      `users/${userEmail}_files/${storageTitle}/${fileTitle}/${fileName}`
-    );
-    return fileRef;
+  const deleteFolderFromStorage = async (storageTitle) => {
+    const file_ref = ref(storage, `users/${userEmail}_files/${storageTitle}`);
+    const file_list = await list(file_ref);
+
+    file_list.items.forEach(async (referenceObject) => {
+      const innerFileRef = ref(storage, referenceObject.fullPath);
+      await deleteObject(innerFileRef);
+    });
   };
 
   const fetchFile = async (storageTitle, fileTitle, fileName, setUrlState) => {
@@ -451,6 +459,7 @@ export default function DataContext({ children, userEmail }) {
         handleDeleteFile,
         deleteFileFromStorage,
         isUploading,
+        deleteFolderFromStorage,
       }}
     >
       {children}

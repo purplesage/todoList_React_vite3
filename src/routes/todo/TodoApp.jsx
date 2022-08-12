@@ -14,7 +14,7 @@ function TodoApp() {
   const [isProject, setIsProject] = useState(false);
 
   return (
-    <div className={styles.todoSection}>
+    <main className={styles.todoSection}>
       <Header />
       <Nav setIsOpen={setIsOpen} isOpen={isOpen} setIsProject={setIsProject} />
       <InputHandling>
@@ -27,7 +27,7 @@ function TodoApp() {
           />
         )}
       </InputHandling>
-    </div>
+    </main>
   );
 }
 

@@ -48,7 +48,7 @@ function Display({ isProject, setIsProject }) {
   };
 
   return (
-    <div className={styles.display}>
+    <section className={styles.display}>
       {requireTabState("home21133") && (
         <List
           todoList={todoList}
@@ -82,12 +82,10 @@ function Display({ isProject, setIsProject }) {
         />
       )}
 
-      {requireTabState("storages21133") && (
-        <StorageList list={storageList} emptyMessage={"storage is empty"} />
-      )}
+      {requireTabState("storages21133") && <StorageList list={storageList} />}
 
       <Notification message={"//Added"} display={notificationDisplay} />
-    </div>
+    </section>
   );
 }
 

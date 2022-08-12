@@ -5,7 +5,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import styles from "../styles/modules/file.module.css";
 import FileEmbed from "./FileEmbed";
 
-function File({ fileTitle, fileName, storageTitle, storageId, fileId }) {
+function File({ fileTitle, fileName, storageTitle, storageID, fileId }) {
   const [isEmbedOpen, setIsEmbedOpen] = useState(false);
   const [fetchFileUrl, setFetchFileUrl] = useState("");
 
@@ -32,7 +32,7 @@ function File({ fileTitle, fileName, storageTitle, storageId, fileId }) {
         <button
           type="button"
           onClick={() => {
-            handleDeleteFile(fileId, storageId);
+            handleDeleteFile(fileId, storageID);
             deleteFileFromStorage(storageTitle, fileTitle, fileName);
           }}
         >

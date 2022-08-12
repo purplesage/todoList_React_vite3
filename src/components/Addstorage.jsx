@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/addStorage.module.css";
 
-function Addstorage({ setIsOpen }) {
+function Addstorage({ setIsOpen, setIsProject }) {
   const {
     storageTitleInput,
     setstorageTitleInput,
@@ -26,6 +26,7 @@ function Addstorage({ setIsOpen }) {
       className={styles.addStorageForm}
       onSubmit={(e) => {
         e.preventDefault();
+        setIsProject(false);
         handleAddStorage(newstorage());
         handleOpenTab("storages21133");
         setIsOpen(false);

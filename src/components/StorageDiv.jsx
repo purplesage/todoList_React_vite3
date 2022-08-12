@@ -5,7 +5,8 @@ import styles from "../styles/modules/storageDiv.module.css";
 import Storagebody from "./Storagebody";
 
 function StorageDiv({ storageID, storageTitle, files, notes }) {
-  const { handleDeletestorage, setIsMobileNav } = useContext(appDataContext);
+  const { handleDeletestorage, setIsMobileNav, deleteFolderFromStorage } =
+    useContext(appDataContext);
   const [showFile, setShowFile] = useState(null);
 
   return (
@@ -19,7 +20,13 @@ function StorageDiv({ storageID, storageTitle, files, notes }) {
       >
         <div className={styles.storageDiv}>
           <h1>{storageTitle}</h1>
-          <button type="button" onClick={() => handleDeletestorage(storageID)}>
+          <button
+            type="button"
+            onClick={() => {
+              handleDeletestorage(storageID);
+              deleteFolderFromStorage(storageTitle);
+            }}
+          >
             <CgClose />
           </button>
         </div>
