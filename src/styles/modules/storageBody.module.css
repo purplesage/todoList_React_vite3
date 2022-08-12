@@ -24,6 +24,17 @@
   letter-spacing: 3px;
 }
 
+.storageGrid h1 p {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.storageGrid h1 p svg {
+  transform: scale(1.5);
+  margin-left: 1.5vh;
+}
+
 .storageGrid h1 button {
   background: none;
   border: none;
@@ -122,24 +133,6 @@
   padding: 0;
 }
 
-.storageBodyFileFlex .file button {
-  background: none;
-  border: none;
-  width: fit-content;
-  height: fit-content;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  color: var(--candyGreen-color);
-  outline: var(--candyGreen-color) 1px solid;
-  transition: 200ms;
-}
-
 .storageBodyFileFlex .file button:hover {
   box-shadow: 1px 1px 5px 1px rgb(34, 34, 34);
   background-color: #6d2a4f;
@@ -153,80 +146,6 @@
 
 .storageBodyFileFlex p {
   font-size: 1rem;
-}
-
-.file {
-  background-color: var(--vinotintoNight-color);
-  color: white;
-  display: flex;
-  font-size: 1.3rem;
-  padding: 10px;
-  border-radius: 0.5rem;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.file h2 {
-  color: var(--candyGreen-color);
-}
-
-.note {
-  background: var(--candyGreen-color);
-  color: white;
-  width: fit-content;
-  height: fit-content;
-  padding: 1rem;
-  border-radius: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  word-wrap: break-word;
-  gap: 5px;
-  box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
-  cursor: pointer;
-  transition: 600ms;
-}
-
-.note:hover {
-  background-color: rgb(5, 167, 113);
-}
-
-.noteTitleDiv {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.noteTitleDiv button {
-  padding: 0 auto;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-}
-
-.noteTitleDiv button svg {
-  width: 1.6rem;
-  height: 1.6rem;
-  color: rgb(1, 102, 72);
-  transition: 300ms;
-}
-
-.noteTitleDiv button svg:hover {
-  background-color: var(--candyPurple-color);
-  border-radius: 50%;
-  color: var(--candyGreen-color);
-  transform: scale(1.2) rotate(360deg);
-}
-
-.noteTitleDiv h2 {
-  letter-spacing: 1px;
-  font-size: 1.3rem;
-  color: var(--candyPurple-color);
-  text-decoration: underline;
 }
 
 .filesDiv {

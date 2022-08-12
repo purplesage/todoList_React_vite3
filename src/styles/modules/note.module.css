@@ -1,0 +1,56 @@
+.note {
+  background: var(--candyGreen-color);
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  gap: 5px;
+  box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
+  cursor: pointer;
+  transition: 600ms;
+}
+
+.note:hover {
+  background-color: rgb(5, 167, 113);
+}
+
+.noteTitleDiv {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.noteTitleDiv button {
+  padding: 0 auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
+
+.noteTitleDiv button svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: rgb(1, 102, 72);
+  transition: 300ms;
+}
+
+.noteTitleDiv button svg:hover {
+  background-color: var(--candyPurple-color);
+  border-radius: 50%;
+  color: var(--candyGreen-color);
+  transform: scale(1.2) rotate(360deg);
+}
+
+.noteTitleDiv h2 {
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  color: var(--candyPurple-color);
+  text-decoration: underline;
+}

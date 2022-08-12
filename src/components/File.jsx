@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { appDataContext } from "../context/DataContext";
 import { MdOpenInFull } from "react-icons/md";
 import { BsFillTrashFill } from "react-icons/bs";
-
+import styles from "../styles/modules/file.module.css";
 import FileEmbed from "./FileEmbed";
 
-function File({ fileTitle, fileName, storageTitle, storageId, fileId, cls }) {
+function File({ fileTitle, fileName, storageTitle, storageId, fileId }) {
   const [isEmbedOpen, setIsEmbedOpen] = useState(false);
   const [fetchFileUrl, setFetchFileUrl] = useState("");
 
@@ -14,7 +14,7 @@ function File({ fileTitle, fileName, storageTitle, storageId, fileId, cls }) {
 
   return (
     <>
-      <div className={cls}>
+      <div className={styles.file}>
         <h2>{fileTitle}</h2>
         <p>
           <i>{fileName}</i>

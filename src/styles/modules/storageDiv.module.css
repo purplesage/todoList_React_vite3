@@ -50,4 +50,9 @@
     top: 2rem;
     left: 0.5rem;
   }
+
+  .storage button {
+    top: 6vw;
+    left: 10vw;
+  }
 }

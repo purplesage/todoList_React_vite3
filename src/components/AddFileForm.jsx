@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 import { ImCloudUpload } from "react-icons/im";
 import LoadingButton from "@mui/lab/LoadingButton";
 
-function AddFileForm({ setShowFileInputs, title, id }) {
+function AddFileForm({ setShowFileInputs, storageTitle, storageID }) {
   const [fileTitle, setFileTitle] = useState("");
   const [file, setFile] = useState("");
 
@@ -23,7 +23,7 @@ function AddFileForm({ setShowFileInputs, title, id }) {
   };
 
   const fileToAdd = () => {
-    handleAddFile(id, newFileObject(true));
+    handleAddFile(storageID, newFileObject(true));
   };
 
   return (
@@ -31,7 +31,12 @@ function AddFileForm({ setShowFileInputs, title, id }) {
       className={styles.addFileForm}
       onSubmit={(e) => {
         e.preventDefault();
-        uploadToStorage(newFileObject(), title, fileToAdd, setShowFileInputs);
+        uploadToStorage(
+          newFileObject(),
+          storageTitle,
+          fileToAdd,
+          setShowFileInputs
+        );
         // setShowFileInputs(false);
       }}
     >

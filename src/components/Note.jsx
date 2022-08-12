@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CgClose } from "react-icons/cg";
+import styles from "../styles/modules/note.module.css";
+import { appDataContext } from "../context/DataContext";
 
-function Note({
-  noteId,
-  noteCLS,
-  noteTitleDivCLS,
-  noteTitle,
-  id,
-  noteBody,
-  handleDeleteNote,
-}) {
+function Note({ noteId, noteTitle, storageID, noteBody }) {
   const [modalStyle, setModalStyle] = useState(false);
+
+  const { handleDeleteNote } = useContext(appDataContext);
 
   const customStyle = () => {
     return {
@@ -26,11 +22,14 @@ function Note({
     <div
       style={modalStyle ? customStyle() : null}
       onDoubleClick={() => setModalStyle(!modalStyle)}
-      className={noteCLS}
+      className={styles.note}
     >
-      <div className={noteTitleDivCLS}>
+      <div className={styles.noteTitleDiv}>
         <h2>{noteTitle}</h2>
-        <button type="button" onClick={() => handleDeleteNote(noteId, id)}>
+        <button
+          type="button"
+          onClick={() => handleDeleteNote(noteId, storageID)}
+        >
           <CgClose />
         </button>
       </div>

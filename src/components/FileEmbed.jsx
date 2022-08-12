@@ -20,9 +20,7 @@ function FileEmbed({ setIsEmbedOpen, fetchFileUrl, fileTitle }) {
           <CgClose />
         </button>
       </h2>
-      <iframe className={styles.embedFile} src={fetchFileUrl}>
-        link test{" "}
-      </iframe>
+      <iframe className={styles.embedFile} src={fetchFileUrl} />
     </div>
   );
 }

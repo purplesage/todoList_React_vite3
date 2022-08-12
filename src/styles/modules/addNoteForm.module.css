@@ -87,3 +87,10 @@
   width: 1.8rem;
   height: 1.8rem;
 }
+
+@media (max-width: 500px) {
+  .addNote {
+    width: 100vw;
+    border-radius: 0;
+  }
+}

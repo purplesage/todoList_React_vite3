@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 import ReactDOM from "react-dom";
 import styles from "../styles/modules/addNoteForm.module.css";
 
-function AddNote({ id, setShowNoteInputs }) {
+function AddNoteForm({ storageID, setShowNoteInputs }) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteBody, setNoteBody] = useState("");
 
@@ -20,7 +20,7 @@ function AddNote({ id, setShowNoteInputs }) {
       className={styles.addNote}
       onSubmit={(e) => {
         e.preventDefault();
-        handleAddNote(id, newNote());
+        handleAddNote(storageID, newNote());
         setShowNoteInputs(false);
       }}
     >
@@ -54,4 +54,4 @@ function AddNote({ id, setShowNoteInputs }) {
   );
 }
 
-export default AddNote;
+export default AddNoteForm;

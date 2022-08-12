@@ -9,8 +9,8 @@ function storageList({ list, emptyMessage }) {
         ? list.map((listObject) => (
             <StorageDiv
               key={listObject.id}
-              id={listObject.id}
-              title={listObject.title}
+              storageID={listObject.id}
+              storageTitle={listObject.title}
               files={listObject.files}
               notes={listObject.notes}
             />

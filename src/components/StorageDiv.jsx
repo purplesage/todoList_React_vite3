@@ -4,7 +4,7 @@ import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/storageDiv.module.css";
 import Storagebody from "./Storagebody";
 
-function StorageDiv({ id, title, files, notes }) {
+function StorageDiv({ storageID, storageTitle, files, notes }) {
   const { handleDeletestorage, setIsMobileNav } = useContext(appDataContext);
   const [showFile, setShowFile] = useState(null);
 
@@ -18,20 +18,20 @@ function StorageDiv({ id, title, files, notes }) {
         }}
       >
         <div className={styles.storageDiv}>
-          <h1>{title}</h1>
-          <button type="button" onClick={() => handleDeletestorage(id)}>
+          <h1>{storageTitle}</h1>
+          <button type="button" onClick={() => handleDeletestorage(storageID)}>
             <CgClose />
           </button>
         </div>
       </li>
       {showFile && (
         <Storagebody
-          title={title}
+          storageTitle={storageTitle}
           showFile={showFile}
           setShowFile={setShowFile}
           notes={notes}
           files={files}
-          id={id}
+          storageID={storageID}
         />
       )}
     </>
