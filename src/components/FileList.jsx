@@ -19,16 +19,4 @@ function FileList({ files, storageID, storageTitle }) {
   );
 }
 
-// {files.length > 0 &&
-//   files.map((fileObject) => (
-//     <File
-//       key={fileObject.id}
-//       fileTitle={fileObject.title}
-//       fileName={fileObject.name}
-//       storageTitle={title}
-//       storageId={id}
-//       fileId={fileObject.id}
-//     />
-//   ))}
-
 export default FileList;

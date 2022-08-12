@@ -104,15 +104,3 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
 }
 
 export default storagebody;
-
-{
-  /* <div key={noteObject.id} className={styles.note}>
-  <div className={styles.noteTitleDiv}>
-    <h2>{noteObject.title}</h2>
-    <button type="button" onClick={() => handleDeleteNote(noteObject.id, id)}>
-      <CgClose />
-    </button>
-  </div>
-  <p>{noteObject.body}</p>
-</div>; */
-}

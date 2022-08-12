@@ -199,7 +199,7 @@ export default function DataContext({ children, userEmail }) {
     storagesDispatcher({ type: "delete_file", fileID, storageID });
   };
 
-  //! fetch storage files links on user authentication test.
+  //* fetch storage files links on user authentication test.
   const [isUploading, setIsUploading] = useState(false);
 
   const uploadToStorage = async (

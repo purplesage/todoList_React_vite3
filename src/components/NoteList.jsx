@@ -18,16 +18,4 @@ function NoteList({ notes, storageID }) {
   );
 }
 
-// {notes.length > 0 &&
-//   notes.map((noteObject) => (
-//     <Note
-//       key={noteObject.id}
-//       noteId={noteObject.id}
-//       noteTitle={noteObject.title}
-//       id={id}
-//       noteBody={noteObject.body}
-//       handleDeleteNote={handleDeleteNote}
-//     />
-//   ))}
-
 export default NoteList;

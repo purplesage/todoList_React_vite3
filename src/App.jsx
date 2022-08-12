@@ -9,7 +9,6 @@ import styles from "./styles/modules/app.module.css";
 function App() {
   const [globalUser, setGlobalUser] = useState(null);
 
-  //todo: add 'user doesn't exist' handler state.
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       setGlobalUser(false);
@@ -21,7 +20,6 @@ function App() {
 
   return (
     <div className={styles.app}>
-      {/* <CssBaseline /> */}
       <DataContext userEmail={globalUser ? globalUser.email : null}>
         {!globalUser ? <AuthSection /> : <TodoApp />}
       </DataContext>
