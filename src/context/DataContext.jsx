@@ -356,7 +356,7 @@ export default function DataContext({ children, userEmail }) {
     }, 4500);
   };
 
-  //* fetch todoList and projectList on auth state change (see in App.jsx):
+  //! fetch todoList and projectList on auth state change (see in App.jsx):
   useEffect(() => {
     if (userEmail) {
       handleOpenTab("home21133");
