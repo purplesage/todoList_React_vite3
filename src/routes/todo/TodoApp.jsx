@@ -13,6 +13,42 @@ function TodoApp() {
   //currently in a project tab check
   const [isProject, setIsProject] = useState(false);
 
+  //!---------------------------------------------------
+  // useEffect(() => {
+  //   if (userEmail) {
+  //     handleOpenTab("home21133");
+  //     const searchOrCreateUserDocument = async () => {
+  //       try {
+  //         const docRef = doc(dataBase, `users/${userEmail}`);
+  //         const checkDocExistence = await getDoc(docRef);
+
+  //         if (checkDocExistence.exists()) {
+  //           const docInfo = checkDocExistence.data();
+  //           handleLoadTodos(docInfo.todoList);
+  //           setProjectList(docInfo.projectList);
+  //           handleLoadfolderList(docInfo.folderList);
+  //           docInfo.projectList.forEach((projectObject) => {
+  //             handleAddProjectTab(projectObject.value, true);
+  //           });
+  //         } else {
+  //           await setDoc(docRef, {
+  //             todoList: [],
+  //             projectList: [],
+  //             folderList: [],
+  //           });
+  //         }
+  //         setIsLoading(false);
+  //       } catch (err) {
+  //         setIsError(true);
+  //         console.error(err.message);
+  //       }
+  //     };
+
+  //     searchOrCreateUserDocument();
+  //   }
+  // }, [userEmail]);
+  //!---------------------------------------------------
+
   return (
     <main className={styles.todoSection}>
       <Header />

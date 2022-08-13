@@ -24,7 +24,7 @@ function File({ fileTitle, fileName, folderTitle, folderID, fileId }) {
           type="button"
           onClick={() => {
             setIsEmbedOpen(true);
-            fetchFile(folderTitle, fileTitle, fileName, setFetchFileUrl);
+            fetchFile(folderTitle, fileName, setFetchFileUrl);
           }}
         >
           <MdOpenInFull /> {"OPEN"}
@@ -33,7 +33,7 @@ function File({ fileTitle, fileName, folderTitle, folderID, fileId }) {
           type="button"
           onClick={() => {
             handleDeleteFile(fileId, folderID);
-            deleteFileFromStorage(folderTitle, fileTitle, fileName);
+            deleteFileFromStorage(folderTitle, fileName);
           }}
         >
           <BsFillTrashFill />

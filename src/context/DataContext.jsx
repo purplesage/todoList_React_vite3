@@ -242,15 +242,15 @@ export default function DataContext({ children, userEmail }) {
     });
   };
 
-  const fetchFile = async (folderTitle, fileTitle, fileName, setUrlState) => {
-    const file_ref = fileRef(folderTitle, fileTitle, fileName);
+  const fetchFile = async (folderTitle, fileName, setUrlState) => {
+    const file_ref = fileRef(folderTitle, fileName);
 
     const fetchFileUrl = await getDownloadURL(file_ref);
     setUrlState(fetchFileUrl);
   };
 
-  const deleteFileFromStorage = async (folderTitle, fileTitle, fileName) => {
-    const file_ref = fileRef(folderTitle, fileTitle, fileName);
+  const deleteFileFromStorage = async (folderTitle, fileName) => {
+    const file_ref = fileRef(folderTitle, fileName);
 
     await deleteObject(file_ref);
   };
