@@ -3,9 +3,10 @@ import { inputContext } from "../context/InputHandling";
 import AddTodo from "./AddTodo";
 import AddProject from "./AddProject";
 import ReactDOM from "react-dom";
-import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addForm.module.css";
 import AddFolder from "./AddFolder";
+
+import { CgClose } from "react-icons/cg";
 
 function Addform({ setIsOpen, isProject, setIsProject }) {
   //swtich handlers

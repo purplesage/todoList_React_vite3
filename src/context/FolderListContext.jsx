@@ -9,9 +9,9 @@ import {
   list,
 } from "firebase/storage";
 
-const folderListContext = createContext({});
+export const folderListContext = createContext({});
 
-function FolderListContext({ children }) {
+function FolderListContext({ children, userEmail }) {
   //*  folderList reducer logic----------------------------
   const [folderTitleInput, setfolderTitleInput] = useState("");
   const [folderFileInput, setfolderFileInput] = useState("");
@@ -173,19 +173,6 @@ function FolderListContext({ children }) {
     await deleteObject(file_ref);
   };
 
-  //* update folderList in firebase on state change
-
-  useEffect(() => {
-    const updatefolderList = async () => {
-      const docRef = doc(dataBase, `users/${userEmail}`);
-      await updateDoc(docRef, { folderList });
-    };
-
-    if (!isLoading) {
-      updatefolderList();
-    }
-  }, [folderList]);
-
   return (
     <folderListContext.Provider
       value={{
@@ -205,6 +192,7 @@ function FolderListContext({ children }) {
         fetchFile,
         deleteFileFromStorage,
         isUploading,
+        handleLoadfolderList,
       }}
     >
       {children}

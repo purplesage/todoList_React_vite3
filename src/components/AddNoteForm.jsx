@@ -1,16 +1,16 @@
 import React, { useContext, useState } from "react";
-import { appDataContext } from "../context/DataContext";
-import { CgClose } from "react-icons/cg";
-
-import { v4 as uuid } from "uuid";
+import { folderListContext } from "../context/FolderListContext";
 import ReactDOM from "react-dom";
 import styles from "../styles/modules/addNoteForm.module.css";
+
+import { v4 as uuid } from "uuid";
+import { CgClose } from "react-icons/cg";
 
 function AddNoteForm({ folderID, setShowNoteInputs }) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteBody, setNoteBody] = useState("");
 
-  const { handleAddNote } = useContext(appDataContext);
+  const { handleAddNote } = useContext(folderListContext);
 
   const newNote = () => {
     return { title: noteTitle, body: noteBody, id: uuid() };

@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { v4 as uuid } from "uuid";
-import { appDataContext } from "../context/DataContext";
+import { folderListContext } from "../context/FolderListContext";
+import { tabHandlingContext } from "../context/TabHandlingContext";
+import { utilityContext } from "../context/UtilityContext";
 import styles from "../styles/modules/addStorage.module.css";
 
+import { v4 as uuid } from "uuid";
+
 function AddFolder({ setIsOpen, setIsProject }) {
-  const {
-    folderTitleInput,
-    setfolderTitleInput,
-    handleAddFolder,
-    handleOpenTab,
-    setIsMobileNav,
-  } = useContext(appDataContext);
+  const { folderTitleInput, setfolderTitleInput, handleAddFolder } =
+    useContext(folderListContext);
+  const { handleOpenTab } = useContext(tabHandlingContext);
+  const { setIsMobileNav } = useContext(utilityContext);
 
   const newfolder = () => {
     return {

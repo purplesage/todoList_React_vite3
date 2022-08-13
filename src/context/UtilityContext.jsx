@@ -1,6 +1,6 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
-const utilityContext = createContext({});
+export const utilityContext = createContext({});
 
 function UtilityContext({ children }) {
   //* content availability state.

@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
-import { appDataContext } from "../context/DataContext";
+// import { appDataContext } from "../context/DataContext";
+import { todoListContext } from "../context/TodoListContext";
+import { projectListContext } from "../context/ProjectListContext";
+import { tabHandlingContext } from "../context/TabHandlingContext";
+import { utilityContext } from "../context/UtilityContext";
+
 import ProjectButton from "./ProjectButton";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "../styles/modules/nav.module.css";
 import SignOut from "./SignOut";
 
 export default function Nav({ setIsOpen, isOpen, setIsProject }) {
-  const {
-    todoList,
-    todayFilter,
-    thisWeekFilter,
-    projectList,
-    requireTabState,
-    handleOpenTab,
-    isMobileNav,
-  } = useContext(appDataContext);
+  const { todoList, todayFilter, thisWeekFilter } = useContext(todoListContext);
+  const { projectList } = useContext(projectListContext);
+  const { handleOpenTab, requireTabState } = useContext(tabHandlingContext);
+  const { isMobileNav } = useContext(utilityContext);
 
   const listLength = (list) => {
     return list.filter((todoObject) => todoObject.done === false).length;
@@ -124,9 +124,6 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
               <p>Folders</p>
             </span>
           )}
-          {/* {thisWeekLength > 0 && (
-            <p className={styles.number}>{thisWeekLength}</p>
-          )} */}
         </button>
       </div>
 

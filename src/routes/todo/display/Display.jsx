@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 import List from "./List";
-import { appDataContext } from "../../../context/DataContext";
+// import { appDataContext } from "../../../context/DataContext";
+import { todoListContext } from "../../../context/TodoListContext";
+import { projectListContext } from "../../../context/ProjectListContext";
+import { utilityContext } from "../../../context/UtilityContext";
+import { tabHandlingContext } from "../../../context/TabHandlingContext";
+import { folderListContext } from "../../../context/FolderListContext";
+
 import DeleteProject from "../../../components/DeleteProject";
 import styles from "../../../styles/modules/display.module.css";
 import Notification from "../../../components/Notification";
 import FolderList from "../../../components/FolderList";
+
 function Display({ isProject, setIsProject }) {
-  const {
-    todoList,
-    todayFilter,
-    thisWeekFilter,
-    projectFilter,
-    projectFilterName,
-    error,
-    isLoading,
-    requireTabState,
-    notificationDisplay,
-    folderList,
-  } = useContext(appDataContext);
+  const { todoList, todayFilter, thisWeekFilter } = useContext(todoListContext);
+  const { projectFilter, projectFilterName } = useContext(projectListContext);
+  const { error, isLoading, notificationDisplay } = useContext(utilityContext);
+  const { requireTabState } = useContext(tabHandlingContext);
+  const { folderList } = useContext(folderListContext);
 
   const handleMissingContent = (error, isLoading) => {
     if (error) {

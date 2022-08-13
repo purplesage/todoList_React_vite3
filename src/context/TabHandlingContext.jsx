@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-const tabHandlingContext = createContext({});
+export const tabHandlingContext = createContext({});
 
 function TabHandlingContext({ children }) {
   //* tab styling logic-------------------------

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addFileForm.module.css";
-import { appDataContext } from "../context/DataContext";
+import { folderListContext } from "../context/FolderListContext";
+
+import { CgClose } from "react-icons/cg";
 import { v4 as uuid } from "uuid";
 import { ImCloudUpload } from "react-icons/im";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -11,7 +12,7 @@ function AddFileForm({ setShowFileInputs, folderTitle, folderID }) {
   const [file, setFile] = useState("");
 
   const { uploadToStorage, handleAddFile, isUploading } =
-    useContext(appDataContext);
+    useContext(folderListContext);
 
   const newFileObject = (toState) => {
     return {

@@ -1,8 +1,6 @@
-import React, { createContext, useState, useRef, useEffect } from "react";
+import React, { createContext, useState, useRef } from "react";
 
-import { doc, updateDoc } from "firebase/firestore";
-
-const projectListContext = createContext({});
+export const projectListContext = createContext({});
 
 function ProjectListContext({ children }) {
   //* project state logic----------------
@@ -36,18 +34,6 @@ function ProjectListContext({ children }) {
     setProjectList(projectList.filter((project) => project.id !== id));
   };
 
-  //* update firestore projectList on state change.
-  useEffect(() => {
-    const updateTodoList = async () => {
-      const docRef = doc(dataBase, `users/${userEmail}`);
-      await updateDoc(docRef, { projectList });
-    };
-
-    if (!isLoading) {
-      updateTodoList();
-    }
-  }, [projectList]);
-
   return (
     <projectListContext.Provider
       value={{
@@ -60,6 +46,7 @@ function ProjectListContext({ children }) {
         handleAddProject,
         projectFilter,
         handleDeleteProject,
+        inputRef,
       }}
     >
       {children}

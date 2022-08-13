@@ -1,13 +1,12 @@
-import React, { createContext, useReducer, useEffect } from "react";
-import { dataBase } from "../util/firebaseConfig";
+import React, { createContext, useReducer } from "react";
 
-import { doc, updateDoc } from "firebase/firestore";
 import isThisWeek from "date-fns/esm/isThisWeek/index";
 import parseISO from "date-fns/esm/fp/parseISO/index";
+import format from "date-fns/format";
 
-const todoListContext = createContext({});
+export const todoListContext = createContext({});
 
-function TodoListContext({ children, userEmail }) {
+function TodoListContext({ children }) {
   const todoListReducer = (state, action) => {
     switch (action.type) {
       case "add_todo": {
@@ -76,18 +75,6 @@ function TodoListContext({ children, userEmail }) {
   const thisWeekFilter = todoList.filter(
     (todoObj) => isThisWeek(new Date(parseISO(todoObj.dueDate))) === true
   );
-
-  //* update firestore todoList on state change.
-  useEffect(() => {
-    const updateTodoList = async () => {
-      const docRef = doc(dataBase, `users/${userEmail}`);
-      await updateDoc(docRef, { todoList });
-    };
-
-    if (!isLoading) {
-      updateTodoList();
-    }
-  }, [todoList]);
 
   return (
     <todoListContext.Provider
