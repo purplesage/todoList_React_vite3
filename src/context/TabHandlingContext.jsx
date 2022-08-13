@@ -3,7 +3,6 @@ import React, { createContext, useReducer } from "react";
 export const tabHandlingContext = createContext({});
 
 function TabHandlingContext({ children }) {
-  //* tab styling logic-------------------------
   function tabReducer(state, action) {
     switch (action.type) {
       case "set_is_open": {

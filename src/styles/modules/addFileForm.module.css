@@ -35,7 +35,6 @@
   border-radius: 0.5rem;
   height: 35px;
   width: 55%;
-
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
   padding: 0.4rem;
@@ -67,4 +66,43 @@
 .addFileForm input[type="file"] {
   color: white;
   font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .addFileForm {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    gap: 5px;
+  }
+
+  .addFileForm .close {
+    width: fit-content;
+    background: none;
+    border: var(--candyGreen-color) 1px solid;
+    border-radius: 50%;
+    transition: 200ms;
+    padding: 2px;
+  }
+
+  .addFileForm .close svg {
+    color: var(--candyGreen-color);
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+  }
+
+  .addFileForm input[type="text"] {
+    height: 25px;
+    width: 50%;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .addFileForm input[type="file"]::-webkit-file-upload-button {
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+    padding: 5px;
+    margin-right: 0px;
+  }
 }

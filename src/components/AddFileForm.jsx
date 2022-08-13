@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import styles from "../styles/modules/addFileForm.module.css";
 import { folderListContext } from "../context/FolderListContext";
 
@@ -10,6 +10,11 @@ import LoadingButton from "@mui/lab/LoadingButton";
 function AddFileForm({ setShowFileInputs, folderTitle, folderID }) {
   const [fileTitle, setFileTitle] = useState("");
   const [file, setFile] = useState("");
+
+  const getWindowSize = () => {
+    return window.outerWidth;
+  };
+  const windowSize = useRef(getWindowSize());
 
   const { uploadToStorage, handleAddFile, isUploading } =
     useContext(folderListContext);
@@ -78,7 +83,12 @@ function AddFileForm({ setShowFileInputs, folderTitle, folderID }) {
         sx={{
           fontWeight: "bold",
           width: "9rem",
-          svg: { color: "#1976d2" },
+          svg: {
+            color: "#1976d2",
+            width: windowSize.current < 500 ? "1.1rem" : null,
+            height: windowSize.current < 500 ? ".1.1rem" : null,
+          },
+          fontSize: windowSize.current < 500 ? ".7rem" : null,
         }}
       >
         Upload

@@ -7,6 +7,7 @@ function UtilityContext({ children }) {
   const [error, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  //*mobile app version states
   const [isMobileNav, setIsMobileNav] = useState(false);
   const [notificationDisplay, setNotificationDisplay] = useState(false);
 
