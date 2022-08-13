@@ -1,4 +1,4 @@
-.storageGrid {
+.folderGrid {
   display: grid;
   gap: 10px;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -6,7 +6,7 @@
   overflow-x: hidden;
 }
 
-.storageGrid li {
+.folderGrid li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,16 +19,16 @@
   transition: 200ms;
 }
 
-.storageGrid li:hover {
+.folderGrid li:hover {
   transform: scale(1.05);
 }
 
 @media (max-width: 500px) {
-  .storageGrid {
+  .folderGrid {
     grid-template: repeat(3, 1fr) / repeat(1, 1fr);
   }
 
-  .storageGrid li {
+  .folderGrid li {
     justify-self: center;
     width: 15rem;
     height: 10rem;

@@ -1,7 +1,7 @@
 import React from "react";
 import File from "./File";
 
-function FileList({ files, storageID, storageTitle }) {
+function FileList({ files, folderID, folderTitle }) {
   return (
     <>
       {files.length > 0 &&
@@ -10,8 +10,8 @@ function FileList({ files, storageID, storageTitle }) {
             key={fileObject.id}
             fileTitle={fileObject.title}
             fileName={fileObject.name}
-            storageTitle={storageTitle}
-            storageID={storageID}
+            folderTitle={folderTitle}
+            folderID={folderID}
             fileId={fileObject.id}
           />
         ))}

@@ -123,96 +123,96 @@ export default function DataContext({ children, userEmail }) {
     setProjectList(projectList.filter((project) => project.id !== id));
   };
 
-  //* storageS state logic-----------------------------
-  const [storageTitleInput, setstorageTitleInput] = useState("");
-  const [storageFileInput, setstorageFileInput] = useState("");
+  //* folderS state logic-----------------------------
+  const [folderTitleInput, setfolderTitleInput] = useState("");
+  const [folderFileInput, setfolderFileInput] = useState("");
 
-  const storagesReducer = (state, action) => {
+  const foldersReducer = (state, action) => {
     switch (action.type) {
-      case "add_storage": {
-        return [...state, action.newstorage];
+      case "add_folder": {
+        return [...state, action.newfolder];
       }
 
-      case "delete_storage": {
-        return state.filter((storageObject) => storageObject.id !== action.id);
+      case "delete_folder": {
+        return state.filter((folderObject) => folderObject.id !== action.id);
       }
 
-      case "load_storageList": {
-        return [...action.storageList];
+      case "load_folderList": {
+        return [...action.folderList];
       }
 
       case "add_note": {
-        return state.map((storageObject) =>
-          storageObject.id === action.id
+        return state.map((folderObject) =>
+          folderObject.id === action.id
             ? {
-                ...storageObject,
-                notes: [...storageObject.notes, action.newNote],
+                ...folderObject,
+                notes: [...folderObject.notes, action.newNote],
               }
-            : storageObject
+            : folderObject
         );
       }
 
       case "delete_note": {
-        return state.map((storageObject) =>
-          storageObject.id === action.storageID
+        return state.map((folderObject) =>
+          folderObject.id === action.folderID
             ? {
-                ...storageObject,
-                notes: storageObject.notes.filter(
+                ...folderObject,
+                notes: folderObject.notes.filter(
                   (note) => note.id !== action.noteID
                 ),
               }
-            : storageObject
+            : folderObject
         );
       }
 
       case "add_file": {
-        return state.map((storageObject) =>
-          storageObject.id === action.id
+        return state.map((folderObject) =>
+          folderObject.id === action.id
             ? {
-                ...storageObject,
-                files: [...storageObject.files, action.newFile],
+                ...folderObject,
+                files: [...folderObject.files, action.newFile],
               }
-            : storageObject
+            : folderObject
         );
       }
 
       case "delete_file": {
-        return state.map((storageObject) =>
-          storageObject.id === action.storageID
+        return state.map((folderObject) =>
+          folderObject.id === action.folderID
             ? {
-                ...storageObject,
-                files: storageObject.files.filter(
+                ...folderObject,
+                files: folderObject.files.filter(
                   (file) => file.id !== action.fileID
                 ),
               }
-            : storageObject
+            : folderObject
         );
       }
     }
   };
 
   const handleAddFile = (id, newFile) => {
-    storagesDispatcher({ type: "add_file", id, newFile });
+    foldersDispatcher({ type: "add_file", id, newFile });
   };
 
-  const handleDeleteFile = (fileID, storageID) => {
-    storagesDispatcher({ type: "delete_file", fileID, storageID });
+  const handleDeleteFile = (fileID, folderID) => {
+    foldersDispatcher({ type: "delete_file", fileID, folderID });
   };
 
-  //* fetch storage files links on user authentication test.
+  //* fetch folder files links on user authentication test.
   const [isUploading, setIsUploading] = useState(false);
 
-  const fileRef = (storageTitle, fileName) => {
+  const fileRef = (folderTitle, fileName) => {
     const fileRef = ref(
       storage,
-      `users/${userEmail}_files/${storageTitle}/${fileName}`
+      `users/${userEmail}_files/${folderTitle}/${fileName}`
     );
     return fileRef;
   };
 
   const uploadToStorage = async (
     fileObject,
-    storageTitle,
+    folderTitle,
     addFileToList,
     setShowFileInputs
   ) => {
@@ -220,7 +220,7 @@ export default function DataContext({ children, userEmail }) {
     try {
       if (!fileObject) return;
 
-      const ref = fileRef(storageTitle, fileObject.name);
+      const ref = fileRef(folderTitle, fileObject.name);
 
       const onCompleted = () => {
         setIsUploading(false), addFileToList(), setShowFileInputs(false);
@@ -232,8 +232,8 @@ export default function DataContext({ children, userEmail }) {
     }
   };
 
-  const deleteFolderFromStorage = async (storageTitle) => {
-    const file_ref = ref(storage, `users/${userEmail}_files/${storageTitle}`);
+  const deleteFolderFromStorage = async (folderTitle) => {
+    const file_ref = ref(storage, `users/${userEmail}_files/${folderTitle}`);
     const file_list = await list(file_ref);
 
     file_list.items.forEach(async (referenceObject) => {
@@ -242,58 +242,58 @@ export default function DataContext({ children, userEmail }) {
     });
   };
 
-  const fetchFile = async (storageTitle, fileTitle, fileName, setUrlState) => {
-    const file_ref = fileRef(storageTitle, fileTitle, fileName);
+  const fetchFile = async (folderTitle, fileTitle, fileName, setUrlState) => {
+    const file_ref = fileRef(folderTitle, fileTitle, fileName);
 
     const fetchFileUrl = await getDownloadURL(file_ref);
     setUrlState(fetchFileUrl);
   };
 
-  const deleteFileFromStorage = async (storageTitle, fileTitle, fileName) => {
-    const file_ref = fileRef(storageTitle, fileTitle, fileName);
+  const deleteFileFromStorage = async (folderTitle, fileTitle, fileName) => {
+    const file_ref = fileRef(folderTitle, fileTitle, fileName);
 
     await deleteObject(file_ref);
   };
 
-  const handleDeleteNote = (noteID, storageID) => {
-    storagesDispatcher({ type: "delete_note", noteID, storageID });
+  const handleDeleteNote = (noteID, folderID) => {
+    foldersDispatcher({ type: "delete_note", noteID, folderID });
   };
 
   const handleAddNote = (id, newNote) => {
-    storagesDispatcher({ type: "add_note", id, newNote });
+    foldersDispatcher({ type: "add_note", id, newNote });
   };
 
-  const handleLoadstorageList = (storageList) => {
-    storagesDispatcher({ type: "load_storageList", storageList });
+  const handleLoadfolderList = (folderList) => {
+    foldersDispatcher({ type: "load_folderList", folderList });
   };
 
-  const handleAddStorage = (newstorage) => {
-    const findDuplicate = storageList.find(
-      (storageObject) => storageObject.title === newstorage.title
+  const handleAddFolder = (newfolder) => {
+    const findDuplicate = folderList.find(
+      (folderObject) => folderObject.title === newfolder.title
     );
 
     if (findDuplicate) return;
-    storagesDispatcher({ type: "add_storage", newstorage });
+    foldersDispatcher({ type: "add_folder", newfolder });
   };
 
-  const handleDeletestorage = (id) => {
-    storagesDispatcher({ type: "delete_storage", id });
+  const handleDeletefolder = (id) => {
+    foldersDispatcher({ type: "delete_folder", id });
   };
 
-  const [storageList, storagesDispatcher] = useReducer(storagesReducer, []);
+  const [folderList, foldersDispatcher] = useReducer(foldersReducer, []);
 
-  //* update storageList in firebase on state change
+  //* update folderList in firebase on state change
 
   useEffect(() => {
-    const updatestorageList = async () => {
+    const updatefolderList = async () => {
       const docRef = doc(dataBase, `users/${userEmail}`);
-      await updateDoc(docRef, { storageList });
+      await updateDoc(docRef, { folderList });
     };
 
     if (!isLoading) {
-      updatestorageList();
+      updatefolderList();
     }
-  }, [storageList]);
+  }, [folderList]);
 
   //* tab styling logic-------------------------
   function tabReducer(state, action) {
@@ -330,7 +330,7 @@ export default function DataContext({ children, userEmail }) {
     { name: "home21133", state: true },
     { name: "today21133", state: false },
     { name: "week21133", state: false },
-    { name: "storages21133", state: false },
+    { name: "folders21133", state: false },
   ]);
 
   function requireTabState(tabName) {
@@ -369,7 +369,7 @@ export default function DataContext({ children, userEmail }) {
             const docInfo = checkDocExistence.data();
             handleLoadTodos(docInfo.todoList);
             setProjectList(docInfo.projectList);
-            handleLoadstorageList(docInfo.storageList);
+            handleLoadfolderList(docInfo.folderList);
             docInfo.projectList.forEach((projectObject) => {
               handleAddProjectTab(projectObject.value, true);
             });
@@ -377,7 +377,7 @@ export default function DataContext({ children, userEmail }) {
             await setDoc(docRef, {
               todoList: [],
               projectList: [],
-              storageList: [],
+              folderList: [],
             });
           }
           setIsLoading(false);
@@ -444,13 +444,13 @@ export default function DataContext({ children, userEmail }) {
         setIsMobileNav,
         notificationDisplay,
         handleNotificationAnimation,
-        storageList,
-        handleAddStorage,
-        storageTitleInput,
-        setstorageTitleInput,
-        storageFileInput,
-        setstorageFileInput,
-        handleDeletestorage,
+        folderList,
+        handleAddFolder,
+        folderTitleInput,
+        setfolderTitleInput,
+        folderFileInput,
+        setfolderFileInput,
+        handleDeletefolder,
         handleAddNote,
         handleDeleteNote,
         uploadToStorage,

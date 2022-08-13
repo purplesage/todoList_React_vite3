@@ -1,4 +1,4 @@
-.storage {
+.folder {
   display: flex;
   width: fit-content;
   cursor: pointer;
@@ -9,7 +9,7 @@
   margin-left: 1vw;
 }
 
-.storage button {
+.folder button {
   align-self: flex-end;
   background: none;
   border: none;
@@ -24,21 +24,21 @@
   cursor: pointer;
 }
 
-.storage svg {
+.folder svg {
   height: 1.3rem;
   width: 1.3rem;
   color: rgb(1, 102, 72);
   transition: 300ms;
 }
 
-.storage svg:hover {
+.folder svg:hover {
   background-color: var(--candyPurple-color);
   border-radius: 50%;
   color: var(--candyGreen-color);
   transform: scale(1.2) rotate(360deg);
 }
 
-.storageDiv {
+.folderDiv {
   display: flex;
   font-size: 1.4rem;
   color: var(--candyPurple-color);
@@ -46,12 +46,12 @@
 }
 
 @media (max-width: 500px) {
-  .storage button {
+  .folder button {
     top: 2rem;
     left: 0.5rem;
   }
 
-  .storage button {
+  .folder button {
     top: 6vw;
     left: 10vw;
   }

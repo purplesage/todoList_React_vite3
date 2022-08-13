@@ -5,13 +5,13 @@ import AddProject from "./AddProject";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/addForm.module.css";
-import Addstorage from "./Addstorage";
+import AddFolder from "./AddFolder";
 
 function Addform({ setIsOpen, isProject, setIsProject }) {
   //swtich handlers
   const [isCreateTodo, setIsCreateTodo] = useState(true);
   const [isCreateProject, setIsCreateProject] = useState(false);
-  const [isCreatestorage, setIsCreatestorage] = useState(false);
+  const [isCreatefolder, setIsCreatefolder] = useState(false);
 
   const { resetInputs } = useContext(inputContext);
 
@@ -35,7 +35,7 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
             type="button"
             onClick={() => {
               setIsCreateProject(false);
-              setIsCreatestorage(false);
+              setIsCreatefolder(false);
               setIsCreateTodo(true);
             }}
           >
@@ -46,22 +46,22 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
             type="button"
             onClick={() => {
               setIsCreateTodo(false);
-              setIsCreatestorage(false);
+              setIsCreatefolder(false);
               setIsCreateProject(true);
             }}
           >
             {isCreateProject ? <p>//Project</p> : <p>Project</p>}
           </button>
           <button
-            style={isCreatestorage ? { fontWeight: "bolder" } : null}
+            style={isCreatefolder ? { fontWeight: "bolder" } : null}
             type="button"
             onClick={() => {
               setIsCreateProject(false);
               setIsCreateTodo(false);
-              setIsCreatestorage(true);
+              setIsCreatefolder(true);
             }}
           >
-            {isCreatestorage ? <p>// Folder</p> : <p>Folder</p>}
+            {isCreatefolder ? <p>// Folder</p> : <p>Folder</p>}
           </button>
         </nav>
 
@@ -77,8 +77,8 @@ function Addform({ setIsOpen, isProject, setIsProject }) {
             <AddProject setIsOpen={setIsOpen} setIsProject={setIsProject} />
           )}
 
-          {isCreatestorage && (
-            <Addstorage setIsOpen={setIsOpen} setIsProject={setIsProject} />
+          {isCreatefolder && (
+            <AddFolder setIsOpen={setIsOpen} setIsProject={setIsProject} />
           )}
         </div>
       </div>

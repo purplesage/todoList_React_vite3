@@ -1,30 +1,30 @@
 import React, { useContext, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { appDataContext } from "../context/DataContext";
-import styles from "../styles/modules/storageDiv.module.css";
-import Storagebody from "./Storagebody";
+import styles from "../styles/modules/folderIcon.module.css";
+import FolderContent from "./FolderContent";
 
-function StorageDiv({ storageID, storageTitle, files, notes }) {
-  const { handleDeletestorage, setIsMobileNav, deleteFolderFromStorage } =
+function FolderIcon({ folderID, folderTitle, files, notes }) {
+  const { handleDeletefolder, setIsMobileNav, deleteFolderFromStorage } =
     useContext(appDataContext);
   const [showFile, setShowFile] = useState(null);
 
   return (
     <>
       <li
-        className={styles.storage}
+        className={styles.folder}
         onClick={() => {
           setShowFile(true);
           setIsMobileNav(false);
         }}
       >
-        <div className={styles.storageDiv}>
-          <h1>{storageTitle}</h1>
+        <div className={styles.folderDiv}>
+          <h1>{folderTitle}</h1>
           <button
             type="button"
             onClick={() => {
-              handleDeletestorage(storageID);
-              deleteFolderFromStorage(storageTitle);
+              handleDeletefolder(folderID);
+              deleteFolderFromStorage(folderTitle);
             }}
           >
             <CgClose />
@@ -32,17 +32,17 @@ function StorageDiv({ storageID, storageTitle, files, notes }) {
         </div>
       </li>
       {showFile && (
-        <Storagebody
-          storageTitle={storageTitle}
+        <FolderContent
+          folderTitle={folderTitle}
           showFile={showFile}
           setShowFile={setShowFile}
           notes={notes}
           files={files}
-          storageID={storageID}
+          folderID={folderID}
         />
       )}
     </>
   );
 }
 
-export default StorageDiv;
+export default FolderIcon;

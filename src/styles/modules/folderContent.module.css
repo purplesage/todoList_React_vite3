@@ -8,7 +8,7 @@
   }
 }
 
-.storageGrid {
+.folderGrid {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -24,7 +24,7 @@
   animation-timing-function: ease-in;
 }
 
-.storageGrid h1 {
+.folderGrid h1 {
   grid-row: 1 / 2;
   background: var(--candyPurple-color);
   color: white;
@@ -37,36 +37,36 @@
   letter-spacing: 3px;
 }
 
-.storageGrid h1 p {
+.folderGrid h1 p {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.storageGrid h1 p svg {
+.folderGrid h1 p svg {
   transform: scale(1.5);
   margin-left: 1.5vh;
 }
 
-.storageGrid h1 button {
+.folderGrid h1 button {
   background: none;
   border: none;
   width: fit-content;
   height: fit-content;
 }
 
-.storageGrid h1 button svg {
+.folderGrid h1 button svg {
   width: 3rem;
   height: 3rem;
   color: var(--candyGreen-color);
   cursor: pointer;
 }
 
-.storageGrid h1 button svg:hover {
+.folderGrid h1 button svg:hover {
   color: var(--vinotintoNight-color);
 }
 
-.storageBodyNoteGrid {
+.folderBodyNoteGrid {
   width: 100%;
   height: 150%;
   grid-row: 2 / 3;
@@ -75,7 +75,7 @@
   overflow-x: hidden;
 }
 
-.storageBodyFileGrid {
+.folderBodyFileGrid {
   display: flex;
   position: absolute;
   bottom: 5%;
@@ -90,25 +90,25 @@
   gap: 15px;
 }
 
-.storageBodyFileGrid ::-webkit-scrollbar {
+.folderBodyFileGrid ::-webkit-scrollbar {
   width: 5px;
 }
-.storageBodyFileGrid ::-webkit-scrollbar-track {
+.folderBodyFileGrid ::-webkit-scrollbar-track {
   background: var(--whiteGreen-color);
   border-radius: 5px;
 }
-.storageBodyFileGrid ::-webkit-scrollbar-thumb {
+.folderBodyFileGrid ::-webkit-scrollbar-thumb {
   background: var(--candyGreen-color);
   border-radius: 5px;
 }
-.storageBodyFileGrid h1 {
+.folderBodyFileGrid h1 {
   font-size: 2rem;
   border-radius: 2rem;
   padding: 15px 15px 0 0;
   margin-left: 15px;
 }
 
-.storageBodyFileGrid h1 button {
+.folderBodyFileGrid h1 button {
   border: none;
   background: none;
   width: fit-content;
@@ -117,16 +117,16 @@
   color: var(--candyGreen-color);
 }
 
-.storageBodyFileGrid h1 button:hover {
+.folderBodyFileGrid h1 button:hover {
   color: var(--vinotintoNight-color);
 }
 
-.storageBodyFileGrid h1 button svg {
+.folderBodyFileGrid h1 button svg {
   height: 2rem;
   width: 2rem;
 }
 
-.storageBodyFileFlex {
+.folderBodyFileFlex {
   background: var(--candyPurple-color);
   padding: 15px;
   display: flex;
@@ -138,7 +138,7 @@
   overflow-x: hidden;
 }
 
-.storageBodyFileFlex h1 {
+.folderBodyFileFlex h1 {
   font-size: 1.5rem;
   text-decoration: underline;
   width: fit-content;
@@ -146,18 +146,18 @@
   padding: 0;
 }
 
-.storageBodyFileFlex .file button:hover {
+.folderBodyFileFlex .file button:hover {
   box-shadow: 1px 1px 5px 1px rgb(34, 34, 34);
   background-color: #6d2a4f;
 }
 
-.storageBodyFileFlex .file button svg {
+.folderBodyFileFlex .file button svg {
   width: 1.4rem;
   height: 1.4rem;
   color: var(--candyGreen-color);
 }
 
-.storageBodyFileFlex p {
+.folderBodyFileFlex p {
   font-size: 1rem;
 }
 
@@ -270,11 +270,11 @@
 }
 
 @media (max-width: 500px) {
-  .storageGrid h1 {
+  .folderGrid h1 {
     font-size: 2rem;
   }
 
-  .storageGrid h1 button svg {
+  .folderGrid h1 button svg {
     width: 2rem;
     height: 2rem;
   }
@@ -296,7 +296,7 @@
     width: 2.5rem;
   }
 
-  .storageBodyFileGrid {
+  .folderBodyFileGrid {
     bottom: 5%;
     width: 100vw;
     border-radius: 0;

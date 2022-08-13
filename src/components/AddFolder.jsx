@@ -3,19 +3,19 @@ import { v4 as uuid } from "uuid";
 import { appDataContext } from "../context/DataContext";
 import styles from "../styles/modules/addStorage.module.css";
 
-function Addstorage({ setIsOpen, setIsProject }) {
+function AddFolder({ setIsOpen, setIsProject }) {
   const {
-    storageTitleInput,
-    setstorageTitleInput,
-    handleAddStorage,
+    folderTitleInput,
+    setfolderTitleInput,
+    handleAddFolder,
     handleOpenTab,
     setIsMobileNav,
   } = useContext(appDataContext);
 
-  const newstorage = () => {
+  const newfolder = () => {
     return {
       id: uuid(),
-      title: storageTitleInput,
+      title: folderTitleInput,
       notes: [],
       files: [],
     };
@@ -27,10 +27,10 @@ function Addstorage({ setIsOpen, setIsProject }) {
       onSubmit={(e) => {
         e.preventDefault();
         setIsProject(false);
-        handleAddStorage(newstorage());
-        handleOpenTab("storages21133");
+        handleAddFolder(newfolder());
+        handleOpenTab("folders21133");
         setIsOpen(false);
-        setstorageTitleInput("");
+        setfolderTitleInput("");
         setIsMobileNav(false);
       }}
     >
@@ -40,10 +40,10 @@ function Addstorage({ setIsOpen, setIsProject }) {
         maxLength="30"
         placeholder="Folder title:"
         type="text"
-        name="storage-title"
-        id="storage-title"
-        value={storageTitleInput}
-        onChange={(e) => setstorageTitleInput(e.target.value)}
+        name="folder-title"
+        id="folder-title"
+        value={folderTitleInput}
+        onChange={(e) => setfolderTitleInput(e.target.value)}
       />
 
       <button type="submit">ADD FOLDER</button>
@@ -51,4 +51,4 @@ function Addstorage({ setIsOpen, setIsProject }) {
   );
 }
 
-export default Addstorage;
+export default AddFolder;

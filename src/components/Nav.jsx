@@ -109,13 +109,13 @@ export default function Nav({ setIsOpen, isOpen, setIsProject }) {
 
         <button
           type="button"
-          style={tabIsSelectedStyle("storages21133")}
+          style={tabIsSelectedStyle("folders21133")}
           onClick={() => {
             setIsProject(false);
-            handleOpenTab("storages21133");
+            handleOpenTab("folders21133");
           }}
         >
-          {requireTabState("storages21133") ? (
+          {requireTabState("folders21133") ? (
             <span className={styles.defaultSpan}>
               <p>// Folders</p>
             </span>

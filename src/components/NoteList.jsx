@@ -1,7 +1,7 @@
 import React from "react";
 import Note from "./Note";
 
-function NoteList({ notes, storageID }) {
+function NoteList({ notes, folderID }) {
   return (
     <>
       {notes.length > 0 &&
@@ -10,7 +10,7 @@ function NoteList({ notes, storageID }) {
             key={noteObject.id}
             noteId={noteObject.id}
             noteTitle={noteObject.title}
-            storageID={storageID}
+            folderID={folderID}
             noteBody={noteObject.body}
           />
         ))}

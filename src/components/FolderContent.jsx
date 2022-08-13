@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/modules/storageBody.module.css";
+import styles from "../styles/modules/folderContent.module.css";
 import ReactDOM from "react-dom";
 import { CgClose } from "react-icons/cg";
 import { AiFillFileAdd } from "react-icons/ai";
@@ -12,18 +12,18 @@ import { AiFillFolder } from "react-icons/ai";
 import NoteList from "./NoteList";
 import FileList from "./FileList";
 
-function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
+function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);
   const [showFileInputs, setShowFileInputs] = useState(false);
 
   const [displayStorageFiles, setDisplayStorageFiles] = useState(false);
 
   return ReactDOM.createPortal(
-    <main className={styles.storageGrid}>
+    <main className={styles.folderGrid}>
       <h1>
         <p className={styles.folderTitle}>
           <AiFillFolder />
-          {storageTitle}
+          {folderTitle}
         </p>
         <button
           type="button"
@@ -34,9 +34,9 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
           <CgClose />
         </button>
       </h1>
-      <section className={styles.storageBodyNoteGrid}>
+      <section className={styles.folderBodyNoteGrid}>
         <Masonry columns={{ xs: 2, sm: 4 }} spacing={2}>
-          <NoteList notes={notes} storageID={storageID} />
+          <NoteList notes={notes} folderID={folderID} />
         </Masonry>
       </section>
 
@@ -60,13 +60,13 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
 
       {showNoteInputs && (
         <AddNoteForm
-          storageID={storageID}
+          folderID={folderID}
           setShowNoteInputs={setShowNoteInputs}
         />
       )}
 
       {displayStorageFiles && (
-        <section className={styles.storageBodyFileGrid}>
+        <section className={styles.folderBodyFileGrid}>
           <h1>
             Folder Storage:{" "}
             <button type="button" onClick={() => setDisplayStorageFiles(false)}>
@@ -74,11 +74,11 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
             </button>
           </h1>
 
-          <div className={styles.storageBodyFileFlex}>
+          <div className={styles.folderBodyFileFlex}>
             <FileList
               files={files}
-              storageTitle={storageTitle}
-              storageID={storageID}
+              folderTitle={folderTitle}
+              folderID={folderID}
             />
             {!showFileInputs ? (
               <button
@@ -91,8 +91,8 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
             ) : (
               <AddFileForm
                 setShowFileInputs={setShowFileInputs}
-                storageTitle={storageTitle}
-                storageID={storageID}
+                folderTitle={folderTitle}
+                folderID={folderID}
               />
             )}
           </div>
@@ -103,4 +103,4 @@ function storagebody({ notes, storageTitle, setShowFile, storageID, files }) {
   );
 }
 
-export default storagebody;
+export default FolderContent;

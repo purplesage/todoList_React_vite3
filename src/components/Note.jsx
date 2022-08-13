@@ -3,7 +3,7 @@ import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/note.module.css";
 import { appDataContext } from "../context/DataContext";
 
-function Note({ noteId, noteTitle, storageID, noteBody }) {
+function Note({ noteId, noteTitle, folderID, noteBody }) {
   const [modalStyle, setModalStyle] = useState(false);
 
   const { handleDeleteNote } = useContext(appDataContext);
@@ -28,7 +28,7 @@ function Note({ noteId, noteTitle, storageID, noteBody }) {
         <h2>{noteTitle}</h2>
         <button
           type="button"
-          onClick={() => handleDeleteNote(noteId, storageID)}
+          onClick={() => handleDeleteNote(noteId, folderID)}
         >
           <CgClose />
         </button>
