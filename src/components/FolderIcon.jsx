@@ -1,12 +1,16 @@
 import React, { useContext, useState } from "react";
-import { CgClose } from "react-icons/cg";
-import { appDataContext } from "../context/DataContext";
+import { folderListContext } from "../context/FolderListContext";
+import { utilityContext } from "../context/UtilityContext";
 import styles from "../styles/modules/folderIcon.module.css";
 import FolderContent from "./FolderContent";
 
+import { CgClose } from "react-icons/cg";
+
 function FolderIcon({ folderID, folderTitle, files, notes }) {
-  const { handleDeletefolder, setIsMobileNav, deleteFolderFromStorage } =
-    useContext(appDataContext);
+  const { setIsMobileNav } = useContext(utilityContext);
+  const { handleDeletefolder, deleteFolderFromStorage } =
+    useContext(folderListContext);
+
   const [showFile, setShowFile] = useState(null);
 
   return (

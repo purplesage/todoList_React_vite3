@@ -30,7 +30,9 @@ function App() {
         <TodoListContext>
           <ProjectListContext>
             <TabHandlingContext>
-              <FolderListContext>
+              <FolderListContext
+                userEmail={globalUser ? globalUser.email : null}
+              >
                 {!globalUser ? (
                   <AuthSection />
                 ) : (

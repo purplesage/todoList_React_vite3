@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
-import { appDataContext } from "../context/DataContext";
 import DetailsDiv from "./DetailsDiv";
-import { BsFillTrashFill } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
+import styles from "../styles/modules/todoDiv.module.css";
+
 import format from "date-fns/format";
 import parseISO from "date-fns/esm/fp/parseISO/index";
-import styles from "../styles/modules/todoDiv.module.css";
+import { FiEdit } from "react-icons/fi";
+import { BsFillTrashFill } from "react-icons/bs";
+import { todoListContext } from "../context/TodoListContext";
 
 function TodoDiv({
   title,
@@ -21,7 +22,7 @@ function TodoDiv({
   const [openEdit, setOpenEdit] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
 
-  const { handleTodoDelete, handleIsDone } = useContext(appDataContext);
+  const { handleTodoDelete, handleIsDone } = useContext(todoListContext);
 
   const formatedDate = format(new Date(parseISO(dueDate)), "MMM do");
 

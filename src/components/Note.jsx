@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
-import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/note.module.css";
-import { appDataContext } from "../context/DataContext";
+import { folderListContext } from "../context/FolderListContext";
+
+import { CgClose } from "react-icons/cg";
 
 function Note({ noteId, noteTitle, folderID, noteBody }) {
   const [modalStyle, setModalStyle] = useState(false);
 
-  const { handleDeleteNote } = useContext(appDataContext);
+  const { handleDeleteNote } = useContext(folderListContext);
 
   const customStyle = () => {
     return {

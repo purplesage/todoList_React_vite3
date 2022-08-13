@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useRef } from "react";
 
 import isThisWeek from "date-fns/esm/isThisWeek/index";
 import parseISO from "date-fns/esm/fp/parseISO/index";
@@ -7,6 +7,13 @@ import format from "date-fns/format";
 export const todoListContext = createContext({});
 
 function TodoListContext({ children }) {
+  //*ref used to avoid bugs when manipulating projectInput state.
+  const inputRef = useRef("");
+
+  const updateRef = (input) => {
+    inputRef.current = input;
+  };
+
   const todoListReducer = (state, action) => {
     switch (action.type) {
       case "add_todo": {
@@ -76,6 +83,10 @@ function TodoListContext({ children }) {
     (todoObj) => isThisWeek(new Date(parseISO(todoObj.dueDate))) === true
   );
 
+  const projectFilter = (projectName) => {
+    return todoList.filter((todoObject) => todoObject.project === projectName);
+  };
+
   return (
     <todoListContext.Provider
       value={{
@@ -87,6 +98,9 @@ function TodoListContext({ children }) {
         handleIsDone,
         todayFilter,
         thisWeekFilter,
+        projectFilter,
+        inputRef,
+        updateRef,
       }}
     >
       {children}

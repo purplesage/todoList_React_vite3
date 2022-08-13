@@ -1,16 +1,17 @@
 import React, { useState, useContext } from "react";
-import { appDataContext } from "../context/DataContext";
-import { MdOpenInFull } from "react-icons/md";
-import { BsFillTrashFill } from "react-icons/bs";
+import { folderListContext } from "../context/FolderListContext";
 import styles from "../styles/modules/file.module.css";
 import FileEmbed from "./FileEmbed";
+
+import { MdOpenInFull } from "react-icons/md";
+import { BsFillTrashFill } from "react-icons/bs";
 
 function File({ fileTitle, fileName, folderTitle, folderID, fileId }) {
   const [isEmbedOpen, setIsEmbedOpen] = useState(false);
   const [fetchFileUrl, setFetchFileUrl] = useState("");
 
   const { fetchFile, handleDeleteFile, deleteFileFromStorage } =
-    useContext(appDataContext);
+    useContext(folderListContext);
 
   return (
     <>

@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
-import { appDataContext } from "../context/DataContext";
+import { todoListContext } from "../context/TodoListContext";
 import { inputContext } from "../context/InputHandling";
-import { CgClose } from "react-icons/cg";
 import styles from "../styles/modules/editInputs.module.css";
+
+import { CgClose } from "react-icons/cg";
 
 export default function EditInputs({
   todoTitle,
@@ -14,7 +15,7 @@ export default function EditInputs({
   todoProject,
   todoPriority,
 }) {
-  const { handleEditTodo } = useContext(appDataContext);
+  const { handleEditTodo } = useContext(todoListContext);
 
   const {
     setInputTitle,

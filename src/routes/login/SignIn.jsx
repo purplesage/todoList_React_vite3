@@ -1,6 +1,7 @@
 import React from "react";
-import { BsGoogle } from "react-icons/bs";
 import styles from "../../styles/modules/signin.module.css";
+
+import { BsGoogle } from "react-icons/bs";
 
 function SignIn({
   setIsUserSigninUp,

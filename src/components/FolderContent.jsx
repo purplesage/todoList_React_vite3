@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import styles from "../styles/modules/folderContent.module.css";
 import ReactDOM from "react-dom";
-import { CgClose } from "react-icons/cg";
-import { AiFillFileAdd } from "react-icons/ai";
-import { MdStorage } from "react-icons/md";
+import styles from "../styles/modules/folderContent.module.css";
+import NoteList from "./NoteList";
+import FileList from "./FileList";
 import AddNoteForm from "./AddNoteForm";
 import AddFileForm from "./AddFileForm";
+
 import Masonry from "@mui/lab/Masonry";
 import { MdOutlineStickyNote2 } from "react-icons/md";
 import { AiFillFolder } from "react-icons/ai";
-import NoteList from "./NoteList";
-import FileList from "./FileList";
+import { CgClose } from "react-icons/cg";
+import { AiFillFileAdd } from "react-icons/ai";
+import { MdStorage } from "react-icons/md";
 
 function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
   const [showNoteInputs, setShowNoteInputs] = useState(false);

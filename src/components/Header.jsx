@@ -1,8 +1,9 @@
 import React from "react";
-import { BsJournalCheck } from "react-icons/bs";
 import styles from "../styles/modules/header.module.css";
 import MenuButton from "./MenuButton";
 import SignOut from "./SignOut";
+
+import { BsJournalCheck } from "react-icons/bs";
 
 export default function Header() {
   return (

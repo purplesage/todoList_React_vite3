@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { projectListContext } from "../context/ProjectListContext";
 import { tabHandlingContext } from "../context/TabHandlingContext";
+import { todoListContext } from "../context/TodoListContext";
 import { utilityContext } from "../context/UtilityContext";
 import styles from "../styles/modules/addProject.module.css";
 
@@ -10,14 +11,14 @@ function AddProject({ setIsOpen, setIsProject }) {
     projectInput,
     setProjectInput,
     setProjectFilterName,
-    updateRef,
-    inputRef,
   } = useContext(projectListContext);
 
   const { handleAddProjectTab, handleOpenTab } = useContext(tabHandlingContext);
 
   const { setIsMobileNav, handleNotificationAnimation } =
     useContext(utilityContext);
+
+  const { updateRef, inputRef } = useContext(todoListContext);
 
   return (
     <div className={styles.addProjectSection}>

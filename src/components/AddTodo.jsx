@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import { appDataContext } from "../context/DataContext";
+import { todoListContext } from "../context/TodoListContext";
+import { utilityContext } from "../context/UtilityContext";
 import { inputContext } from "../context/InputHandling";
 import styles from "../styles/modules/addTodo.module.css";
 
 function AddTodo({ resetInputs, setIsOpen, isProject }) {
-  const { handleAddTodo, setIsMobileNav, handleNotificationAnimation } =
-    useContext(appDataContext);
+  const { handleAddTodo } = useContext(todoListContext);
+  const { setIsMobileNav, handleNotificationAnimation } =
+    useContext(utilityContext);
 
   const {
     inputTitle,

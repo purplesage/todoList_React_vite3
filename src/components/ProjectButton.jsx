@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { appDataContext } from "../context/DataContext";
+import { tabHandlingContext } from "../context/TabHandlingContext";
+import { projectListContext } from "../context/ProjectListContext";
+import { todoListContext } from "../context/TodoListContext";
 import styles from "../styles/modules/projectButton.module.css";
 
 function ProjectButton({ setIsProject, projectName, listLength }) {
-  const {
-    setProjectFilterName,
-    projectFilter,
-    updateRef,
-    handleOpenTab,
-    requireTabState,
-  } = useContext(appDataContext);
+  const { handleOpenTab, requireTabState } = useContext(tabHandlingContext);
+
+  const { setProjectFilterName } = useContext(projectListContext);
+
+  const { projectFilter, updateRef } = useContext(todoListContext);
 
   const projectLength = listLength(projectFilter(projectName));
 

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import { BsJournalCheck } from "react-icons/bs";
 import { auth, googleProvider } from "../../util/firebaseConfig";
+import styles from "../../styles/modules/authSection.module.css";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import styles from "../../styles/modules/authSection.module.css";
+import { BsJournalCheck } from "react-icons/bs";
 
 function AuthSection() {
   const [isUserSigninUp, setIsUserSigninUp] = useState(false);

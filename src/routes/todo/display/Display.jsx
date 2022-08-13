@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import List from "./List";
-// import { appDataContext } from "../../../context/DataContext";
 import { todoListContext } from "../../../context/TodoListContext";
 import { projectListContext } from "../../../context/ProjectListContext";
 import { utilityContext } from "../../../context/UtilityContext";
@@ -13,8 +12,9 @@ import Notification from "../../../components/Notification";
 import FolderList from "../../../components/FolderList";
 
 function Display({ isProject, setIsProject }) {
-  const { todoList, todayFilter, thisWeekFilter } = useContext(todoListContext);
-  const { projectFilter, projectFilterName } = useContext(projectListContext);
+  const { todoList, todayFilter, thisWeekFilter, projectFilter } =
+    useContext(todoListContext);
+  const { projectFilterName } = useContext(projectListContext);
   const { error, isLoading, notificationDisplay } = useContext(utilityContext);
   const { requireTabState } = useContext(tabHandlingContext);
   const { folderList } = useContext(folderListContext);
