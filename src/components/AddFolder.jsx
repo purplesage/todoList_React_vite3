@@ -9,6 +9,7 @@ import { v4 as uuid } from "uuid";
 function AddFolder({ setIsOpen, setIsProject }) {
   const { folderTitleInput, setfolderTitleInput, handleAddFolder } =
     useContext(folderListContext);
+
   const { handleOpenTab } = useContext(tabHandlingContext);
   const { setIsMobileNav } = useContext(utilityContext);
 

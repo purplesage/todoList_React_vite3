@@ -43,7 +43,6 @@ function AddFileForm({ setShowFileInputs, folderTitle, folderID }) {
           fileToAdd,
           setShowFileInputs
         );
-        // setShowFileInputs(false);
       }}
     >
       <button
