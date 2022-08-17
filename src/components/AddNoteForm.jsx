@@ -29,6 +29,7 @@ function AddNoteForm({ folderID, setShowNoteInputs }) {
           <CgClose />
         </button>
         <input
+          maxLength="25"
           autoComplete="off"
           required
           value={noteTitle}

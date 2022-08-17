@@ -39,6 +39,8 @@ function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
       </h1>
 
       <input
+        autoFocus
+        maxLength="25"
         autoComplete="off"
         className={styles.searchBar}
         value={searchValue}
@@ -50,7 +52,7 @@ function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
       />
 
       <section className={styles.folderBodyNoteGrid}>
-        <Masonry columns={{ xs: 2, sm: 4 }} spacing={2}>
+        <Masonry columns={{ xs: 1, sm: 4 }} spacing={2}>
           <NoteList
             notes={notes}
             folderID={folderID}

@@ -7,11 +7,11 @@
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
-  word-wrap: break-word;
   gap: 5px;
   box-shadow: 1px 1px 3px 1px rgb(54, 54, 54);
   cursor: pointer;
   transition: 600ms;
+  word-wrap: break-word;
 }
 
 .note:hover {
@@ -23,6 +23,7 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  word-wrap: break-all;
 }
 
 .noteTitleDiv button {
@@ -53,4 +54,10 @@
   font-size: 1.3rem;
   color: var(--candyPurple-color);
   text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .noteTitleDiv h2 {
+    font-size: 1.2rem;
+  }
 }
