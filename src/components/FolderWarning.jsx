@@ -7,6 +7,7 @@ import { AiOutlineCheck, AiOutlineStop } from "react-icons/ai";
 function FolderWarning({ folderID, folderTitle, setIsWarning }) {
   const { handleDeletefolder, deleteFolderFromStorage } =
     useContext(folderListContext);
+
   return (
     <div className="dark-overlay">
       <form
