@@ -11,7 +11,8 @@
   left: 25;
   padding: 1rem;
   gap: 1rem;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
 }
 
 .folderWarningForm h2 {

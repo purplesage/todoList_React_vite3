@@ -19,6 +19,8 @@ function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
 
   const [displayStorageFiles, setDisplayStorageFiles] = useState(false);
 
+  const [searchValue, setSearchValue] = useState("");
+
   return ReactDOM.createPortal(
     <main className={styles.folderGrid}>
       <h1>
@@ -35,9 +37,25 @@ function FolderContent({ notes, folderTitle, setShowFile, folderID, files }) {
           <CgClose />
         </button>
       </h1>
+
+      <input
+        autoComplete="off"
+        className={styles.searchBar}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Search note:"
+      />
+
       <section className={styles.folderBodyNoteGrid}>
         <Masonry columns={{ xs: 2, sm: 4 }} spacing={2}>
-          <NoteList notes={notes} folderID={folderID} />
+          <NoteList
+            notes={notes}
+            folderID={folderID}
+            searchValue={searchValue}
+          />
         </Masonry>
       </section>
 
