@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { folderListContext } from "../context/FolderListContext";
 import styles from "../styles/modules/folderWarning.module.css";
 
-import { CgClose } from "react-icons/cg";
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineStop } from "react-icons/ai";
 
 function FolderWarning({ folderID, folderTitle, setIsWarning }) {
   const { handleDeletefolder, deleteFolderFromStorage } =
@@ -30,7 +29,7 @@ function FolderWarning({ folderID, folderTitle, setIsWarning }) {
             <AiOutlineCheck />
           </button>
           <button type="button" onClick={() => setIsWarning(false)}>
-            <CgClose />
+            <AiOutlineStop />
           </button>
         </div>
       </form>
