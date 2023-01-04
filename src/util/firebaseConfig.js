@@ -4,7 +4,7 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-	apiKey: process.env.VITE_FIREBASE_KEY,
+	apiKey: process.env.FIREBASE_KEY,
 	authDomain: 'todo-list-c49be.firebaseapp.com',
 	projectId: 'todo-list-c49be',
 	storageBucket: 'todo-list-c49be.appspot.com',
@@ -17,3 +17,5 @@ export const dataBase = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 export const googleProvider = new GoogleAuthProvider();
+
+console.log(process.env.FIREBASE_KEY);
