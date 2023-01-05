@@ -17,5 +17,3 @@ export const dataBase = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 export const googleProvider = new GoogleAuthProvider();
-
-console.log(process.env.FIREBASE_KEY);
