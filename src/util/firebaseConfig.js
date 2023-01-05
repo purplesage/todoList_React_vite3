@@ -3,10 +3,8 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
-const FIREBASE_KEY = process.env.FIREBASE_KEY;
-
 const firebaseConfig = {
-	apiKey: FIREBASE_KEY,
+	apiKey: 'AIzaSyB-3hstMyOs9AzpsPBbdaxczy7dj9sEWOQ',
 	authDomain: 'todo-list-c49be.firebaseapp.com',
 	projectId: 'todo-list-c49be',
 	storageBucket: 'todo-list-c49be.appspot.com',
