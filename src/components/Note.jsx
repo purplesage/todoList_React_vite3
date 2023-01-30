@@ -34,9 +34,8 @@ function Note({ noteId, noteTitle, folderID, noteBody }) {
 					<CgClose />
 				</button>
 			</div>
-			<pre>
-				<p>{noteBody}</p>
-			</pre>
+
+			<p>{noteBody}</p>
 		</div>
 	);
 }
